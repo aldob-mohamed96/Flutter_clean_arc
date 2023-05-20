@@ -1,0 +1,53 @@
+name: project
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  #bloc
+  flutter_bloc: ^8.1.2
+  bloc: ^8.1.1
+  bloc_concurrency: ^0.2.1
+  equatable: ^2.0.5
+  #storage local
+  shared_preferences: ^2.1.0
+  #map gelocator google map
+  geolocator: ^9.0.2
+  #dependency_injector
+  get_it: ^7.3.0
+  #routing
+  go_router: ^7.0.0
+  #dartz
+  dartz: ^0.10.1
+  cupertino_icons: ^1.0.2
+  #local
+  easy_localization: ^3.0.1
+  #flame
+  flame:
+  flame_audio:
+  flame_bloc:
+  flame_behaviors:
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^2.0.0
+
+
+flutter:
+
+
+  uses-material-design: true
+
