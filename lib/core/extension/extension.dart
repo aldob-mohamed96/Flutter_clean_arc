@@ -85,8 +85,6 @@ extension NonNullBool on bool? {
 
 }
 
-
-
 extension BuildContextValue on BuildContext {
   double get height  => MediaQuery.of(this).size.height;
   double get width   => MediaQuery.of(this).size.width;
@@ -109,7 +107,7 @@ extension BuildContextValue on BuildContext {
   void pushNamedExtension(String routes)=>WidgetsBinding.instance.addPostFrameCallback((_) async{
       dismissDialog();
       
-       Future.delayed(Duration.zero);
+      Future.delayed(Duration.zero);
       pushNamed(routes);
     });
 
@@ -141,6 +139,10 @@ extension SizedBoxValuesHeightOrWidth on num{
 
   SizedBox get widthSizedBox => SizedBox(width:toDouble());
 
+  String  toDoubleNumber(int digit)=>toStringAsFixed(digit);
+
+  int get toIntgerNumber=>toInt(); 
+
 }
 
 
@@ -150,17 +152,16 @@ extension HandleAuthentication on AuthenticationState{
    {
     switch (appAuthenticationLevel) {
             case AppAuthenticationLevel.authenticated:
-                context.pushReplacedNamedExtension(Routes.homeRoute);
-              break;
+                       context.pushReplacedNamedExtension(Routes.homeRoute);
+                  break;
             case AppAuthenticationLevel.unAuthenticated:
-                context.pushReplacedNamedExtension(Routes.loginRoute);
-              break;
+                       context.pushReplacedNamedExtension(Routes.loginRoute);
+                  break;
             case AppAuthenticationLevel.darft:
-                    context.pushReplacedNamedExtension(Routes.onBoardingRoute);
+                       context.pushReplacedNamedExtension(Routes.onBoardingRoute);
                   break;
             default:
-                    context.pushReplacedNamedExtension(Routes.splashRoute,);
-                 
+                       context.pushReplacedNamedExtension(Routes.splashRoute,);
                   break;
           }
    }
@@ -168,7 +169,10 @@ extension HandleAuthentication on AuthenticationState{
 }
 
 
-
+extension OrientationExtension on Orientation{
+  Orientation get toLandScape=>Orientation.landscape;
+  Orientation get toPortrait=>Orientation.portrait;
+}
 
 
 

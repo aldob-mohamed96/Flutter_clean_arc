@@ -10,7 +10,6 @@ class UndefinedRouteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      appBar: AppBar(),
       body: Center(child: const Text(AppStrings.noRouteFound).tr(),),
     );
   }
