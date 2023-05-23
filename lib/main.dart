@@ -62,10 +62,8 @@ class _AppMaterialsState extends State<AppMaterials> with WidgetsBindingObserver
 
   @override
   void didChangePlatformBrightness() {
-    final isLightTheme = SchedulerBinding.instance.window.platformBrightness ==
-        Brightness.light;
-    context.read<ThemeCubit>().updateAppTheme(
-        isLightTheme ? ThemeMode.light : ThemeMode.dark);
+   
+    context.read<ThemeCubit>().updateAppThemeFromBrightness();
     super.didChangePlatformBrightness();
   }
 

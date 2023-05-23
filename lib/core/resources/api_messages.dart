@@ -34,6 +34,7 @@ class ResponseMessage
   static const String unknownPermissionError=AppStrings.unknownPermissionError;
   static const String permissionPermanentlyDenied=AppStrings.permissionPermanentlyDenied;
   static const String permissionRestricted=AppStrings.permissionRestricted;
+   static const String noImageSelected=AppStrings.noImageSelected;
 
 
   //launch Url messages
@@ -42,7 +43,7 @@ class ResponseMessage
   static const String systemError=AppStrings.systemError;
   static const String unKnownLauncherError=AppStrings.unKnownLauncherError;
 
- //Battery state
+  //Battery state
   static const String batteryInfoError=AppStrings.batteryInfoError;
 
   // local Notification
@@ -55,6 +56,13 @@ class ResponseMessage
   static const String onDidReceiveNotificationError=AppStrings.onDidReceiveNotificationError;
   static const String onGetDetailsNotificationError=AppStrings.onGetDetailsNotificationError;
 
+
+  //timer
+  //Timer State
+  static const String timerIsActive=AppStrings.timerIsActive;
+  static const String timerIsInActive=AppStrings.timerIsInActive;
+  static const String timerCancelError=AppStrings.timerCancelError;
+  static const String timerError=AppStrings.timerError;
 
 
 

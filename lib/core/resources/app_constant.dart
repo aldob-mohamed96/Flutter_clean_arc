@@ -14,7 +14,7 @@ class AppConstants {
   static const double strokeWidth = 4.0;
   static const Color backgroundCircularLoading = ColorManager.backgroundColorCircularLoading;
 
-
+  
   //key of Preferences
   static const String appLocalePrefsKey = "${AppStrings.appName}_PREFS_KEY_LANG";
   static const String appAppAuthenticationLevelPrefsKey = "${AppStrings.appName}_PREFS_KEY_AUTHENTICATION_LEVEL";
@@ -22,6 +22,10 @@ class AppConstants {
   static const String appTokenUserPrefsKey = "${AppStrings.appName}_PREFS_KEY_APP_TOKEN_USER";
   static const String appUserIsLoggedInPrefsKey = "${AppStrings.appName}_PREFS_KEY_USER_IS_LOGGED_IN";
   static const int appCashedAuthenticationResponseTimeInterval = 60 * 1000 * 10;
+
+
+  //failure
+   static const  Failure unknownfailure=Failure(  ResponseCode.unknownError, ResponseMessage.unknownError, );
 
   // default value of primitive
   static const String defaultEmptyString = "";
@@ -95,6 +99,7 @@ class AppConstants {
   static const String appLocalNotificationAndroidIcon = "@drawable/imgNotificationAndroid";
   static const String appLocalNotificationAndroidSoundName = "sound";
   static const String appLocalNotificationIosSoundName = "sound.aiff";
+  static const String appLocalNotificationAndroidTicker = "ticker";
   static const String appLocalNotificationAndroidChannelId = "high_importance_channel";
   static const String appLocalNotificationAndroidChannelName = "channel_name";
   static const String appLocalNotificationAndroidChannelDescription = "description";

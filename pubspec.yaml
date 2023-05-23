@@ -31,11 +31,19 @@ dependencies:
   cupertino_icons: ^1.0.2
   #local
   easy_localization: ^3.0.1
-  #flame
-  flame:
-  flame_audio:
-  flame_bloc:
-  flame_behaviors:
+  #local notifications
+  flutter_local_notifications: ^14.1.0 
+  #internet
+  internet_connection_checker: ^1.0.0+1
+  #permission
+  permission_handler: ^10.2.0
+  #http requests
+  dio: ^5.1.2
+  dio_cache_interceptor: ^3.4.2
+  #images
+  image_picker: ^0.8.7+5
+
+
 
 
 dev_dependencies:

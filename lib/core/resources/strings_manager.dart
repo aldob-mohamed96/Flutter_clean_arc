@@ -11,6 +11,10 @@ class AppStrings {
   static const String password = "password";
   static const String oldPassword = "old_password";
   static const String confirmPassword = "confirm_password";
+
+  //error input
+    //input Error
+
   //button text
   static const String retryAgain = "retry_again";
   static const String ok = "ok";
@@ -45,6 +49,9 @@ class AppStrings {
   static const String unknownInput = "unknown_error_input";
   static const String invalidInput = "in_valid_input";
   static const String inValidCode = "in_Valid_code";
+ 
+  static const String validInput = "valid_input";
+
   //camera and gallery
   static const String camera = "camera";
   static const String gallery = "gallery";
@@ -99,6 +106,11 @@ class AppStrings {
   static const String notificationTitleForegroundAndroidLocation = "notification_title_foreground_android_location";
   static const String notificationTextForegroundAndroidLocation = "notification_text_foreground_android_location";
 
-
+  //timer state error
+    //Timer State
+  static const String timerIsActive = 'timer_is_active';
+  static const String timerIsInActive = 'timer_is_in_Active';
+  static const String timerCancelError = 'timer_cancel_error';
+  static const String timerError = 'timer_error';
 
 }
