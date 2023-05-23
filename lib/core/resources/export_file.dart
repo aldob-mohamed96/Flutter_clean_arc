@@ -1,5 +1,6 @@
 //packages
  
+export 'package:flutter/foundation.dart';
 export  'package:easy_localization/easy_localization.dart';
 export  'package:flutter_bloc/flutter_bloc.dart';
 export  'package:go_router/go_router.dart';
@@ -13,6 +14,10 @@ export 'package:get_it/get_it.dart';
 export 'package:shared_preferences/shared_preferences.dart';
 export 'package:image_picker/image_picker.dart';
 export 'package:project/core/service/permission.dart';
+export 'package:dio/dio.dart';
+export 'package:pretty_dio_logger/pretty_dio_logger.dart';
+
+
 
 //di
 export  '../di/di.dart';
@@ -81,6 +86,11 @@ export  '../../features/presentation/screens/onborading/splash_screen.dart';
 
 
 export  '../../features/presentation/screens/splash/splash_screen.dart';
+
+
+//secert data
+
+export '../../../../core/secert_data/secert_data.dart';
 
 
 

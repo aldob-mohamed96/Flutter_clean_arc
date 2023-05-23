@@ -143,6 +143,7 @@ class AppConstants {
   static const String authenticationToken = "auth-token";
   static const String defaultLanguageApi  = "language";
   static const int apiTimeOut = 60000;
+  static const int sendTimeout = 60000;
 
   //asset path json images sound
   
@@ -150,6 +151,12 @@ class AppConstants {
    static const String assetJsonPath  = "assets/json/";
    static const String assetSoundPath  = "assets/sound/";
    static const String assetTranslationPath  = "assets/transalation/";
+
+
+
+   //network data
+
+
 }
 
 
