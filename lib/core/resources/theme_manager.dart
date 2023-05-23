@@ -2,7 +2,7 @@
 
 import 'package:flutter/scheduler.dart';
 
-import '../../features/data/data_source/local/preferance.dart';
+import '../../features/data/data_source/local/app_preferance.dart';
 import 'values_manager.dart';
 import 'font_manager.dart';
 import 'color_manager.dart';
@@ -20,7 +20,7 @@ abstract class ThemeManager{
  Brightness get currentSystemBrightness;
 }
 class ThemeManagerImpl extends ThemeManager{
-  final AppSettingPreferences appSettingPreferences;
+  final AppPreferences appSettingPreferences;
   ThemeManagerImpl({required this.appSettingPreferences});
 
   @override

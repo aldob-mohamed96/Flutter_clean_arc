@@ -17,7 +17,7 @@ export 'package:project/core/service/permission.dart';
 export 'package:dio/dio.dart';
 export 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-
+export 'package:json_annotation/json_annotation.dart';
 
 //di
 export  '../di/di.dart';
@@ -70,7 +70,15 @@ export  'package:project/core/input_validation/input_validation.dart';
 
 // data
 
-export '../../features/data/data_source/local/preferance.dart';
+export '../../features/data/data_source/local/app_local_data_source.dart';
+export '../../features/data/data_source/local/app_preferance.dart';
+export '../../../core/service/network_info.dart';
+export '../../features/data/repositories_impl/app_repositories_impl.dart';
+export '../../features/domain/repositories/app_repositories.dart';
+export '../../features/data/response/app_auth_response/app_auth_response.dart';
+export '../../features/data/data_source/remote/app_remote_data_source.dart';
+export '../../features/data/mapper/mapper.dart';
+
 
 
 // presentation routes
@@ -91,6 +99,9 @@ export  '../../features/presentation/screens/splash/splash_screen.dart';
 //secert data
 
 export '../../../../core/secert_data/secert_data.dart';
+
+
+//response
 
 
 

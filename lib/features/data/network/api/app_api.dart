@@ -1,6 +1,7 @@
 
 import 'package:project/core/resources/export_file.dart';
 import 'package:retrofit/retrofit.dart';
+
 part 'app_api.g.dart';
 
 
@@ -11,8 +12,8 @@ abstract class AppServiceApiClient{
 
 
 
-
-
+  @POST(AppConstants.logoutUrl)
+  Future<LogoutAuthResponse> logout(@Header("auth-token") String token,);
 
 
 /*

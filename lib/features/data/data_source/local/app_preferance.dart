@@ -5,7 +5,7 @@ import 'package:project/core/resources/export_file.dart';
 
 
 
-abstract class AppSettingPreferences {
+abstract class AppPreferences {
 
   //setting app local data
 
@@ -23,11 +23,11 @@ abstract class AppSettingPreferences {
 }
 
 
-class AppSettingPreferencesImpl implements AppSettingPreferences {
+class AppPreferencesImpl implements AppPreferences {
 
   final SharedPreferences _sharedPreferences;
 
-  AppSettingPreferencesImpl({required SharedPreferences sharedPreferences}):
+  AppPreferencesImpl({required SharedPreferences sharedPreferences}):
     _sharedPreferences=sharedPreferences;
 
 
@@ -55,6 +55,7 @@ class AppSettingPreferencesImpl implements AppSettingPreferences {
 
   @override
   Future<bool> logout()async {
+    _sharedPreferences.clear();
     return  await _sharedPreferences.setString(AppConstants.appAppAuthenticationLevelPrefsKey,AppAuthenticationLevel.unAuthenticated.name);
   }
 

@@ -44,6 +44,8 @@ dependencies:
   retrofit: ^4.0.1
   #images
   image_picker: ^0.8.7+5
+  #json notation
+  json_annotation: ^4.8.1
 
 
 

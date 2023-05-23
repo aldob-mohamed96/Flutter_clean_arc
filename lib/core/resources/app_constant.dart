@@ -152,9 +152,14 @@ class AppConstants {
    static const String assetSoundPath  = "assets/sound/";
    static const String assetTranslationPath  = "assets/transalation/";
 
-
+  
 
    //network data
+
+
+
+   //urls api 
+   static const String logoutUrl  = "/logout";
 
 
 }

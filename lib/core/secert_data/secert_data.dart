@@ -1,6 +1,10 @@
    class SecertData{
-   static const baseUrlsDebug ="................";
-   static const baseUrls =  "....................";
-   
+   static  const String baseUrlsDebug ="................";
+   static const String baseUrls =  "....................";
+   static const String googleApiKey =  "....................";
+   static const String apiKeyPassword =  "....................";
+
+
+
 
    }

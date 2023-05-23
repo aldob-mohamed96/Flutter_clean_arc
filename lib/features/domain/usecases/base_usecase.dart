@@ -1,5 +1,5 @@
 import 'package:project/core/resources/export_file.dart';
 
-abstract class BaseUseCase<In, Out> {
-  Future<Either<Failure, Out>> execute(In input);
+abstract class BaseUseCase<Input, Output> {
+  Future<Either<Failure, Output>> execute(Input input);
 }
