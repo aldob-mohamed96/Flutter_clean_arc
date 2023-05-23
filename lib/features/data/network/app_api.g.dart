@@ -13,7 +13,7 @@ class _AppServiceApiClient implements AppServiceApiClient {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= ' ';
+    baseUrl ??= '';
   }
 
   final Dio _dio;
