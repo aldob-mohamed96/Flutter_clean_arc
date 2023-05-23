@@ -79,6 +79,7 @@ class _AppMaterialsState extends State<AppMaterials> with WidgetsBindingObserver
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthenticationCubit, AuthenticationState>(
+      
       listener: (context, state) =>state.changeAuthenticationStateExtension(context),
       builder: (context, state) {
         return MaterialApp.router(
