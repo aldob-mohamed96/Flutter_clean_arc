@@ -19,19 +19,25 @@ export 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 export 'package:json_annotation/json_annotation.dart';
 export 'package:bloc/bloc.dart';
-export 'package:project/core/resources/export_file.dart';
 
+
+export '/core/di/di.dart';
+export '../../core/extension/extension.dart';
+
+
+export '../../features/presentation/routes/pages.dart';
+export '../../features/presentation/widgets/localeWidget.dart';
 
 
 //di
-export  '../di/di.dart';
+
 //screen
 
 
 //bloc
 
-export  'package:project/features/business_logic/cubit/authentication/authentication_cubit.dart';
-export  'package:project/features/business_logic/cubit/theme/theme_cubit.dart';
+export  '../../features/business_logic/cubit/authentication/authentication_cubit.dart';
+export  '../../features/business_logic/cubit/theme/theme_cubit.dart';
 
 //entity
 
