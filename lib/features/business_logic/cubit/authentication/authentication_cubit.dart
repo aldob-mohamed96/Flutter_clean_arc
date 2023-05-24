@@ -1,43 +1,59 @@
-import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
+import '../../../../core/resources/export_file.dart';
 
-import '../../../../core/enum/enums.dart';
-import '../../../../core/resources/authentication_manager.dart';
 
 part 'authentication_state.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
-    final AuthenticationManager _authenticationManager;
-  AuthenticationCubit({required AuthenticationManager authenticationManager}):
-    _authenticationManager=authenticationManager ,super(const AuthenticationState());
+  
+  final LogoutUseCase _logoutUseCase;
+  final GettingLevelAuthenticationAppUseCase _gettingLevelAuthenticationAppUseCase;
+  final ChangeLevelAuthenticationAppUseCase _changeLevelAuthenticationAppUseCase;
+
+  AuthenticationCubit({
+    required LogoutUseCase logoutUseCase,
+    required GettingLevelAuthenticationAppUseCase gettingLevelAuthenticationAppUseCase,
+    required ChangeLevelAuthenticationAppUseCase changeLevelAuthenticationAppUseCase,
+    }):
+    _logoutUseCase=logoutUseCase ,
+    _gettingLevelAuthenticationAppUseCase=gettingLevelAuthenticationAppUseCase ,
+    _changeLevelAuthenticationAppUseCase=changeLevelAuthenticationAppUseCase ,
+    
+    super(const AuthenticationState());
 
 
-  Future<void> getAppAuthenticationLevel()async
+  void getAppAuthenticationLevel()async
   {
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    final appAuthenticationLevel=_authenticationManager.getLevelAuthenticationApp();
+    final result=await _gettingLevelAuthenticationAppUseCase.execute(unit);
     Future.delayed(Duration.zero);
-    emit(state.copyWith(flowStateApp: FlowStateApp.normal,appAuthenticationLevel: appAuthenticationLevel));
-  }
+     result.fold(
+      (failure)=> emit(state.copyWith(flowStateApp: FlowStateApp.error,failure:failure)),
+      (appAuthenticationLevel)=>emit(state.copyWith(flowStateApp: FlowStateApp.normal,appAuthenticationLevel:appAuthenticationLevel)));
+
+   
+   }
 
 
-  Future<void> updateAuthenticationLevel(AppAuthenticationLevel appAuthenticationLevel)async
+  void updateAuthenticationLevel(AppAuthenticationLevel appAuthenticationLevel)async
   {
 
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    await _authenticationManager.setLevelAuthenticationApp(appAuthenticationLevel);
+    final result=await _changeLevelAuthenticationAppUseCase.execute(appAuthenticationLevel);
     Future.delayed(Duration.zero);
-    emit(state.copyWith(flowStateApp: FlowStateApp.normal,appAuthenticationLevel:appAuthenticationLevel));
-
+    result.fold(
+      (failure)=> emit(state.copyWith(flowStateApp: FlowStateApp.error,failure:failure)),
+      (unit)=>emit(state.copyWith(flowStateApp: FlowStateApp.normal,appAuthenticationLevel:appAuthenticationLevel)));
   }
   
-  Future<void> logout()async
+  void logout()async
   {
 
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    await _authenticationManager.logout();
+    final result=await _logoutUseCase.execute(unit);
     Future.delayed(Duration.zero);
-    emit(state.copyWith(flowStateApp: FlowStateApp.normal,appAuthenticationLevel:AppAuthenticationLevel.unAuthenticated));
+    result.fold(
+      (failure)=> emit(state.copyWith(flowStateApp: FlowStateApp.error,failure:failure)),
+      (isLoggedOut)=>emit(state.copyWith(flowStateApp: FlowStateApp.normal,appAuthenticationLevel:AppAuthenticationLevel.unAuthenticated)));
 
 
   }
