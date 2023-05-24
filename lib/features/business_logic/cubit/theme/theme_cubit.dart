@@ -25,7 +25,10 @@ class ThemeCubit extends Cubit<ThemeState> {
     Future.delayed(Duration.zero);
     result.fold(
       (failure)   => emit(state.copyWith(flowStateApp: FlowStateApp.error,failure: failure)),
-      (themeMode) => emit(state.copyWith(flowStateApp: FlowStateApp.normal,themeMode: themeMode)),
+      (themeMode) {
+        _themeManager.changeStatusBarAndNavigationBarColors(themeMode);  
+        emit(state.copyWith(flowStateApp: FlowStateApp.normal,themeMode: themeMode));
+      },
     );
    
   }
@@ -38,7 +41,13 @@ class ThemeCubit extends Cubit<ThemeState> {
     Future.delayed(Duration.zero);
     result.fold(
       (failure) => emit(state.copyWith(flowStateApp: FlowStateApp.error,failure: failure)),
-      (unit)    => emit(state.copyWith(flowStateApp: FlowStateApp.normal,themeMode: themeMode)),);
+      (unit)
+      {
+         _themeManager.changeStatusBarAndNavigationBarColors(themeMode); 
+         emit(state.copyWith(flowStateApp: FlowStateApp.normal,themeMode: themeMode));
+      }
+      
+      );
 
   }
   

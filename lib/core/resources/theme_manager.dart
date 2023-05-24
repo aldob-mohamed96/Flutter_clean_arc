@@ -15,9 +15,9 @@ import 'package:flutter/services.dart';
 abstract class ThemeManager{
  ThemeData get getLightTheme;
  ThemeData get getDarkTheme;
- ThemeMode getThemeMode();
- Future<void> setThemeMode(ThemeMode themeMode);
- Brightness get currentSystemBrightness;
+ void changeStatusBarAndNavigationBarColors(ThemeMode themeMode); 
+
+
 }
 class ThemeManagerImpl extends ThemeManager{
   final AppPreferences appSettingPreferences;
@@ -293,25 +293,25 @@ class ThemeManagerImpl extends ThemeManager{
 
 
   @override
-  ThemeMode getThemeMode() {
-      final themeMode = appSettingPreferences.getThemeAppPreferences();
+  void changeStatusBarAndNavigationBarColors(ThemeMode themeMode) {
+     
       switch (themeMode) {
         case ThemeMode.light:
           _setStatusBarAndNavigationBarColors(SystemUiOverlayStyle.light, ColorManager.lightThemeColor);
-          return  ThemeMode.light;
+          break;
         case ThemeMode.dark:
           _setStatusBarAndNavigationBarColors(SystemUiOverlayStyle.dark, ColorManager.darkThemeColor);
-          return ThemeMode.dark;
+           break;
         case ThemeMode.system:
-          return ThemeMode.system;
+           break;
         default:
           if (AppConstants.defaultThemeModeApp == AppConstants.darkTheme)
           {
             _setStatusBarAndNavigationBarColors(SystemUiOverlayStyle.dark, ColorManager.darkThemeColor);
-            return ThemeMode.dark;
+             break;
           } else {
             _setStatusBarAndNavigationBarColors(SystemUiOverlayStyle.light, ColorManager.lightThemeColor);
-            return ThemeMode.light;
+             break;
           }
       }
     }
@@ -337,16 +337,7 @@ class ThemeManagerImpl extends ThemeManager{
 
   }
 
-  @override
 
-  Brightness get currentSystemBrightness => SchedulerBinding.instance.window.platformBrightness;
-
-  @override
-  Future<void> setThemeMode(ThemeMode themeMode) async{
-    await appSettingPreferences.setThemeAppPreferences(themeMode);
-    _setStatusBarAndNavigationBarColors(themeMode==ThemeMode.light?SystemUiOverlayStyle.light:SystemUiOverlayStyle.light, themeMode==ThemeMode.light? ColorManager.lightThemeColor: ColorManager.darkThemeColor);
-
-  }
 
 
 
