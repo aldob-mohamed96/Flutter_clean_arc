@@ -1,43 +1,52 @@
-import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-
-import '../../../../core/enum/enums.dart';
-import '../../../../core/resources/app_constant.dart';
-import '../../../../core/resources/theme_manager.dart';
-
+import 'package:project/core/resources/export_file.dart';
 part 'theme_state.dart';
 
 class ThemeCubit extends Cubit<ThemeState> {
-    final ThemeManager _themeManager;
-  ThemeCubit({required ThemeManager themeManager,}):
-   _themeManager=themeManager,super(const ThemeState());
+  final ThemeManager _themeManager;
+  final GettingThemeAppUseCase _gettingThemeAppUseCase;
+  final ChangeThemeAppUseCase _changeThemeAppUseCase;
+  ThemeCubit({
+    required ThemeManager themeManager,
+    required GettingThemeAppUseCase gettingThemeAppUseCase,
+    required ChangeThemeAppUseCase changeThemeAppUseCase,}):
+   _themeManager=themeManager,
+   _changeThemeAppUseCase=changeThemeAppUseCase,
+   _gettingThemeAppUseCase=gettingThemeAppUseCase
+   ,super(const ThemeState());
 
 
  void getAppTheme()async
   {
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    final themeMode=_themeManager.getThemeMode();
+    final result=await _gettingThemeAppUseCase.execute(unit);
     Future.delayed(Duration.zero);
-    emit(state.copyWith(flowStateApp: FlowStateApp.loading,themeMode: themeMode));
+    result.fold(
+      (failure)   => emit(state.copyWith(flowStateApp: FlowStateApp.error,failure: failure)),
+      (themeMode) => emit(state.copyWith(flowStateApp: FlowStateApp.normal,themeMode: themeMode)),
+    );
+   
   }
   
-  Future<void> updateAppTheme(ThemeMode themeMode)async
+  void updateAppTheme(ThemeMode themeMode)async
   {
 
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    await _themeManager.setThemeMode(themeMode);
+    final result=await _changeThemeAppUseCase.execute(themeMode);
     Future.delayed(Duration.zero);
-    emit(state.copyWith(flowStateApp: FlowStateApp.normal,themeMode:themeMode));
+    result.fold(
+      (failure) => emit(state.copyWith(flowStateApp: FlowStateApp.error,failure: failure)),
+      (unit)    => emit(state.copyWith(flowStateApp: FlowStateApp.normal,themeMode: themeMode)),);
 
   }
   
-  Future<void> updateAppThemeFromBrightness()async
+  void updateAppThemeFromBrightness()async
   {
 
     final themeMode = (SchedulerBinding.instance.window.platformBrightness ==Brightness.light)?ThemeMode.light:ThemeMode.dark;
-    await updateAppTheme(themeMode);
+    updateAppTheme(themeMode);
 
   }
   

@@ -1,5 +1,7 @@
 
 
+import 'package:flutter/material.dart';
+
 import '../../../core/resources/export_file.dart';
 import 'base_usecase.dart';
 
@@ -34,5 +36,27 @@ class ChangeLevelAuthenticationAppUseCase implements BaseUseCase<AppAuthenticati
   @override
   Future<Either<Failure, Unit>> execute(AppAuthenticationLevel appAuthenticationLevel)  {
     return  _repository.setLevelAuthenticationApp(appAuthenticationLevel);
+  }
+}
+
+class GettingThemeAppUseCase implements BaseUseCase<Unit, ThemeMode> {
+  final AppRepository _repository;
+
+  GettingThemeAppUseCase(this._repository);
+
+  @override
+  Future<Either<Failure, ThemeMode>> execute(unit)  {
+    return  _repository.getThemeAppPreferences();
+  }
+}
+
+class ChangeThemeAppUseCase implements BaseUseCase<ThemeMode, Unit> {
+  final AppRepository _repository;
+
+  ChangeThemeAppUseCase(this._repository);
+
+  @override
+  Future<Either<Failure, Unit>> execute(ThemeMode themeMode)  {
+    return  _repository.setThemeAppPreferences(themeMode);
   }
 }

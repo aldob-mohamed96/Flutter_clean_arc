@@ -32,8 +32,6 @@ class AppPreferencesImpl implements AppPreferences {
 
 
 
-
-
   @override
   AppAuthenticationLevel getAppAuthenticationLevel() {
     return _sharedPreferences.getString(AppConstants.appAppAuthenticationLevelPrefsKey).getAppAuthenticationLevel();

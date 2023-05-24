@@ -2,6 +2,8 @@
 
 
 
+import 'package:flutter/src/material/app.dart';
+
 import '../../../core/resources/export_file.dart';
 
 
@@ -69,6 +71,33 @@ class AppRepositoryImpl implements AppRepository {
         {
            _localDataSource.setLevelAuthenticationApp(appAuthenticationLevel);
            return const Right(unit);
+        }
+        catch(error)
+        {
+           return const Left(AppConstants.unknownfailure);
+        }
+
+  }
+
+  @override
+  Future<Either<Failure, ThemeMode>> getThemeAppPreferences()async{
+        try
+        {
+            return Right(await _localDataSource.getThemeAppPreferences());
+        }
+        catch(error)
+        {
+            return const Left(AppConstants.unknownfailure);
+        }
+  }
+
+  @override
+  Future<Either<Failure, Unit>> setThemeAppPreferences(ThemeMode themeMode) async{
+
+      try
+        {
+           _localDataSource.setThemeAppPreferences(themeMode);
+            return const Right(unit);
         }
         catch(error)
         {
