@@ -49,6 +49,33 @@ class AppRepositoryImpl implements AppRepository {
                     return Left(DataSourceNetworkError.noInternetConnection.getFailure());
             }
   }
+  
+  @override
+  Future<Either<Failure, AppAuthenticationLevel>> getLevelAuthenticationApp() async{
+        try
+        {
+          return Right(await _localDataSource.getLevelAuthenticationApp());
+        }
+        catch(error)
+        {
+            return const Left(AppConstants.unknownfailure);
+        }
+  }
+  
+  @override
+  Future<Either<Failure, Unit>> setLevelAuthenticationApp(AppAuthenticationLevel appAuthenticationLevel) async{
+      
+        try
+        {
+           _localDataSource.setLevelAuthenticationApp(appAuthenticationLevel);
+           return const Right(unit);
+        }
+        catch(error)
+        {
+           return const Left(AppConstants.unknownfailure);
+        }
+
+  }
   /*
   @override
   Future<Either<Failure, Output>> functionName(InputRequest paginationData) async {

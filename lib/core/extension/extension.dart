@@ -37,10 +37,6 @@ extension NonNullString on String? {
       {
         return defaultValue;
       }
-    else if(this==AppAuthenticationLevel.darft.name)
-     {
-       return AppAuthenticationLevel.darft;
-     }
     else if(this==AppAuthenticationLevel.unAuthenticated.name)
      {
        return AppAuthenticationLevel.unAuthenticated;

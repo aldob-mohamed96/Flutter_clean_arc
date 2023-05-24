@@ -3,8 +3,8 @@ abstract class AppRepository {
 
 
   Future<Either<Failure,bool>> logout();
- /*
+  Future<Either<Failure,AppAuthenticationLevel>> getLevelAuthenticationApp();
+  Future<Either<Failure,Unit>> setLevelAuthenticationApp(AppAuthenticationLevel appAuthenticationLevel);
+ 
 
- Future<Either<Failure, OutPut>> getDriverOrders(InputRequest input);
-*/
 }

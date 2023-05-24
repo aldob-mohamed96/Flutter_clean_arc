@@ -18,6 +18,10 @@ export 'package:dio/dio.dart';
 export 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 export 'package:json_annotation/json_annotation.dart';
+export 'package:bloc/bloc.dart';
+export 'package:project/core/resources/export_file.dart';
+
+
 
 //di
 export  '../di/di.dart';
@@ -38,7 +42,7 @@ export  'api_codes.dart';
 export  'api_messages.dart';
 export  'app_constant.dart';
 export 'assets_manager.dart';
-export 'authentication_manager.dart';
+
 export 'font_manager.dart';
 export 'strings_manager.dart';
 export 'style_manager.dart';
@@ -66,8 +70,7 @@ export  'package:project/core/helper/function.dart';
 export  'package:project/core/input_validation/input_validation.dart';
 
 // domain 
-
-
+export '../../features/domain/usecases/app_usecase.dart';
 // data
 
 export '../../features/data/data_source/local/app_local_data_source.dart';
