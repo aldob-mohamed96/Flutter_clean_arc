@@ -83,7 +83,6 @@ class _AppMaterialsState extends State<AppMaterials> with WidgetsBindingObserver
           routeInformationParser: AppRouter.router.routeInformationParser,
           routerDelegate: AppRouter.router.routerDelegate,
           backButtonDispatcher:AppRouter.router.backButtonDispatcher ,
-          useInheritedMediaQuery: true,
           debugShowCheckedModeBanner: false,
           themeMode:context.getAppTheme,
           locale: context.locale,
