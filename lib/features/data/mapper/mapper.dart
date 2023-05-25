@@ -1,8 +1,10 @@
 import 'package:project/core/resources/export_file.dart';
+
+import '../../domain/entity/logout.dart';
 extension LogoutResponseAuthMapper on LogoutAuthResponse?
 {
-  bool toDomain()
+  Logout toDomain()
   {
-    return this?.isLoggedOut.orBoolDefaultFalseValue()??AppConstants.defaultEmptyBoolFalse;
+    return Logout(this?.isLoggedOut.orBoolDefaultFalseValue()??AppConstants.defaultEmptyBoolFalse);
   }
 }

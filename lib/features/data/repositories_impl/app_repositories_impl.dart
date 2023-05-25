@@ -5,6 +5,8 @@
 import 'package:flutter/src/material/app.dart';
 
 import '../../../core/resources/export_file.dart';
+import '../../domain/entity/logout.dart';
+import '../request/requests.dart';
 
 
 class AppRepositoryImpl implements AppRepository {
@@ -19,7 +21,7 @@ class AppRepositoryImpl implements AppRepository {
   ;
   
   @override
-  Future<Either<Failure, bool>> logout() async 
+  Future<Either<Failure, Logout>> logout() async 
   {
     
             if (await _networkInfo.isConnected)
@@ -29,12 +31,12 @@ class AppRepositoryImpl implements AppRepository {
                             final response =await _remoteDataSource.logout();
                             if (response.status == ApiInternalStatusCode.success) 
                             {
-                              bool isLoggedOut=response.toDomain();  
-                              if(isLoggedOut)
+                              final logout=response.toDomain();  
+                              if(logout.isLoggout)
                               {
                                 await _localDataSource.logout(); 
                               }
-                              return Right(isLoggedOut);
+                              return Right(logout);
                             }
                             else 
                             {
@@ -65,11 +67,11 @@ class AppRepositoryImpl implements AppRepository {
   }
   
   @override
-  Future<Either<Failure, Unit>> setLevelAuthenticationApp(AppAuthenticationLevel appAuthenticationLevel) async{
+  Future<Either<Failure, Unit>> setLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest) async{
       
         try
         {
-           _localDataSource.setLevelAuthenticationApp(appAuthenticationLevel);
+           _localDataSource.setLevelAuthenticationApp(appAuthenticationLevelRequest);
            return const Right(unit);
         }
         catch(error)
@@ -92,11 +94,11 @@ class AppRepositoryImpl implements AppRepository {
   }
 
   @override
-  Future<Either<Failure, Unit>> setThemeAppPreferences(ThemeMode themeMode) async{
+  Future<Either<Failure, Unit>> setThemeAppPreferences(ThemeModeAppReuest themeModeAppReuest) async{
 
       try
         {
-           _localDataSource.setThemeAppPreferences(themeMode);
+           _localDataSource.setThemeAppPreferences(themeModeAppReuest);
             return const Right(unit);
         }
         catch(error)

@@ -64,7 +64,6 @@ export  'package:project/core/error/error_handler.dart';
 //extension
 
 
-export  'package:project/core/extension/extension.dart';
 
 
 
@@ -94,11 +93,9 @@ export '../../features/data/mapper/mapper.dart';
 
 
 export  '../../../features/presentation/routes/routes.dart';
-export  '../../../features/presentation/routes/pages.dart';
 
 // presentation screen
 export  '../../../features/presentation/widgets/undefined_route_widget.dart';
-export  '../../../features/presentation/widgets/localeWidget.dart';
 export  '../../features/presentation/screens/onborading/splash_screen.dart';
 
 

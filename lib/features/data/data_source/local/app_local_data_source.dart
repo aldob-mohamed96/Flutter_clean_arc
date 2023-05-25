@@ -2,15 +2,16 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/resources/export_file.dart';
+import '../../request/requests.dart';
 
 
 abstract class LocalDataSource{
  
 Future<bool> logout() ;
 Future<AppAuthenticationLevel> getLevelAuthenticationApp();
-Future<bool> setLevelAuthenticationApp(AppAuthenticationLevel appAuthenticationLevel);
+Future<bool> setLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest);
 Future<ThemeMode> getThemeAppPreferences();
-Future<bool> setThemeAppPreferences(ThemeMode themeMode);
+Future<bool> setThemeAppPreferences(ThemeModeAppReuest themeModeAppReuest);
 
 }
 class LocalDataSourceImpl extends LocalDataSource{
@@ -25,14 +26,14 @@ class LocalDataSourceImpl extends LocalDataSource{
   Future<AppAuthenticationLevel> getLevelAuthenticationApp() async=>_appPreferences.getAppAuthenticationLevel();
   
   @override
-  Future<bool> setLevelAuthenticationApp(AppAuthenticationLevel appAuthenticationLevel) async=>_appPreferences.setAppAuthenticationLevel(appAuthenticationLevel);
+  Future<bool> setLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest) async=>_appPreferences.setAppAuthenticationLevel(appAuthenticationLevelRequest.appAuthenticationLevel);
   
   //theme 
   @override
   Future<ThemeMode> getThemeAppPreferences() async=>_appPreferences.getThemeAppPreferences();
   
   @override
-  Future<bool> setThemeAppPreferences(ThemeMode themeMode)  async=>_appPreferences.setThemeAppPreferences(themeMode);
+  Future<bool> setThemeAppPreferences(ThemeModeAppReuest themeModeAppReuest)  async=>_appPreferences.setThemeAppPreferences(themeModeAppReuest.themeMode);
   
 
 }

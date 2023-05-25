@@ -2,26 +2,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:project/core/resources/export_file.dart';
+import 'package:project/features/domain/usecases/base_usecase.dart';
+
+import '../../../domain/usecases/change_theme_usecase.dart';
+import '../../../domain/usecases/get_theme_usecase.dart';
 part 'theme_state.dart';
 
 class ThemeCubit extends Cubit<ThemeState> {
   final ThemeManager _themeManager;
-  final GettingThemeAppUseCase _gettingThemeAppUseCase;
+  final GetThemeAppUseCase _getThemeAppUseCase;
   final ChangeThemeAppUseCase _changeThemeAppUseCase;
   ThemeCubit({
     required ThemeManager themeManager,
-    required GettingThemeAppUseCase gettingThemeAppUseCase,
+    required GetThemeAppUseCase getThemeAppUseCase,
     required ChangeThemeAppUseCase changeThemeAppUseCase,}):
    _themeManager=themeManager,
    _changeThemeAppUseCase=changeThemeAppUseCase,
-   _gettingThemeAppUseCase=gettingThemeAppUseCase
+   _getThemeAppUseCase=getThemeAppUseCase
    ,super(const ThemeState());
 
 
  void getAppTheme()async
   {
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    final result=await _gettingThemeAppUseCase.execute(unit);
+    final result=await _getThemeAppUseCase.execute(Params.empty);
     Future.delayed(Duration.zero);
     result.fold(
       (failure)   => emit(state.copyWith(flowStateApp: FlowStateApp.error,failure: failure)),
@@ -37,7 +41,7 @@ class ThemeCubit extends Cubit<ThemeState> {
   {
 
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    final result=await _changeThemeAppUseCase.execute(themeMode);
+    final result=await _changeThemeAppUseCase.execute(ChangeThemeAppUseCaseInput(themeMode));
     Future.delayed(Duration.zero);
     result.fold(
       (failure) => emit(state.copyWith(flowStateApp: FlowStateApp.error,failure: failure)),
@@ -54,7 +58,7 @@ class ThemeCubit extends Cubit<ThemeState> {
   void updateAppThemeFromBrightness()async
   {
 
-    final themeMode = (SchedulerBinding.instance.window.platformBrightness ==Brightness.light)?ThemeMode.light:ThemeMode.dark;
+    final themeMode = (SchedulerBinding.instance.platformDispatcher.platformBrightness ==Brightness.light)?ThemeMode.light:ThemeMode.dark;
     updateAppTheme(themeMode);
 
   }

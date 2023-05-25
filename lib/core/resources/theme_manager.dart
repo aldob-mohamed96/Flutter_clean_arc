@@ -1,13 +1,5 @@
 
-
-import 'package:flutter/scheduler.dart';
-
-import '../../features/data/data_source/local/app_preferance.dart';
-import 'values_manager.dart';
-import 'font_manager.dart';
-import 'color_manager.dart';
-import 'app_constant.dart';
-import 'style_manager.dart';
+import 'package:project/core/resources/export_file.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

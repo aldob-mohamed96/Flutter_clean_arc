@@ -1,4 +1,9 @@
+import 'package:project/features/domain/usecases/base_usecase.dart';
+
 import '../../../../core/resources/export_file.dart';
+import '../../../domain/usecases/change_authentication_usecase.dart';
+import '../../../domain/usecases/get_authentication_usecase.dart';
+import '../../../domain/usecases/logout_usecase.dart';
 
 
 part 'authentication_state.dart';
@@ -6,17 +11,17 @@ part 'authentication_state.dart';
 class AuthenticationCubit extends Cubit<AuthenticationState> {
   
   final LogoutUseCase _logoutUseCase;
-  final GettingLevelAuthenticationAppUseCase _gettingLevelAuthenticationAppUseCase;
-  final ChangeLevelAuthenticationAppUseCase _changeLevelAuthenticationAppUseCase;
+  final GetAuthenticationUseCase _getAuthenticationUseCase;
+  final ChangeAuthenticationUseCase _changeAuthenticationUseCase;
 
   AuthenticationCubit({
     required LogoutUseCase logoutUseCase,
-    required GettingLevelAuthenticationAppUseCase gettingLevelAuthenticationAppUseCase,
-    required ChangeLevelAuthenticationAppUseCase changeLevelAuthenticationAppUseCase,
+    required GetAuthenticationUseCase getAuthenticationUseCase,
+    required ChangeAuthenticationUseCase changeAuthenticationUseCase,
     }):
     _logoutUseCase=logoutUseCase ,
-    _gettingLevelAuthenticationAppUseCase=gettingLevelAuthenticationAppUseCase ,
-    _changeLevelAuthenticationAppUseCase=changeLevelAuthenticationAppUseCase ,
+    _getAuthenticationUseCase=getAuthenticationUseCase ,
+    _changeAuthenticationUseCase=changeAuthenticationUseCase ,
     
     super(const AuthenticationState());
 
@@ -24,7 +29,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   void getAppAuthenticationLevel()async
   {
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    final result=await _gettingLevelAuthenticationAppUseCase.execute(unit);
+    final result=await _getAuthenticationUseCase.execute(Params.empty);
     Future.delayed(Duration.zero);
      result.fold(
       (failure)=> emit(state.copyWith(flowStateApp: FlowStateApp.error,failure:failure)),
@@ -38,7 +43,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   {
 
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    final result=await _changeLevelAuthenticationAppUseCase.execute(appAuthenticationLevel);
+    final result=await _changeAuthenticationUseCase.execute(AppAuthenticationLevelUseCaseInput(appAuthenticationLevel));
     Future.delayed(Duration.zero);
     result.fold(
       (failure)=> emit(state.copyWith(flowStateApp: FlowStateApp.error,failure:failure)),
@@ -49,7 +54,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   {
 
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    final result=await _logoutUseCase.execute(unit);
+    final result=await _logoutUseCase.execute(Params.empty);
     Future.delayed(Duration.zero);
     result.fold(
       (failure)=> emit(state.copyWith(flowStateApp: FlowStateApp.error,failure:failure)),

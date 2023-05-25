@@ -14,14 +14,20 @@ class AppConstants {
   static const double strokeWidth = 4.0;
   static const Color backgroundCircularLoading = ColorManager.backgroundColorCircularLoading;
 
-  
+  //urls
+   static  const String baseUrlsDebug =SecertData.baseUrlsDebug ;
+   static const String baseUrls = SecertData.baseUrls;
+   static const String googleApiKey = SecertData.googleApiKey; 
+   static const String apiKeyPassword = SecertData.apiKeyPassword ;
+
+
   //key of Preferences
-  static const String appLocalePrefsKey = "${AppStrings.appName}_PREFS_KEY_LANG";
-  static const String appAppAuthenticationLevelPrefsKey = "${AppStrings.appName}_PREFS_KEY_AUTHENTICATION_LEVEL";
-  static const String appThemeModePrefsKey = "${AppStrings.appName}_PREFS_KEY_THEME_MODE";
-  static const String appTokenUserPrefsKey = "${AppStrings.appName}_PREFS_KEY_APP_TOKEN_USER";
-  static const String appUserIsLoggedInPrefsKey = "${AppStrings.appName}_PREFS_KEY_USER_IS_LOGGED_IN";
-  static const int appCashedAuthenticationResponseTimeInterval = 60 * 1000 * 10;
+  static const String appLocalePrefsKey = SecertData.appLocalePrefsKey;
+  static const String appAppAuthenticationLevelPrefsKey = SecertData.appAppAuthenticationLevelPrefsKey;
+  static const String appThemeModePrefsKey = SecertData.appThemeModePrefsKey;
+  static const String appTokenUserPrefsKey = SecertData.appTokenUserPrefsKey;
+  static const String appUserIsLoggedInPrefsKey = SecertData.appUserIsLoggedInPrefsKey;
+  static const int appCashedAuthenticationResponseTimeInterval = SecertData.appCashedAuthenticationResponseTimeInterval;
 
 
   //failure
@@ -142,7 +148,7 @@ class AppConstants {
   static const String authorization = "authorization";
   static const String authenticationToken = "auth-token";
   static const String defaultLanguageApi  = "language";
-  static const int apiTimeOut = 60000;
+  static const int receiveTimeout = 60000;
   static const int sendTimeout = 60000;
 
   //asset path json images sound

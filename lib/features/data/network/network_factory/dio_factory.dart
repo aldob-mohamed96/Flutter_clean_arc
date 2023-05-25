@@ -28,8 +28,8 @@ class DioFactoryImpl extends DioFactory{
    };
 
    dio.options=BaseOptions(
-     baseUrl: kDebugMode?SecertData.baseUrlsDebug:SecertData.baseUrls,
-     receiveTimeout:const Duration(milliseconds: AppConstants.apiTimeOut),
+     baseUrl: kDebugMode?AppConstants.baseUrlsDebug:AppConstants.baseUrls,
+     receiveTimeout:const Duration(milliseconds: AppConstants.receiveTimeout),
      sendTimeout: const Duration(milliseconds: AppConstants.sendTimeout),
 
      headers: headers,
