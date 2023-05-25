@@ -8,7 +8,7 @@ import 'base_usecase.dart';
 class LogoutUseCase implements BaseUseCase<Unit, bool> {
   final AppRepository _repository;
 
-  LogoutUseCase(this._repository);
+  LogoutUseCase({required AppRepository repository}):_repository=repository;
 
   @override
   Future<Either<Failure, bool>> execute(unit) async {
@@ -20,8 +20,7 @@ class LogoutUseCase implements BaseUseCase<Unit, bool> {
 class GettingLevelAuthenticationAppUseCase implements BaseUseCase<Unit, AppAuthenticationLevel> {
   final AppRepository _repository;
 
-  GettingLevelAuthenticationAppUseCase(this._repository);
-
+  GettingLevelAuthenticationAppUseCase({required AppRepository repository}):_repository=repository;
   @override
   Future<Either<Failure, AppAuthenticationLevel>> execute(unit)  {
     return  _repository.getLevelAuthenticationApp();
@@ -31,7 +30,8 @@ class GettingLevelAuthenticationAppUseCase implements BaseUseCase<Unit, AppAuthe
 class ChangeLevelAuthenticationAppUseCase implements BaseUseCase<AppAuthenticationLevel, Unit> {
   final AppRepository _repository;
 
-  ChangeLevelAuthenticationAppUseCase(this._repository);
+  ChangeLevelAuthenticationAppUseCase({required AppRepository repository}):_repository=repository;
+
 
   @override
   Future<Either<Failure, Unit>> execute(AppAuthenticationLevel appAuthenticationLevel)  {
@@ -42,7 +42,8 @@ class ChangeLevelAuthenticationAppUseCase implements BaseUseCase<AppAuthenticati
 class GettingThemeAppUseCase implements BaseUseCase<Unit, ThemeMode> {
   final AppRepository _repository;
 
-  GettingThemeAppUseCase(this._repository);
+  GettingThemeAppUseCase({required AppRepository repository}):_repository=repository;
+
 
   @override
   Future<Either<Failure, ThemeMode>> execute(unit)  {
@@ -53,7 +54,8 @@ class GettingThemeAppUseCase implements BaseUseCase<Unit, ThemeMode> {
 class ChangeThemeAppUseCase implements BaseUseCase<ThemeMode, Unit> {
   final AppRepository _repository;
 
-  ChangeThemeAppUseCase(this._repository);
+  ChangeThemeAppUseCase({required AppRepository repository}):_repository=repository;
+
 
   @override
   Future<Either<Failure, Unit>> execute(ThemeMode themeMode)  {

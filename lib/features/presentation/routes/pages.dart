@@ -4,6 +4,8 @@ import 'package:project/core/resources/export_file.dart';
 //test jjjj
 class AppRouter {
 
+  static GoRouter get router => _router;
+
   static Widget _onBoardingRouteBuilder(BuildContext context, GoRouterState state) => const OnBoardingScreen();
   static Widget _splashRouteBuilder(BuildContext context, GoRouterState state) => const SplashScreen();
   static Widget _errorWidget(BuildContext context, GoRouterState state) => const UndefinedRouteScreen();
@@ -32,7 +34,7 @@ class AppRouter {
   final BackButtonDispatcher childDispatcher = _router.backButtonDispatcher.createChildBackButtonDispatcher();
 
 
-  static GoRouter get router => _router;
+ 
 
 }
 

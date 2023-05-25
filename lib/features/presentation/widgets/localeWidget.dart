@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:project/core/resources/export_file.dart';
 
 
-class LocalizationWidget extends StatelessWidget {
+class Localization extends StatelessWidget {
   final Widget child;
-  const LocalizationWidget({
+  const Localization({
     required this.child,
     super.key,
   });

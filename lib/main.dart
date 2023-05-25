@@ -18,7 +18,7 @@ void main() async {
   // await initAppServicesGetIt();
   await EasyLocalization.ensureInitialized();
 
-  runApp(const LocalizationWidget(child: AppMaterial()),
+  runApp(const Localization(child: AppMaterial()),
   );
 }
 
