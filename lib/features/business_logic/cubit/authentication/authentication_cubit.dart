@@ -1,4 +1,6 @@
 import 'package:project/features/domain/usecases/base_usecase.dart';
+import 'package:project/features/domain/usecases/chage_token_usecase.dart';
+import 'package:project/features/domain/usecases/get_token_usecase.dart';
 
 import '../../../../core/resources/export_file.dart';
 import '../../../domain/usecases/change_authentication_usecase.dart';
@@ -14,14 +16,18 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   final GetAuthenticationUseCase _getAuthenticationUseCase;
   final ChangeAuthenticationUseCase _changeAuthenticationUseCase;
 
+
   AuthenticationCubit({
     required LogoutUseCase logoutUseCase,
     required GetAuthenticationUseCase getAuthenticationUseCase,
     required ChangeAuthenticationUseCase changeAuthenticationUseCase,
+    required GetTokenUseCase getTokenUseCase,
+    required ChangeTokenUseCase changeTokenUseCase,
     }):
     _logoutUseCase=logoutUseCase ,
     _getAuthenticationUseCase=getAuthenticationUseCase ,
     _changeAuthenticationUseCase=changeAuthenticationUseCase ,
+
     
     super(const AuthenticationState());
 
@@ -30,7 +36,9 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   {
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
     final result=await _getAuthenticationUseCase.execute(Params.empty);
+    
     Future.delayed(Duration.zero);
+    
      result.fold(
       (failure)=> emit(state.copyWith(flowStateApp: FlowStateApp.error,failure:failure)),
       (appAuthenticationLevel)=>emit(state.copyWith(flowStateApp: FlowStateApp.normal,appAuthenticationLevel:appAuthenticationLevel)));

@@ -34,27 +34,16 @@ abstract class AppServiceApiClient{
      ]
 
       );
-*/
 
-
-/*
   case normal requests without headers paramter like token
   @POST("............upload url extension exclude baseUrl ..........")
   Future<ResponseType> functionName(@Field("nameParamterInBackend") String paramterName,.......add any paramter );
 
-*/
 
-
-/*
   case normal requests with headers paramter like token
   @POST("............upload url extension exclude baseUrl ..........")
   Future<ResponseType> functionName(@Header("nameParamterInBackend") String nameParamter,@Field("nameParamterInBackend") String paramterName,.......add any paramter );
 
-*/
-
-
-
-/*
   case normal requests with headers paramter like token and and url changed paramter
   @POST("............upload url extension exclude baseUrl ..........url +{paramterValueChanged} any where you put in url with brackets and inside add paramterValueChanged")
   Future<ResponseType> functionName(@Path() int paramterValueChanged,@Header("nameParamterInBackend") String nameParamter,@Field("nameParamterInBackend") String paramterName,.......add any paramter );

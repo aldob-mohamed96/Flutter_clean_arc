@@ -17,8 +17,9 @@ class DioFactoryImpl extends DioFactory{
 
 
 
-
+   
    Dio dio=Dio();
+   
    Map<String,String>headers={
      AppConstants.contentType:AppConstants.applicationJson,
      AppConstants.accept:AppConstants.applicationJson,

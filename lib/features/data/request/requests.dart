@@ -13,3 +13,10 @@ class ThemeModeAppReuest{
  ThemeModeAppReuest(this.themeMode);
 
 }
+
+class TokenRequest{
+
+ final String value;  
+ TokenRequest(this.value);
+
+}

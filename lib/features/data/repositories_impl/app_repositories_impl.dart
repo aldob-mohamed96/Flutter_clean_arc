@@ -55,7 +55,8 @@ class AppRepositoryImpl implements AppRepository {
   }
   
   @override
-  Future<Either<Failure, AppAuthenticationLevel>> getLevelAuthenticationApp() async{
+  Future<Either<Failure, AppAuthenticationLevel>> getLevelAuthenticationApp() async
+  {
         try
         {
           return Right(await _localDataSource.getLevelAuthenticationApp());
@@ -107,37 +108,32 @@ class AppRepositoryImpl implements AppRepository {
         }
 
   }
-  /*
+  
   @override
-  Future<Either<Failure, Output>> functionName(InputRequest paginationData) async {
-    if (await _networkInfo.isConnected) {
-      try {
-        final response =await _driverOrdersRemoteDataSource.getDriverOrders(paginationData);
-        if (response.status == ApiInternalStatusCode.success) 
+  Future<Either<Failure, String>> getToken() async{
+    try
         {
-        
-          return Right(response.toDomain());
+            final result=await _localDataSource.getToken();
+            return  Right(result);
         }
-        else if(response.status == ApiInternalStatusCode.failure)
+        catch(error)
         {
-           return  Left(NetworkException.handleNetworkError(response.).failure);
+           return const Left(AppConstants.unknownfailure);
         }
-        else 
-        {
-          return const Left(AppConstants.unknownfailure);
-        }
-      } catch (error) {
-
-        return Left(NetworkException
-            .handleNetworkError(error)
-            .failure);
-      }
-    } else {
-    
-        return Left(DataSourceNetworkError.noInternetConnection.getFailure());
-      
-    }
   }
-*/
+  
+  @override
+  Future<Either<Failure, Unit>> setToken(TokenRequest tokenRequest) async{
+   try
+        {
+           _localDataSource.setToken(tokenRequest);
+            return const Right(unit);
+        }
+        catch(error)
+        {
+           return const Left(AppConstants.unknownfailure);
+        }
+  }
+
 
 }

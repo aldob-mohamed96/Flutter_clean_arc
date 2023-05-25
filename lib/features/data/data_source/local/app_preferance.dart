@@ -10,12 +10,15 @@ abstract class AppPreferences {
   //setting app local data
 
   Future<bool> setThemeAppPreferences(ThemeMode themeMode);
+  Future<bool> setToken(String token);
   Future<bool> setAppAuthenticationLevel(AppAuthenticationLevel levelApp);
   Future<bool> logout();
 
 
   ThemeMode getThemeAppPreferences();
   AppAuthenticationLevel getAppAuthenticationLevel();
+  String getToken();
+  
 
 
 
@@ -61,6 +64,12 @@ class AppPreferencesImpl implements AppPreferences {
   Future<bool> setThemeAppPreferences(ThemeMode themeMode) {
     return _sharedPreferences.setString(AppConstants.appThemeModePrefsKey,themeMode.name);
   }
+  
+  @override
+  String getToken() =>_sharedPreferences.getString(AppConstants.appTokenUserPrefsKey).orEmptyString();
+  
+  @override
+  Future<bool> setToken(String token) =>_sharedPreferences.setString(AppConstants.appTokenUserPrefsKey,token);
 
 
 

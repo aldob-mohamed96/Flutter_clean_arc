@@ -13,6 +13,10 @@ Future<bool> setLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenti
 Future<ThemeMode> getThemeAppPreferences();
 Future<bool> setThemeAppPreferences(ThemeModeAppReuest themeModeAppReuest);
 
+Future<bool>   setToken(TokenRequest tokenRequest);
+Future<String> getToken();
+
+
 }
 class LocalDataSourceImpl extends LocalDataSource{
   final AppPreferences _appPreferences;
@@ -26,14 +30,20 @@ class LocalDataSourceImpl extends LocalDataSource{
   Future<AppAuthenticationLevel> getLevelAuthenticationApp() async=>_appPreferences.getAppAuthenticationLevel();
   
   @override
-  Future<bool> setLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest) async=>_appPreferences.setAppAuthenticationLevel(appAuthenticationLevelRequest.appAuthenticationLevel);
+  Future<bool> setLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest) async=>await _appPreferences.setAppAuthenticationLevel(appAuthenticationLevelRequest.appAuthenticationLevel);
   
   //theme 
   @override
-  Future<ThemeMode> getThemeAppPreferences() async=>_appPreferences.getThemeAppPreferences();
+  Future<ThemeMode> getThemeAppPreferences() async=> _appPreferences.getThemeAppPreferences();
   
   @override
-  Future<bool> setThemeAppPreferences(ThemeModeAppReuest themeModeAppReuest)  async=>_appPreferences.setThemeAppPreferences(themeModeAppReuest.themeMode);
+  Future<bool> setThemeAppPreferences(ThemeModeAppReuest themeModeAppReuest)  async=>await _appPreferences.setThemeAppPreferences(themeModeAppReuest.themeMode);
+  
+  @override
+  Future<String> getToken() async=>_appPreferences.getToken();
+  
+  @override
+  Future<bool> setToken(TokenRequest tokenRequest)  async=>await _appPreferences.setToken(tokenRequest.value);
   
 
 }

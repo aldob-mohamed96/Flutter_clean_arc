@@ -12,6 +12,9 @@ abstract class AppRepository {
  
   Future<Either<Failure,ThemeMode>> getThemeAppPreferences();
   Future<Either<Failure,Unit>> setThemeAppPreferences(ThemeModeAppReuest themeModeAppReuest);
+  Future<Either<Failure,String>> getToken();
+  Future<Either<Failure,Unit>>   setToken(TokenRequest tokenRequest);
+
  
 
 }
