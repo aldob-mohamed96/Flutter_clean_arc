@@ -319,7 +319,7 @@ extension DataSourceBatteryStateExtension on DataSourceBatteryState {
   Failure getFailure() {
     switch (this) {
       case DataSourceBatteryState.errorInfo:
-        return const Failure(  ResponseCode.batteryInfoError, ResponseMessage.batteryInfoError);
+        return const Failure(ResponseCode.batteryInfoError, ResponseMessage.batteryInfoError);
       default:
          return AppConstants.unknownfailure;
     }

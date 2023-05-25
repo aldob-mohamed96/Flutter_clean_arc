@@ -20,8 +20,8 @@ abstract class ThemeManager{
 
 }
 class ThemeManagerImpl extends ThemeManager{
-  final AppPreferences appSettingPreferences;
-  ThemeManagerImpl({required this.appSettingPreferences});
+  
+  ThemeManagerImpl();
 
   @override
   ThemeData get getLightTheme => _getLightTheme();
