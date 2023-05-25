@@ -75,7 +75,7 @@ export  'package:project/core/helper/function.dart';
 export  'package:project/core/input_validation/input_validation.dart';
 
 // domain 
-export '../../features/domain/usecases/app_usecase.dart';
+
 // data
 
 export '../../features/data/data_source/local/app_local_data_source.dart';

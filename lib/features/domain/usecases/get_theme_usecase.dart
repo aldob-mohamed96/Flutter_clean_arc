@@ -10,7 +10,7 @@ class GetThemeAppUseCase implements BaseUseCase<Params, ThemeMode> {
   GetThemeAppUseCase({required AppRepository repository}):_repository=repository;
 
   @override
-  Future<Either<Failure, ThemeMode>> execute(Params noParams)  {
+  Future<Either<Failure, ThemeMode>> execute(Params params)  {
     return  _repository.getThemeAppPreferences();
   }
 }

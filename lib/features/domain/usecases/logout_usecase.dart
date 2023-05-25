@@ -9,7 +9,7 @@ class LogoutUseCase implements BaseUseCase<Params, Logout> {
   LogoutUseCase({required AppRepository repository}):_repository=repository;
 
   @override
-  Future<Either<Failure, Logout>> execute(Params noParams) async {
+  Future<Either<Failure, Logout>> execute(Params params) async {
     return await _repository.logout();
   }
 }

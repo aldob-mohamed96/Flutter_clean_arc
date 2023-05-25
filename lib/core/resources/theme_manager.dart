@@ -27,7 +27,7 @@ class ThemeManagerImpl extends ThemeManager{
       visualDensity: VisualDensity.adaptivePlatformDensity,
       /* ---------------------------------------- colors values ----------------------------------*/
         primaryColor: ColorManager.primaryColor,
-        backgroundColor: ColorManager.hintColor,
+       
         brightness: Brightness.light,
         dividerColor: ColorManager.primaryColor,
         focusColor: ColorManager.primaryColor,
@@ -57,7 +57,7 @@ class ThemeManagerImpl extends ThemeManager{
 
             style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSize.appSize8)),
-                primary: ColorManager.secondColor,
+             
                 elevation: AppSize.appSize5,
                 textStyle: getRegularStyle(color: ColorManager.focusColor,fontSize: FontSize.fontSize14,).copyWith(fontWeight: FontWeightManager.bold)
             )
@@ -69,11 +69,7 @@ class ThemeManagerImpl extends ThemeManager{
             splashColor: ColorManager.primaryColor,buttonColor:
             ColorManager.focusColor),
         //text Button Theme style
-        textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(
-
-              primary: ColorManager.primaryColor),
-        ),
+        
         //color scheme style
         colorScheme: ColorScheme.light(
           primary:   ColorManager.primaryColor,
@@ -161,7 +157,7 @@ class ThemeManagerImpl extends ThemeManager{
           visualDensity: VisualDensity.adaptivePlatformDensity,
         /* ---------------------------------------- colors values ----------------------------------*/
           primaryColor: ColorManager.primaryColorDark,
-          backgroundColor: ColorManager.primaryColorDark,
+        
           brightness: Brightness.light,
           dividerColor: ColorManager.primaryColorDark,
           focusColor: ColorManager.primaryColorDark,
@@ -181,7 +177,7 @@ class ThemeManagerImpl extends ThemeManager{
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSize.appSize12)),
-                  primary: ColorManager.focusColor,
+                
                   textStyle: getRegularStyle(color: ColorManager.focusColor,fontSize: FontSize.fontSize14,)
               )
           ),
@@ -191,10 +187,7 @@ class ThemeManagerImpl extends ThemeManager{
               splashColor: ColorManager.primaryColor,buttonColor:
               ColorManager.focusColor),
           //text Button Theme style
-          textButtonTheme: TextButtonThemeData(
-            style: TextButton.styleFrom(
-                primary: ColorManager.primaryColor),
-          ),
+         
           //color scheme style
           colorScheme: ColorScheme.light(
             primary:   ColorManager.primaryColor,
