@@ -20,7 +20,7 @@ abstract class ThemeManager{
 
 }
 class ThemeManagerImpl extends ThemeManager{
-  
+
   ThemeManagerImpl();
 
   @override
@@ -303,16 +303,12 @@ class ThemeManagerImpl extends ThemeManager{
           _setStatusBarAndNavigationBarColors(SystemUiOverlayStyle.dark, ColorManager.darkThemeColor);
            break;
         case ThemeMode.system:
-           break;
         default:
-          if (AppConstants.defaultThemeModeApp == AppConstants.darkTheme)
-          {
-            _setStatusBarAndNavigationBarColors(SystemUiOverlayStyle.dark, ColorManager.darkThemeColor);
-             break;
-          } else {
+          (AppConstants.defaultThemeModeApp == AppConstants.darkTheme)?
+            _setStatusBarAndNavigationBarColors(SystemUiOverlayStyle.dark, ColorManager.darkThemeColor)
+             :
             _setStatusBarAndNavigationBarColors(SystemUiOverlayStyle.light, ColorManager.lightThemeColor);
-             break;
-          }
+            break;
       }
     }
 
