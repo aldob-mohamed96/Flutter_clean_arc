@@ -2,14 +2,15 @@
 
 
 
-import 'package:flutter/src/material/app.dart';
+
+import 'package:flutter/material.dart';
 
 import '../../../core/resources/export_file.dart';
 import '../../domain/entity/logout.dart';
 import '../request/requests.dart';
 
 
-class AppRepositoryImpl implements AppRepository {
+final class AppRepositoryImpl implements AppRepository {
   final NetworkInfo _networkInfo;
   final RemoteDataSource _remoteDataSource;
   final LocalDataSource _localDataSource;

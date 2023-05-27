@@ -5,7 +5,7 @@ import '../../../core/resources/export_file.dart';
 
 import 'base_usecase.dart';
 
-class ChangeTokenUseCase implements BaseUseCase<ChangeTokenUseCaseInput, Unit> {
+final class ChangeTokenUseCase implements BaseUseCase<ChangeTokenUseCaseInput, Unit> {
   final AppRepository _repository;
 
   ChangeTokenUseCase({required AppRepository repository}):_repository=repository;
@@ -16,7 +16,7 @@ class ChangeTokenUseCase implements BaseUseCase<ChangeTokenUseCaseInput, Unit> {
   }
 }
 
-class ChangeTokenUseCaseInput{
+final class ChangeTokenUseCaseInput{
   String token;
   ChangeTokenUseCaseInput(this.token);
 

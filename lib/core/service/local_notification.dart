@@ -1,7 +1,7 @@
 
 import 'package:project/core/resources/export_file.dart';
 
-abstract class LocalNotification{
+abstract interface class LocalNotification{
 
   AndroidInitializationSettings get getAndroidInitializationSettings;
   DarwinInitializationSettings get getIosInitializationSettings;
@@ -18,7 +18,7 @@ abstract class LocalNotification{
   Future<void> showNotification(int id,String title,String body);
   Future<void>onDidReceiveLocalNotification(Function function,int id,String title,String body,String payload);
 }
-class LocalNotificationImpl implements LocalNotification{
+final class LocalNotificationImpl implements LocalNotification{
 
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =FlutterLocalNotificationsPlugin();
   LocalNotificationImpl()  {

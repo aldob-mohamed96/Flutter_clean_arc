@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/resources/export_file.dart';
 import '../../data/request/requests.dart';
 import '../entity/logout.dart';
-abstract class AppRepository {
+abstract interface class AppRepository {
 
 
   Future<Either<Failure,Logout>> logout();

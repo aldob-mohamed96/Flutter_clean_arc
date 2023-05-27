@@ -4,7 +4,7 @@ import '../../../core/resources/export_file.dart';
 import '../../data/request/requests.dart';
 import 'base_usecase.dart';
 
-class ChangeAuthenticationUseCase implements BaseUseCase<AppAuthenticationLevelUseCaseInput, Unit> {
+final class ChangeAuthenticationUseCase implements BaseUseCase<AppAuthenticationLevelUseCaseInput, Unit> {
   final AppRepository _repository;
 
   ChangeAuthenticationUseCase({required AppRepository repository}):_repository=repository;
@@ -15,7 +15,7 @@ class ChangeAuthenticationUseCase implements BaseUseCase<AppAuthenticationLevelU
   }
 }
 
-class AppAuthenticationLevelUseCaseInput{
+final class AppAuthenticationLevelUseCaseInput{
   AppAuthenticationLevel appAuthenticationLevel;
   AppAuthenticationLevelUseCaseInput(this.appAuthenticationLevel);
 }

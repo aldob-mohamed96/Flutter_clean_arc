@@ -6,7 +6,7 @@ part 'app_api.g.dart';
 
 
 @RestApi(baseUrl: kDebugMode?SecertData.baseUrlsDebug :SecertData.baseUrls)
-abstract class AppServiceApiClient{
+abstract interface class AppServiceApiClient{
 
   factory AppServiceApiClient(Dio dio,{String baseUrl})=_AppServiceApiClient;
 

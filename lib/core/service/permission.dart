@@ -4,7 +4,7 @@ import 'package:permission_handler/permission_handler.dart' ;
 
 import 'package:project/core/resources/export_file.dart';
 
-abstract class PermissionHandling{
+abstract interface class PermissionHandling{
  Future<DataSourcePermission> checkPermission(Permission permission);
  Future<void> checkPermissionWithLifeCycleStateApp(bool isDetectedPermission,Permission permission,AppLifecycleState state,DataSourcePermission dataSourcePermission);
 
@@ -12,7 +12,7 @@ abstract class PermissionHandling{
 
 
 }
-class PermissionHandlingImpl implements PermissionHandling{
+final class PermissionHandlingImpl implements PermissionHandling{
 
   PermissionHandlingImpl();
   @override

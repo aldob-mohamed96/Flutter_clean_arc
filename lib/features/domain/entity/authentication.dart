@@ -1,6 +1,6 @@
 import 'package:project/core/resources/export_file.dart';
 
-class Authentication extends Equatable{
+final class Authentication extends Equatable{
 
   final AppAuthenticationLevel  appAuthenticationLevel;
 

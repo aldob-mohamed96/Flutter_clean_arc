@@ -22,6 +22,7 @@ class ThemeManagerImpl extends ThemeManager{
   ThemeData get getDarkTheme =>_getDarkTheme();
 
    _getLightTheme() => ThemeData(
+      useMaterial3: true,
       fontFamily: 'Montserrat',
       primarySwatch: ColorManager.primarySwatchLightColor,
       visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -153,6 +154,7 @@ class ThemeManagerImpl extends ThemeManager{
 
     );
    _getDarkTheme()=> ThemeData(
+          useMaterial3: true,
           primarySwatch: ColorManager.primarySwatchDarkColor,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         /* ---------------------------------------- colors values ----------------------------------*/

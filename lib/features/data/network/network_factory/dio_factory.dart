@@ -4,12 +4,12 @@ import 'package:project/core/resources/export_file.dart';
 
 
 
-abstract class DioFactory{
+abstract interface class DioFactory{
   Future<Dio> getDio();
 
 
 }
-class DioFactoryImpl extends DioFactory{
+final class DioFactoryImpl implements DioFactory{
 
 
   @override

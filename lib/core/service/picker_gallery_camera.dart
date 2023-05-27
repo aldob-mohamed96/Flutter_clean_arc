@@ -5,7 +5,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 import 'package:project/core/resources/export_file.dart';
 
-abstract class ImagePickering{
+abstract interface class ImagePickering{
   Future<Either<Failure,File>> pickImageGallery();
   Future<Either<Failure,File>> pickImageCamera();
   Future<void> checkPermissionGalleryWithLifeCycleStateApp(AppLifecycleState state);
@@ -15,7 +15,7 @@ abstract class ImagePickering{
 
   }
 
-class ImagePickerImpl implements ImagePickering{
+final class ImagePickerImpl implements ImagePickering{
   late bool _isDetected;
   late DataSourcePermission _dataSourcePermission;
   final PermissionHandling _permissionHandling;

@@ -5,7 +5,7 @@ import '../../../core/resources/export_file.dart';
 import '../../data/request/requests.dart';
 import 'base_usecase.dart';
 
-class ChangeThemeAppUseCase implements BaseUseCase<ChangeThemeAppUseCaseInput, Unit> {
+final class ChangeThemeAppUseCase implements BaseUseCase<ChangeThemeAppUseCaseInput, Unit> {
   final AppRepository _repository;
 
   ChangeThemeAppUseCase({required AppRepository repository}):_repository=repository;
@@ -16,7 +16,7 @@ class ChangeThemeAppUseCase implements BaseUseCase<ChangeThemeAppUseCaseInput, U
   }
 }
 
-class ChangeThemeAppUseCaseInput{
+final class ChangeThemeAppUseCaseInput{
 
  final ThemeMode themeMode;  
  ChangeThemeAppUseCaseInput(this.themeMode);

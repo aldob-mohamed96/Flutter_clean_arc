@@ -1,5 +1,5 @@
 //class of all routes
-abstract class Routes {
+sealed class Routes {
 
   //Route routes splash screen
   static const String splashRoute = '/';

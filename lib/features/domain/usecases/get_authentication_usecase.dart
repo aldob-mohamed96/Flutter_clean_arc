@@ -3,7 +3,7 @@
 import '../../../core/resources/export_file.dart';
 import 'base_usecase.dart';
 
-class GetAuthenticationUseCase implements BaseUseCase<Params, AppAuthenticationLevel> {
+final class GetAuthenticationUseCase implements BaseUseCase<Params, AppAuthenticationLevel> {
   final AppRepository _repository;
 
   GetAuthenticationUseCase({required AppRepository repository}):_repository=repository;

@@ -2,7 +2,7 @@
 
 import 'package:project/core/resources/export_file.dart';
 
-class Failure extends Equatable {
+final class Failure extends Equatable {
   final int code;
   final String message;
   const Failure(this.code,this.message);

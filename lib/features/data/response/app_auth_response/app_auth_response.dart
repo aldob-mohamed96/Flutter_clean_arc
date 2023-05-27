@@ -2,7 +2,7 @@ import '../../../../core/resources/export_file.dart';
 import '../base/base_response.dart';
 part 'app_auth_response.g.dart';
 @JsonSerializable()
-class LogoutAuthResponse extends BaseResponse{
+final class LogoutAuthResponse extends BaseResponse{
   @JsonKey(name: "isLoggedOut")
   bool? isLoggedOut;
 

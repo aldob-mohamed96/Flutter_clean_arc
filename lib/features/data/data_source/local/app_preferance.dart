@@ -5,7 +5,7 @@ import 'package:project/core/resources/export_file.dart';
 
 
 
-abstract class AppPreferences {
+abstract interface class AppPreferences {
 
   //setting app local data
 
@@ -26,7 +26,7 @@ abstract class AppPreferences {
 }
 
 
-class AppPreferencesImpl implements AppPreferences {
+final class AppPreferencesImpl implements AppPreferences {
 
   final SharedPreferences _sharedPreferences;
 

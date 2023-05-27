@@ -5,20 +5,19 @@ import '../../../../core/resources/export_file.dart';
 import '../../request/requests.dart';
 
 
-abstract class LocalDataSource{
+abstract interface class  LocalDataSource{
  
 Future<bool> logout() ;
 Future<AppAuthenticationLevel> getLevelAuthenticationApp();
 Future<bool> setLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest);
 Future<ThemeMode> getThemeAppPreferences();
 Future<bool> setThemeAppPreferences(ThemeModeAppReuest themeModeAppReuest);
-
 Future<bool>   setToken(TokenRequest tokenRequest);
 Future<String> getToken();
 
 
 }
-class LocalDataSourceImpl extends LocalDataSource{
+final class LocalDataSourceImpl implements LocalDataSource{
   final AppPreferences _appPreferences;
   LocalDataSourceImpl({required AppPreferences appPreferences }):_appPreferences=appPreferences;
   

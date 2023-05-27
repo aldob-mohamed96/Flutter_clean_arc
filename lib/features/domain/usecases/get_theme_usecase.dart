@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../core/resources/export_file.dart';
 import 'base_usecase.dart';
 
-class GetThemeAppUseCase implements BaseUseCase<Params, ThemeMode> {
+final class GetThemeAppUseCase implements BaseUseCase<Params, ThemeMode> {
   final AppRepository _repository;
 
   GetThemeAppUseCase({required AppRepository repository}):_repository=repository;

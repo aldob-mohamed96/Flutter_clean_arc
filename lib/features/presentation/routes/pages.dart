@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/core/resources/export_file.dart';
 //test jjjj
-class AppRouter {
+ sealed class AppRouter {
 
   static GoRouter get router => _router;
 
