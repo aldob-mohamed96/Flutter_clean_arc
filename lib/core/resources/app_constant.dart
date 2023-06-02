@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:project/core/resources/export_file.dart';
 
 
-class AppConstants {
+ sealed class AppConstants {
 
   //code verification
   static const int verificationCodeLength = 4;

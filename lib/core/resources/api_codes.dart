@@ -1,11 +1,11 @@
-class ApiInternalStatusCode{
+final class ApiInternalStatusCode{
   static const int failure=0;
   static const int success=1;
 
 
 
 }
-class ResponseCode
+final class ResponseCode
 {
   //http response code
   static const int success=200;

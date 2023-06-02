@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:project/core/resources/export_file.dart';
-//test jjjj
- sealed class AppRouter {
+ class AppRouter {
 
+  
   static GoRouter get router => _router;
 
   static Widget _onBoardingRouteBuilder(BuildContext context, GoRouterState state) => const OnBoardingScreen();
@@ -21,7 +21,7 @@ import 'package:project/core/resources/export_file.dart';
         path: Routes.splashRoute,
         builder:_splashRouteBuilder,
         routes: <RouteBase>[
-
+           
           GoRoute(path: Routes.onBoardingRoute, builder: _onBoardingRouteBuilder),
         ],
       ),

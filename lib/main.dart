@@ -7,7 +7,7 @@ import 'package:project/features/business_logic/cubit/theme/theme_cubit.dart';
 
 import 'features/business_logic/cubit/authentication/authentication_cubit.dart';
 import 'features/presentation/routes/pages.dart';
-import 'features/presentation/widgets/localeWidget.dart';
+import 'features/presentation/widgets/locale_widget.dart';
 
 
 
@@ -15,8 +15,9 @@ import 'features/presentation/widgets/localeWidget.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // await initAppServicesGetIt();
   await EasyLocalization.ensureInitialized();
+
+  await initAppServicesGetIt();
 
   runApp(const Localization(child: AppMaterial()),
   );

@@ -26,10 +26,11 @@ export '../../core/extension/extension.dart';
 
 
 export '../../features/presentation/routes/pages.dart';
-export '../../features/presentation/widgets/localeWidget.dart';
+export '../../features/presentation/widgets/locale_widget.dart';
 
 
 //di
+
 
 //screen
 
@@ -96,7 +97,7 @@ export  '../../../features/presentation/routes/routes.dart';
 
 // presentation screen
 export  '../../../features/presentation/widgets/undefined_route_widget.dart';
-export  '../../features/presentation/screens/onborading/splash_screen.dart';
+export  '../../features/presentation/screens/onborading/onborading_screen.dart';
 
 
 export  '../../features/presentation/screens/splash/splash_screen.dart';

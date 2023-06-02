@@ -1,7 +1,7 @@
 
 import 'package:project/core/resources/export_file.dart';
 
-class ResponseMessage
+final class ResponseMessage
 {
   //http response message
   static const String success=AppStrings.success;
