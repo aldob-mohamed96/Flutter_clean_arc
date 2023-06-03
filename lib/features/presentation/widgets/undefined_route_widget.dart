@@ -1,7 +1,8 @@
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:project/core/resources/strings_manager.dart';
+
+import '../../../core/resources/strings_manager.dart';
 
 
 class UndefinedRouteScreen extends StatelessWidget {

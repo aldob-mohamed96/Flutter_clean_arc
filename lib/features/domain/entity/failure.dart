@@ -1,6 +1,6 @@
 
 
-import 'package:project/core/resources/export_file.dart';
+import '../../../core/resources/export_file.dart';
 
 final class Failure extends Equatable {
   final int code;

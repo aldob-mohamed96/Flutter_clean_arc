@@ -9,6 +9,8 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(child:const Text("asdasdsad").tr()),
+
     );
   }
 }
+

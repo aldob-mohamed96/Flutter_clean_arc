@@ -1,5 +1,4 @@
-import 'package:project/features/data/network/api/app_api.dart';
-
+import '../../network/api/app_api.dart';
 import '../../response/app_auth_response/app_auth_response.dart';
 
 abstract interface class RemoteDataSource{

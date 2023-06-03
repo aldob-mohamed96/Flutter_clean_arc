@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project/core/resources/export_file.dart';
+
+import '../../../core/resources/export_file.dart';
 
 
 class Localization extends StatelessWidget {

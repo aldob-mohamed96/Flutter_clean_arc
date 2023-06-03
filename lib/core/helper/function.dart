@@ -1,6 +1,6 @@
 
 import 'package:flutter/services.dart';
-import 'package:project/core/resources/export_file.dart';
+import '../resources/export_file.dart';
 abstract class LoadFileAsset{
 
   Future<Either<Unit,Map<String,String>>> loadJsonFileFromAsset(String path);

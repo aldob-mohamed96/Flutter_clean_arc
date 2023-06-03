@@ -1,16 +1,16 @@
 
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:project/core/resources/export_file.dart';
-import 'package:project/features/domain/usecases/chage_token_usecase.dart';
-import 'package:project/features/domain/usecases/change_authentication_usecase.dart';
-import 'package:project/features/domain/usecases/change_theme_usecase.dart';
 
 import '../../features/data/network/api/app_api.dart';
 import '../../features/data/network/network_factory/dio_factory.dart';
+import '../../features/domain/usecases/chage_token_usecase.dart';
+import '../../features/domain/usecases/change_authentication_usecase.dart';
+import '../../features/domain/usecases/change_theme_usecase.dart';
 import '../../features/domain/usecases/get_authentication_usecase.dart';
 import '../../features/domain/usecases/get_theme_usecase.dart';
 import '../../features/domain/usecases/get_token_usecase.dart';
 import '../../features/domain/usecases/logout_usecase.dart';
+import '../resources/export_file.dart';
 
 final instance = GetIt.instance;
 Future<void> initAppServicesGetIt() async {

@@ -1,6 +1,7 @@
 
-import 'package:project/core/resources/export_file.dart';
 import 'package:retrofit/retrofit.dart';
+
+import '../../../../core/resources/export_file.dart';
 
 part 'app_api.g.dart';
 

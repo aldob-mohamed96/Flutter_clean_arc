@@ -1,5 +1,5 @@
 
-import 'package:project/core/resources/export_file.dart';
+import '../resources/export_file.dart';
 
 abstract interface class LocalNotification{
 

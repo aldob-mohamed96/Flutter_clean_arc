@@ -1,8 +1,6 @@
 
-import 'package:project/features/data/request/requests.dart';
-
 import '../../../core/resources/export_file.dart';
-
+import '../../data/request/requests.dart';
 import 'base_usecase.dart';
 
 final class ChangeTokenUseCase implements BaseUseCase<ChangeTokenUseCaseInput, Unit> {

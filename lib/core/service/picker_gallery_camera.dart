@@ -2,8 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-
-import 'package:project/core/resources/export_file.dart';
+import '../resources/export_file.dart';
 
 abstract interface class ImagePickering{
   Future<Either<Failure,File>> pickImageGallery();

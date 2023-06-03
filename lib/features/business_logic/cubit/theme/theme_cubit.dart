@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:project/core/resources/export_file.dart';
-import 'package:project/features/domain/usecases/base_usecase.dart';
+import '../../../../core/resources/export_file.dart';
+import '../../../domain/usecases/base_usecase.dart';
 
 import '../../../domain/usecases/change_theme_usecase.dart';
 import '../../../domain/usecases/get_theme_usecase.dart';

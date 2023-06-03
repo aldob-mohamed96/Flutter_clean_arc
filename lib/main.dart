@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project/core/di/di.dart';
-import 'package:project/core/extension/extension.dart';
-import 'package:project/features/business_logic/cubit/theme/theme_cubit.dart';
 
+import 'core/di/di.dart';
+import 'core/extension/extension.dart';
 import 'features/business_logic/cubit/authentication/authentication_cubit.dart';
+import 'features/business_logic/cubit/theme/theme_cubit.dart';
 import 'features/presentation/routes/pages.dart';
 import 'features/presentation/widgets/locale_widget.dart';
 

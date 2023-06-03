@@ -1,6 +1,6 @@
-import 'package:project/features/domain/usecases/base_usecase.dart';
-import 'package:project/features/domain/usecases/chage_token_usecase.dart';
-import 'package:project/features/domain/usecases/get_token_usecase.dart';
+import '../../../domain/usecases/base_usecase.dart';
+import '../../../domain/usecases/chage_token_usecase.dart';
+import '../../../domain/usecases/get_token_usecase.dart';
 
 import '../../../../core/resources/export_file.dart';
 import '../../../domain/usecases/change_authentication_usecase.dart';

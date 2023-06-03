@@ -1,4 +1,4 @@
-   import 'package:project/core/resources/export_file.dart';
+import '../resources/export_file.dart';
 
    class SecertData{
    static  const String baseUrlsDebug ="................";
