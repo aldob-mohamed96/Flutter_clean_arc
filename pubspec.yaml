@@ -72,18 +72,5 @@ flutter:
     - assets/sound/
     - assets/translations/
   #assets fonts
-  fonts:
-    #asset font type Montserrat
-    - family: Montserrat
-      fonts:
-        - asset: assets/fonts/ElMessiri-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/ElMessiri-Bold.ttf
-          weight: 600
-        - asset: assets/fonts/ElMessiri-Bold.ttf
-          weight: 400
-        - asset: assets/fonts/ElMessiri-Bold.ttf
-          weight: 500
-        - asset: assets/fonts/ElMessiri-Bold.ttf
-          weight: 300
+
 

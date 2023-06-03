@@ -32,8 +32,8 @@ class AppMaterial extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => instance<AuthenticationCubit>()..getAppAuthenticationLevel()),
-        BlocProvider(create: (_) => instance<ThemeCubit>()..getAppTheme()),
+        BlocProvider(create: (_) => instance<AuthenticationCubit>()),
+        BlocProvider(create: (_) => instance<ThemeCubit>()),
 
       ],
       child: const AppMaterials(),
@@ -75,15 +75,13 @@ class _AppMaterialsState extends State<AppMaterials> with WidgetsBindingObserver
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthenticationCubit, AuthenticationState>(
-      
-      listener: (context, state) =>state.changeAuthenticationStateExtension(context),
+    return BlocBuilder<AuthenticationCubit, AuthenticationState>(
       builder: (context, state) {
         return MaterialApp.router(
-            routeInformationProvider: AppRouter.router.routeInformationProvider,
-            routeInformationParser: AppRouter.router.routeInformationParser,
-            routerDelegate: AppRouter.router.routerDelegate,
-            backButtonDispatcher:AppRouter.router.backButtonDispatcher ,
+            routeInformationProvider: instance<AppRouter>().router.routeInformationProvider,
+            routeInformationParser: instance<AppRouter>().router.routeInformationParser,
+            routerDelegate: instance<AppRouter>().router.routerDelegate,
+            backButtonDispatcher:instance<AppRouter>().router.backButtonDispatcher ,
           debugShowCheckedModeBanner: false,
           themeMode:context.getAppTheme,
           locale: context.locale,

@@ -99,13 +99,13 @@ extension BuildContextValue on BuildContext {
    {
        dismissDialog();
        await Future.delayed(Duration.zero);
-       pushReplacementNamed(routes);
+       GoRouter.of(this).go(routes);
     });
   void pushNamedExtension(String routes)=>WidgetsBinding.instance.addPostFrameCallback((_) async{
       dismissDialog();
       
       Future.delayed(Duration.zero);
-      pushNamed(routes);
+       GoRouter.of(this).go(routes);
     });
 
   bool get isCurrentDialogShowing => ModalRoute.of(this)?.isCurrent != true;
@@ -117,7 +117,7 @@ extension BuildContextValue on BuildContext {
       
       dismissDialog();
       await Future.delayed(Duration.zero);
-      Navigator.of(this,rootNavigator: true).pop(true);
+      GoRouter.of(this).pop(true);
       
     });
 
@@ -129,6 +129,16 @@ ThemeData get getDarkTheme=>read<ThemeCubit>().getDarkTheme;
 
 }
 
+extension AppAuthenticationLevelEx on AppAuthenticationLevel{
+  String getRoutesStatus()=>switch(this)
+  {
+    AppAuthenticationLevel.authenticated=> Routes.homeRoute,
+    AppAuthenticationLevel.unAuthenticated=> Routes.loginRoute,
+    AppAuthenticationLevel.darft=> Routes.onBoardingRoute,
+    
+
+   };
+}
 extension SizedBoxValuesHeightOrWidth on num{
 
   SizedBox get heightSizedBox => SizedBox(height:toDouble());
@@ -142,27 +152,7 @@ extension SizedBoxValuesHeightOrWidth on num{
 }
 
 
-extension HandleAuthentication on AuthenticationState{
 
-   void changeAuthenticationStateExtension(BuildContext context)
-   {
-    switch (appAuthenticationLevel) {
-            case AppAuthenticationLevel.authenticated:
-                       context.pushReplacedNamedExtension(Routes.homeRoute);
-                  break;
-            case AppAuthenticationLevel.unAuthenticated:
-                       context.pushReplacedNamedExtension(Routes.loginRoute);
-                  break;
-            case AppAuthenticationLevel.darft:
-                       context.pushReplacedNamedExtension(Routes.onBoardingRoute);
-                  break;
-            default:
-                       context.pushReplacedNamedExtension(Routes.splashRoute,);
-                  break;
-          }
-   }
-
-}
 
 
 extension OrientationExtension on Orientation{

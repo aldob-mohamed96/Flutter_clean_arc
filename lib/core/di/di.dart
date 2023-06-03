@@ -79,11 +79,15 @@ Future<void> initAppServicesGetIt() async {
                                               getAuthenticationUseCase: instance(),
                                               changeAuthenticationUseCase: instance(),
                                               changeTokenUseCase: instance()
-                                              ));
+                                              )..getAppAuthenticationLevel());
+
+
+
+   instance.registerLazySingleton<AppRouter>(() => AppRouterImpl(authenticationCubit: instance()));
 
    instance.registerLazySingleton<ThemeCubit>(() => ThemeCubit(
                                               changeThemeAppUseCase: instance(),
                                               getThemeAppUseCase: instance(),
-                                              themeManager: instance()));
+                                              themeManager: instance())..getAppTheme());
 
 }
