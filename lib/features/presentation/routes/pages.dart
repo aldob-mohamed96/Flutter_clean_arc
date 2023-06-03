@@ -19,11 +19,14 @@ import '../../../core/resources/export_file.dart';
 
     routes: <RouteBase>[
       GoRoute(
+        
         path: Routes.splashRoute,
         builder:_splashRouteBuilder,
         routes: <RouteBase>[
            
-          GoRoute(path: Routes.onBoardingRoute, builder: _onBoardingRouteBuilder),
+          GoRoute(
+             path: Routes.onBoardingRoute,
+             builder: _onBoardingRouteBuilder),
         ],
       ),
     ],

@@ -157,7 +157,7 @@ import 'export_file.dart';
    static const String assetImagesPath  = "assets/images/";
    static const String assetJsonPath  = "assets/json/";
    static const String assetSoundPath  = "assets/sound/";
-   static const String assetTranslationPath  = "assets/transalation/";
+   static const String assetTranslationPath  = "assets/transalation";
 
   
 

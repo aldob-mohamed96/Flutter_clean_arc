@@ -80,10 +80,10 @@ class _AppMaterialsState extends State<AppMaterials> with WidgetsBindingObserver
       listener: (context, state) =>state.changeAuthenticationStateExtension(context),
       builder: (context, state) {
         return MaterialApp.router(
-          routeInformationProvider: AppRouter.router.routeInformationProvider,
-          routeInformationParser: AppRouter.router.routeInformationParser,
-          routerDelegate: AppRouter.router.routerDelegate,
-          backButtonDispatcher:AppRouter.router.backButtonDispatcher ,
+            routeInformationProvider: AppRouter.router.routeInformationProvider,
+            routeInformationParser: AppRouter.router.routeInformationParser,
+            routerDelegate: AppRouter.router.routerDelegate,
+            backButtonDispatcher:AppRouter.router.backButtonDispatcher ,
           debugShowCheckedModeBanner: false,
           themeMode:context.getAppTheme,
           locale: context.locale,

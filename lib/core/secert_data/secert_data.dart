@@ -1,10 +1,10 @@
 import '../resources/export_file.dart';
 
    class SecertData{
-   static  const String baseUrlsDebug ="................";
-   static const String baseUrls =  "....................";
-   static const String googleApiKey =  "....................";
-   static const String apiKeyPassword =  "....................";
+   static  const String baseUrlsDebug ="https://www.linkedin.com/feed";
+   static const String baseUrls =  "https://www.linkedin.com/feed";
+   static const String googleApiKey =  "https://www.linkedin.com/feed";
+   static const String apiKeyPassword =  "https://www.linkedin.com/feed";
 
 
 
