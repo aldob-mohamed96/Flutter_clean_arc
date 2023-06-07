@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:project/features/presentation/screens/auth/login.dart';
+import 'package:project/features/presentation/screens/profile/profile.dart';
 
 import '../../../core/resources/export_file.dart';
 import '../screens/home/home_screen.dart';
@@ -32,6 +33,7 @@ import '../screens/home/home_screen.dart';
       GoRoute(path: Routes.onBoardingRoute, builder:_onBoardingRouteBuilder,),
       GoRoute(path: Routes.homeRoute, builder:_homeRouteBuilder,),
       GoRoute(path: Routes.loginRoute, builder:_loginRouteBuilder,),
+      GoRoute(path: Routes.profileRoute, builder:_profileRouteBuilder,),
 
     ],
     redirect: redirctionPage,
@@ -51,6 +53,7 @@ import '../screens/home/home_screen.dart';
    Widget _errorWidget(BuildContext context, GoRouterState state) => const UndefinedRouteScreen();
    Widget _homeRouteBuilder(BuildContext context, GoRouterState state) => const HomeScreen();
    Widget _loginRouteBuilder(BuildContext context, GoRouterState state) => const LoginScreen();
+   Widget _profileRouteBuilder(BuildContext context, GoRouterState state) => const ProfileScreen();
    
    MaterialPage _errorPageWidget(BuildContext context, GoRouterState state) => const MaterialPage(child: UndefinedRouteScreen());
   

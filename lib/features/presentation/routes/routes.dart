@@ -18,7 +18,7 @@ sealed class Routes {
   static const String onBoardingRoute = '/onBoarding';
   // home screen
   static const String homeRoute = '/home';
-  static const String profileRoute = '/profile';
+  static const String profileRoute = '/type';
   //undefine Route
   static const String unDefineRoute = '/unDefineRoute';
 
