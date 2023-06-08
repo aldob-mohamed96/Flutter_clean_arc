@@ -28,7 +28,7 @@ data: Includes data sources and repositories for fetching and managing data ,rep
 domain: Contains the usecase ,repositery and  application entity .<br>
 presentation: Consists of UI components their respective view models ,routes ,widget, bussines logic with bloc state managment a.<br>
 core: Includes utility functions and classes that are used throughout the project.<br>
-(errror,di,resorces,enums,services,validation,)
+(errror,di,resorces,enums,services,validation,extenstion)<br>
 test: Contains unit tests for different parts of the application.<br>
 This structure allows for a clear separation of concerns and improves the overall organization of the codebase.<br>
 
@@ -46,7 +46,7 @@ By following these clean code principles, the project aims to improve code quali
 
 ## Unit Testing
 Unit testing is an integral part of this Flutter project.<br> 
-The test directory contains unit tests for different parts of the application, including data sources, repositories, domain logic, and presentation components.<br>
+The test directory contains unit tests for different parts of the application, including data sources,repositories,domain and presentation components.<br>
 
 The project uses testing frameworks such as flutter_test and mockito to write and execute tests. <br>
 These frameworks provide utilities for creating test cases, mocking dependencies, and asserting expected outcomes.<br>
@@ -57,7 +57,7 @@ By incorporating unit tests, the project ensures that individual components work
 To get started with the project, follow these steps:
 1-<br>
 Clone the project repository:<br>
-
+git clone https://github.com/aldob-mohamed96/Flutter_clean_arc.git
 2-<br>
 cd project-directory<br>
 flutter pub get<br>
