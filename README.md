@@ -1,7 +1,4 @@
-# project
+Getting Started
+To get started with the project, follow these steps:
 
-template with clean code flutter
-
-## Getting Started
-
-
+Clone the project repository:
