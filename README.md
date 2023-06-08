@@ -23,8 +23,8 @@ The principles of clean code ensure that the codebase is easy to understand, ref
 The project structure follows a modular approach, separating different parts of the application into distinct directories.<br>
 Here's an overview of the main directories:<br>
 lib: Contains the Dart code for the application.<br>
-freature that contain ( data ,domain ,presentation)<br>
-data: Includes data sources and repositories for fetching and managing data ,reponse that contain models and convert response to models (mapper) to send data to domain without null values.<br>
+freature that contains ( data ,domain ,presentation)<br>
+data: Includes network factory,data sources for fetching and managing data ,reponse that contain (models and mapper) and request data.<br>
 domain: Contains the usecase ,repositery and  application entity .<br>
 presentation: Consists of UI components their respective view models ,routes ,widget, bussines logic with bloc state managment a.<br>
 core: Includes utility functions and classes that are used throughout the project.<br>
