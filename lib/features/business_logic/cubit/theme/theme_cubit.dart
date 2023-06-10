@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import '../../../../core/resources/export_file.dart';
+import '../../../domain/entity/data_value.dart';
 import '../../../domain/usecases/base_usecase.dart';
 
 import '../../../domain/usecases/change_theme_usecase.dart';
@@ -25,13 +26,13 @@ class ThemeCubit extends Cubit<ThemeState> {
  void getAppTheme()async
   {
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    final result=await _getThemeAppUseCase.execute(Params.empty);
+    final result=await _getThemeAppUseCase(const NoParam());
     Future.delayed(Duration.zero);
     result.fold(
       (failure)   => emit(state.copyWith(flowStateApp: FlowStateApp.error,failure: failure)),
       (themeMode) {
-        _themeManager.changeStatusBarAndNavigationBarColors(themeMode);  
-        emit(state.copyWith(flowStateApp: FlowStateApp.normal,themeMode: themeMode));
+        _themeManager.changeStatusBarAndNavigationBarColors(themeMode.value);  
+        emit(state.copyWith(flowStateApp: FlowStateApp.normal,themeMode: themeMode.value));
       },
     );
    
@@ -41,7 +42,7 @@ class ThemeCubit extends Cubit<ThemeState> {
   {
 
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    final result=await _changeThemeAppUseCase.execute(ChangeThemeAppUseCaseInput(themeMode));
+    final result=await _changeThemeAppUseCase(ChangeThemeAppUseCaseInput(themeMode));
     Future.delayed(Duration.zero);
     result.fold(
       (failure) => emit(state.copyWith(flowStateApp: FlowStateApp.error,failure: failure)),

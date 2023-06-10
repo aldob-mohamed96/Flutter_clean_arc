@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:project/features/domain/entity/data_value.dart';
 
 import '../../../../core/resources/export_file.dart';
 
@@ -10,15 +11,15 @@ abstract interface class AppPreferences {
 
   //setting app local data
 
-  Future<bool> setThemeAppPreferences(ThemeMode themeMode);
-  Future<bool> setToken(String token);
-  Future<bool> setAppAuthenticationLevel(AppAuthenticationLevel levelApp);
-  Future<bool> logout();
+  Future<SuccessOperation> setThemeAppPreferences(ThemeMode themeMode);
+  Future<SuccessOperation> setToken(String token);
+  Future<SuccessOperation> setAppAuthenticationLevel(AppAuthenticationLevel levelApp);
+  Future<SuccessOperation> logout();
 
 
-  ThemeMode getThemeAppPreferences();
+  ThemeModeData getThemeAppPreferences();
   AppAuthenticationLevel getAppAuthenticationLevel();
-  String getToken();
+  TokenData getToken();
   
 
 
@@ -42,7 +43,7 @@ final class AppPreferencesImpl implements AppPreferences {
   }
 
   @override
-  ThemeMode getThemeAppPreferences() {
+  ThemeModeData getThemeAppPreferences() {
     return _sharedPreferences.getString(AppConstants.appThemeModePrefsKey).getThemeModeApp();
   }
 
@@ -51,26 +52,28 @@ final class AppPreferencesImpl implements AppPreferences {
 
 
   @override
-  Future<bool> setAppAuthenticationLevel(AppAuthenticationLevel level)async {
-    return  await _sharedPreferences.setString(AppConstants.appAppAuthenticationLevelPrefsKey,level.name);
+  Future<SuccessOperation> setAppAuthenticationLevel(AppAuthenticationLevel level)async {
+   return  await _sharedPreferences.setString(AppConstants.appAppAuthenticationLevelPrefsKey,level.name).booLDataReturnedValue();
+  
+    
   }
 
   @override
-  Future<bool> logout()async {
+  Future<SuccessOperation> logout()async {
     _sharedPreferences.clear();
-    return  await _sharedPreferences.setString(AppConstants.appAppAuthenticationLevelPrefsKey,AppAuthenticationLevel.unAuthenticated.name);
+    return await _sharedPreferences.setString(AppConstants.appAppAuthenticationLevelPrefsKey,AppAuthenticationLevel.unAuthenticated.name).booLDataReturnedValue();
   }
 
   @override
-  Future<bool> setThemeAppPreferences(ThemeMode themeMode) {
-    return _sharedPreferences.setString(AppConstants.appThemeModePrefsKey,themeMode.name);
+  Future<SuccessOperation> setThemeAppPreferences(ThemeMode themeMode) {
+    return _sharedPreferences.setString(AppConstants.appThemeModePrefsKey,themeMode.name).booLDataReturnedValue();
   }
   
   @override
-  String getToken() =>_sharedPreferences.getString(AppConstants.appTokenUserPrefsKey).orEmptyString();
+  TokenData getToken() =>_sharedPreferences.getString(AppConstants.appTokenUserPrefsKey).getTokenValue();
   
   @override
-  Future<bool> setToken(String token) =>_sharedPreferences.setString(AppConstants.appTokenUserPrefsKey,token);
+  Future<SuccessOperation> setToken(String token) =>_sharedPreferences.setString(AppConstants.appTokenUserPrefsKey,token).booLDataReturnedValue();
 
 
 

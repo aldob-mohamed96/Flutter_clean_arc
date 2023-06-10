@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:project/features/domain/entity/data_value.dart';
 
 import '../resources/export_file.dart';
 
@@ -10,26 +11,27 @@ import '../resources/export_file.dart';
 extension NonNullString on String? {
   String orEmptyString({String defaultValue = AppConstants.defaultEmptyString}) => (this == null) ? defaultValue : this??defaultValue;
 
-  ThemeMode getThemeModeApp({ThemeMode defaultValue=AppConstants.defaultTheme}) {
+  TokenData getTokenValue({String defaultValue = AppConstants.defaultEmptyString}) => (this == null) ? TokenData(defaultValue) : TokenData(this??defaultValue);
+  ThemeModeData getThemeModeApp({ThemeMode defaultValue=AppConstants.defaultTheme}) {
     if(this==null)
     {
-      return defaultValue;
+      return ThemeModeData(defaultValue);
     }
     else if(this==AppConstants.lightTheme)
     {
-      return ThemeMode.light;
+      return const ThemeModeData(ThemeMode.light);
     }
     else if(this==AppConstants.darkTheme)
     {
-      return ThemeMode.dark;
+      return const ThemeModeData(ThemeMode.dark);
     }
     else if(this==AppConstants.systemTheme)
     {
-      return ThemeMode.system;
+      return const ThemeModeData(ThemeMode.system);
     }
     else
      {
-       return defaultValue;
+       return ThemeModeData(defaultValue);
      }
 
   }
@@ -78,8 +80,11 @@ extension NonNullBool on bool? {
   bool orBoolDefaultFalseValue({bool defaultValue=AppConstants.defaultEmptyBoolFalse})=> (this == null) ? defaultValue : this??defaultValue;
 
   bool orBoolDefaultTrueValue({bool defaultValue=AppConstants.defaultEmptyBoolTrue})=> (this == null) ? defaultValue : this??defaultValue;
-
-
+  
+ 
+}
+extension NonNullBoolData on Future<bool> {
+  Future<SuccessOperation> booLDataReturnedValue()async=> SuccessOperation(await this);
 }
 
 extension BuildContextValue on BuildContext {

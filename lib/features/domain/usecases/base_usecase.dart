@@ -1,13 +1,7 @@
 import '../../../core/resources/export_file.dart';
 
 abstract interface class BaseUseCase<Input, Output> {
-  Future<Either<Failure, Output>> execute(Input input);
+  Future<Either<Failure, Output>> call(Input input);
 }
 
-
-class Params {
-  final Unit data;
-  Params(this.data);
-  static Params empty=Params(unit);
-}
 

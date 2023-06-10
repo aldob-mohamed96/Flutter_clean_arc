@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:project/features/domain/entity/data_value.dart';
 
 import '../../../../core/resources/export_file.dart';
 import '../../request/requests.dart';
@@ -7,42 +8,42 @@ import '../../request/requests.dart';
 
 abstract interface class  LocalDataSource{
  
-Future<bool> logout() ;
+Future<SuccessOperation> logout() ;
 Future<AppAuthenticationLevel> getLevelAuthenticationApp();
-Future<bool> setLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest);
-Future<ThemeMode> getThemeAppPreferences();
-Future<bool> setThemeAppPreferences(ThemeModeAppReuest themeModeAppReuest);
-Future<bool>   setToken(TokenRequest tokenRequest);
-Future<String> getToken();
+Future<SuccessOperation> setLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest);
+Future<ThemeModeData> getThemeAppPreferences();
+Future<SuccessOperation> setThemeAppPreferences(ThemeModeAppReuest themeModeAppReuest);
+Future<SuccessOperation>   setToken(TokenRequest tokenRequest);
+Future<TokenData> getToken();
 
 
 }
-final class LocalDataSourceImpl implements LocalDataSource{
+ class LocalDataSourceImpl implements LocalDataSource{
   final AppPreferences _appPreferences;
   LocalDataSourceImpl({required AppPreferences appPreferences }):_appPreferences=appPreferences;
   
   //auth
   @override
-  Future<bool> logout() async=> await _appPreferences.logout();
+  Future<SuccessOperation> logout() async=> await _appPreferences.logout();
   
   @override
   Future<AppAuthenticationLevel> getLevelAuthenticationApp() async=>_appPreferences.getAppAuthenticationLevel();
   
   @override
-  Future<bool> setLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest) async=>await _appPreferences.setAppAuthenticationLevel(appAuthenticationLevelRequest.appAuthenticationLevel);
+  Future<SuccessOperation> setLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest) async=>await _appPreferences.setAppAuthenticationLevel(appAuthenticationLevelRequest.appAuthenticationLevel);
   
   //theme 
   @override
-  Future<ThemeMode> getThemeAppPreferences() async=> _appPreferences.getThemeAppPreferences();
+  Future<ThemeModeData> getThemeAppPreferences() async=> _appPreferences.getThemeAppPreferences();
   
   @override
-  Future<bool> setThemeAppPreferences(ThemeModeAppReuest themeModeAppReuest)  async=>await _appPreferences.setThemeAppPreferences(themeModeAppReuest.themeMode);
+  Future<SuccessOperation> setThemeAppPreferences(ThemeModeAppReuest themeModeAppReuest)  async=>await _appPreferences.setThemeAppPreferences(themeModeAppReuest.themeMode);
   
   @override
-  Future<String> getToken() async=>_appPreferences.getToken();
+  Future<TokenData> getToken() async=>_appPreferences.getToken();
   
   @override
-  Future<bool> setToken(TokenRequest tokenRequest)  async=>await _appPreferences.setToken(tokenRequest.value);
+  Future<SuccessOperation> setToken(TokenRequest tokenRequest)  async=>await _appPreferences.setToken(tokenRequest.value);
   
 
 }

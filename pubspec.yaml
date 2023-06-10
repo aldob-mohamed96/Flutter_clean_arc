@@ -14,23 +14,23 @@ dependencies:
   flutter:
     sdk: flutter
   #bloc
-  flutter_bloc: ^8.1.2
-  bloc: ^8.1.1
-  bloc_concurrency: ^0.2.1
+  flutter_bloc: ^8.1.3
+  bloc: ^8.1.2
+  bloc_concurrency: ^0.2.2
   equatable: ^2.0.5
   #storage local
-  shared_preferences: ^2.1.0
+  shared_preferences: ^2.1.2
   #map gelocator google map
   geolocator: ^9.0.2
   #dependency_injector
-  get_it: ^7.3.0
+  get_it: ^7.6.0
   #routing
-  go_router: ^7.0.0
+  go_router: ^8.0.0
   #dartz
   dartz: ^0.10.1
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.5
   #local
-  easy_localization: ^3.0.1
+  easy_localization: ^3.0.2
   #local notifications
   flutter_local_notifications: ^14.1.0 
   #internet
@@ -48,7 +48,8 @@ dependencies:
   json_annotation: ^4.8.1
   #uni link deep links
   uni_links: ^0.5.1
-  mockito: ^5.0.15
+  
+
 
 
 
@@ -58,10 +59,11 @@ dev_dependencies:
   integration_test:
     sdk: flutter
   bloc_test:
-  build_runner: ^2.3.3
-  flutter_lints: ^2.0.0
+  build_runner: ^2.4.5
+  flutter_lints: ^2.0.1
   retrofit_generator: ^7.0.1
-  json_serializable: ^6.6.2
+  json_serializable: ^6.7.0
+  mockito: ^5.4.2
    
 
 
@@ -71,10 +73,12 @@ flutter:
   uses-material-design: true
     #assets images
   assets:
+
     - assets/images/
     - assets/json/
     - assets/sound/
     - assets/translations/
+    - .env
   #assets fonts
 
 

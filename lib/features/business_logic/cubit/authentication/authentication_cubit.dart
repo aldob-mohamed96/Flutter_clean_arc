@@ -1,3 +1,4 @@
+import '../../../domain/entity/data_value.dart';
 import '../../../domain/usecases/base_usecase.dart';
 import '../../../domain/usecases/chage_token_usecase.dart';
 import '../../../domain/usecases/get_token_usecase.dart';
@@ -35,7 +36,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   void getAppAuthenticationLevel()async
   {
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    final result=await _getAuthenticationUseCase.execute(Params.empty);
+    final result=await _getAuthenticationUseCase(const NoParam());
     
     Future.delayed(Duration.zero);
     
@@ -51,7 +52,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   {
 
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    final result=await _changeAuthenticationUseCase.execute(AppAuthenticationLevelUseCaseInput(appAuthenticationLevel));
+    final result=await _changeAuthenticationUseCase(AppAuthenticationLevelUseCaseInput(appAuthenticationLevel));
     Future.delayed(Duration.zero);
     result.fold(
       (failure)=> emit(state.copyWith(flowStateApp: FlowStateApp.error,failure:failure)),
@@ -62,7 +63,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   {
 
     emit(state.copyWith(flowStateApp: FlowStateApp.loading,));
-    final result=await _logoutUseCase.execute(Params.empty);
+    final result=await _logoutUseCase(const NoParam());
     Future.delayed(Duration.zero);
     result.fold(
       (failure)=> emit(state.copyWith(flowStateApp: FlowStateApp.error,failure:failure)),
