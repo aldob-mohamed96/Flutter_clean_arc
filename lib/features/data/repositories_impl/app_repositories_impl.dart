@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:project/features/domain/entity/data_value.dart';
 
 import '../../../core/resources/export_file.dart';
@@ -18,7 +17,8 @@ class AppRepositoryImpl implements AppRepository {
         _remoteDataSource = remoteDataSource,
         _localDataSource = localDataSource;
 
-  @override
+
+ @override
   Future<Either<Failure, Logout>> logout() async {
     if (await _networkInfo.isConnected) 
     {
@@ -27,21 +27,19 @@ class AppRepositoryImpl implements AppRepository {
                     final response = await _remoteDataSource.logout();
                     if (response.status == ApiInternalStatusCode.success) 
                     {
-                          final logout = response.toDomain();
-                          if (logout.isLoggout) 
-                          {
                             await _localDataSource.logout();
-                          }
-                          return Right(logout);
+                            return Right(response.toDomain()); 
+                      
                     } 
+
                     else
                     {
-                          return const Left(AppConstants.unknownfailure);
+                          return  Left(Failure(response.code??ResponseCode.unknownError, response.message??ResponseMessage.unknownError));
                     }
             }
             catch (error) 
             {
-                    return Left(NetworkException.handleNetworkError(error).failure);
+                    return Left(ExceptionHandling.handleError(error).failure);
             }
     }
     else 
@@ -50,13 +48,14 @@ class AppRepositoryImpl implements AppRepository {
     }
   }
 
+
   @override
   Future<Either<Failure, AppAuthenticationLevel>>
       getLevelAuthenticationApp() async {
     try {
       return Right(await _localDataSource.getLevelAuthenticationApp());
     } catch (error) {
-      return const Left(Failure.unknown());
+      return Left(ExceptionHandling.handleError(error).failure);
     }
   }
 
@@ -66,7 +65,7 @@ class AppRepositoryImpl implements AppRepository {
     try {
       return Right(await _localDataSource.setLevelAuthenticationApp(appAuthenticationLevelRequest));
     } catch (error) {
-      return const Left(Failure.unknown());
+      return Left(ExceptionHandling.handleError(error).failure);
     }
   }
 
@@ -75,7 +74,7 @@ class AppRepositoryImpl implements AppRepository {
     try {
       return Right(await _localDataSource.getThemeAppPreferences());
     } catch (error) {
-      return const Left(Failure.unknown());
+      return Left(ExceptionHandling.handleError(error).failure);
     }
   }
 
@@ -85,7 +84,7 @@ class AppRepositoryImpl implements AppRepository {
     try {
       return  Right(await _localDataSource.setThemeAppPreferences(themeModeAppReuest));
     } catch (error) {
-      return const Left(Failure.unknown());
+      return Left(ExceptionHandling.handleError(error).failure);
     }
   }
 
@@ -95,7 +94,7 @@ class AppRepositoryImpl implements AppRepository {
       
       return Right(await _localDataSource.getToken());
     } catch (error) {
-       return const Left(Failure.unknown());
+       return Left(ExceptionHandling.handleError(error).failure);
     }
   }
 
@@ -105,7 +104,7 @@ class AppRepositoryImpl implements AppRepository {
     try {
       return Right(await _localDataSource.setToken(tokenRequest));
     } catch (error) {
-      return const Left(Failure.unknown());
+      return Left(ExceptionHandling.handleError(error).failure);
     }
   }
 }

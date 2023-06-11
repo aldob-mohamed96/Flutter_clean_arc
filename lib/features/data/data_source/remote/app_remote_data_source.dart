@@ -6,7 +6,7 @@ abstract interface class RemoteDataSource{
 Future<LogoutAuthResponse> logout() ;
 
 }
-class RemoteDataSourceImpl extends RemoteDataSource{
+final class RemoteDataSourceImpl extends RemoteDataSource{
 
   final AppServiceApiClient _appServiceApiClient;
   RemoteDataSourceImpl({required AppServiceApiClient appServiceApiClient }):_appServiceApiClient=appServiceApiClient;

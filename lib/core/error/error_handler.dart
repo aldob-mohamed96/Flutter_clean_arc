@@ -5,6 +5,117 @@ import '../resources/export_file.dart';
 
 
 
+class TimerException implements Exception {
+  late Failure failure;
+  TimerException.handlePermissionError(dynamic error){
+    if(error is DataSourceTimer)
+    {
+      failure = _handleTimerError(error);
+    }
+    else
+    {
+      failure = DataSourceTimer.unknownError.getFailure();
+    }
+ }
+
+  Failure _handleTimerError(DataSourceTimer dataSourceTimer)
+  {
+    switch(dataSourceTimer)
+    {
+      case DataSourceTimer.timerCancelError:
+        return DataSourceTimer.timerCancelError.getFailure();
+      case DataSourceTimer.errorTimer:
+        return DataSourceTimer.errorTimer.getFailure();
+      case DataSourceTimer.isInactive:
+        return DataSourceTimer.isInactive.getFailure();
+      case DataSourceTimer.isActive:
+        return DataSourceTimer.isActive.getFailure();
+      default:
+        return DataSourceTimer.unknownError.getFailure();
+    }
+  }
+
+
+}
+class ExceptionHandling implements Exception {
+  late Failure failure;
+  ExceptionHandling.handleError(dynamic error){
+
+    if(error is DioError)
+      {
+        failure= _handleNetworkDioFailure(error);
+      }
+    else if(error is SocketException)
+    {
+      failure= DataSourceNetworkError.internalServerError.getFailure();
+    }
+    else if(error is FormatException)
+    {
+      failure= DataSourceNetworkError.formatException.getFailure();
+    }
+    else if(error is LocationException)
+    {
+      failure= LocationException.handleLocationError(error).failure;
+    }
+    else if(error is TimerException)
+    {
+      failure= TimerException.handlePermissionError(error).failure;
+    }
+    else if(error is BatteryException)
+    {
+      failure= BatteryException.handlePermissionError(error).failure;
+    }
+    else if(error is UrlLauncherException)
+    {
+      failure= UrlLauncherException.handleUrlLancherError(error).failure;
+    }
+    else if(error is PermissionException)
+      {
+        failure= PermissionException.handlePermissionError(error).failure;
+      }
+    else
+      {
+        failure= DataSourceNetworkError.unknownError.getFailure();
+      }
+
+  }
+
+  Failure _handleNetworkDioFailure(DioError error) {
+    switch (error.type) {
+      case DioErrorType.connectionTimeout:
+        return DataSourceNetworkError.connectTimeOut.getFailure();
+      case DioErrorType.sendTimeout:
+        return DataSourceNetworkError.sendTimeOut.getFailure();
+      case DioErrorType.receiveTimeout:
+        return DataSourceNetworkError.recieveTimeOut.getFailure();
+      case DioErrorType.badCertificate:
+        return DataSourceNetworkError.unAuthorised.getFailure();
+      case DioErrorType.connectionError:
+        return DataSourceNetworkError.connectTimeOut.getFailure();
+      case DioErrorType.badResponse:
+        if (error.response != null &&
+            error.response?.statusCode != null &&
+            error.response?.statusMessage != null) {
+          return Failure(
+              error.response?.statusCode ??
+                  AppConstants.defaultEmptyInteger,
+              error.response?.statusMessage ??
+                  AppConstants.defaultEmptyString);
+        } else {
+          return DataSourceNetworkError.unknownError.getFailure();
+        }
+      case DioErrorType.cancel:
+        return DataSourceNetworkError.cancel.getFailure();
+      case DioErrorType.unknown:
+        return DataSourceNetworkError.unknownError.getFailure();
+    }
+  }
+
+
+}
+
+
+
 class UrlLauncherException implements Exception {
   late Failure failure;
   UrlLauncherException.handleUrlLancherError(dynamic error){
@@ -62,113 +173,6 @@ class BatteryException implements Exception {
         return DataSourceBatteryState.unknownError.getFailure();
     }
   }
-
-
-}
-class TimerException implements Exception {
-  late Failure failure;
-  TimerException.handlePermissionError(dynamic error){
-    if(error is DataSourceTimer)
-    {
-      failure = _handleTimerError(error);
-    }
-    else
-    {
-      failure = DataSourceTimer.unknownError.getFailure();
-    }
- }
-
-  Failure _handleTimerError(DataSourceTimer dataSourceTimer)
-  {
-    switch(dataSourceTimer)
-    {
-      case DataSourceTimer.timerCancelError:
-        return DataSourceTimer.timerCancelError.getFailure();
-      case DataSourceTimer.errorTimer:
-        return DataSourceTimer.errorTimer.getFailure();
-      case DataSourceTimer.isInactive:
-        return DataSourceTimer.isInactive.getFailure();
-      case DataSourceTimer.isActive:
-        return DataSourceTimer.isActive.getFailure();
-      default:
-        return DataSourceTimer.unknownError.getFailure();
-    }
-  }
-
-
-}
-class NetworkException implements Exception {
-  late Failure failure;
-  NetworkException.handleNetworkError(dynamic error){
-
-    if(error is DioError)
-      {
-        failure= _handleNetworkDioFailure(error);
-      }
-    else
-      {
-        failure= DataSourceNetworkError.unknownError.getFailure();
-      }
-
-  }
-
-  Failure _handleNetworkDioFailure(DioError error) {
-    switch (error.type) {
-      case DioErrorType.connectionTimeout:
-        return DataSourceNetworkError.connectTimeOut.getFailure();
-      case DioErrorType.sendTimeout:
-        return DataSourceNetworkError.sendTimeOut.getFailure();
-      case DioErrorType.receiveTimeout:
-        return DataSourceNetworkError.recieveTimeOut.getFailure();
-      case DioErrorType.badCertificate:
-        return DataSourceNetworkError.unAuthorised.getFailure();
-      case DioErrorType.connectionError:
-        return DataSourceNetworkError.connectTimeOut.getFailure();
-      case DioErrorType.badResponse:
-        if (error.response != null &&
-            error.response?.statusCode != null &&
-            error.response?.statusMessage != null) {
-          return Failure(
-              error.response?.statusCode ??
-                  AppConstants.defaultEmptyInteger,
-              error.response?.statusMessage ??
-                  AppConstants.defaultEmptyString);
-        } else {
-          return DataSourceNetworkError.unknownError.getFailure();
-        }
-      case DioErrorType.cancel:
-        return DataSourceNetworkError.cancel.getFailure();
-      case DioErrorType.unknown:
-        return DataSourceNetworkError.unknownError.getFailure();
-    }
-  }
-
-
-
-
-
-
-
-
-
-
-}
-class CashedException implements Exception {
-  late Failure failure;
-  CashedException.handleCashedError(dynamic error){
-
-   
-   failure= DataSourceNetworkError.cashError.getFailure();
-      
-
-  }
-
-
-
-
-
-
-
 
 
 }

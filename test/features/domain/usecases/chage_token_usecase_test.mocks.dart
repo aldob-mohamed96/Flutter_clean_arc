@@ -36,10 +36,6 @@ class _FakeEither_0<L, R> extends _i1.SmartFake implements _i2.Either<L, R> {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
-  MockAppRepository() {
-    _i1.throwOnMissingStub(this);
-  }
-
   @override
   _i3.Future<_i2.Either<_i2.Failure, _i4.Logout>> logout() =>
       (super.noSuchMethod(
@@ -55,6 +51,15 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
             [],
           ),
         )),
+        returnValueForMissingStub:
+            _i3.Future<_i2.Either<_i2.Failure, _i4.Logout>>.value(
+                _FakeEither_0<_i2.Failure, _i4.Logout>(
+          this,
+          Invocation.method(
+            #logout,
+            [],
+          ),
+        )),
       ) as _i3.Future<_i2.Either<_i2.Failure, _i4.Logout>>);
   @override
   _i3.Future<_i2.Either<_i2.Failure, _i2.AppAuthenticationLevel>>
@@ -64,6 +69,15 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
               [],
             ),
             returnValue: _i3.Future<
+                    _i2.Either<_i2.Failure, _i2.AppAuthenticationLevel>>.value(
+                _FakeEither_0<_i2.Failure, _i2.AppAuthenticationLevel>(
+              this,
+              Invocation.method(
+                #getLevelAuthenticationApp,
+                [],
+              ),
+            )),
+            returnValueForMissingStub: _i3.Future<
                     _i2.Either<_i2.Failure, _i2.AppAuthenticationLevel>>.value(
                 _FakeEither_0<_i2.Failure, _i2.AppAuthenticationLevel>(
               this,
@@ -91,6 +105,15 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
             [appAuthenticationLevelRequest],
           ),
         )),
+        returnValueForMissingStub:
+            _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>.value(
+                _FakeEither_0<_i2.Failure, _i5.SuccessOperation>(
+          this,
+          Invocation.method(
+            #setLevelAuthenticationApp,
+            [appAuthenticationLevelRequest],
+          ),
+        )),
       ) as _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>);
   @override
   _i3.Future<_i2.Either<_i2.Failure, _i5.ThemeModeData>>
@@ -100,6 +123,15 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
               [],
             ),
             returnValue:
+                _i3.Future<_i2.Either<_i2.Failure, _i5.ThemeModeData>>.value(
+                    _FakeEither_0<_i2.Failure, _i5.ThemeModeData>(
+              this,
+              Invocation.method(
+                #getThemeAppPreferences,
+                [],
+              ),
+            )),
+            returnValueForMissingStub:
                 _i3.Future<_i2.Either<_i2.Failure, _i5.ThemeModeData>>.value(
                     _FakeEither_0<_i2.Failure, _i5.ThemeModeData>(
               this,
@@ -126,6 +158,15 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
                 [themeModeAppReuest],
               ),
             )),
+            returnValueForMissingStub:
+                _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>.value(
+                    _FakeEither_0<_i2.Failure, _i5.SuccessOperation>(
+              this,
+              Invocation.method(
+                #setThemeAppPreferences,
+                [themeModeAppReuest],
+              ),
+            )),
           ) as _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>);
   @override
   _i3.Future<_i2.Either<_i2.Failure, _i5.TokenData>> getToken() =>
@@ -142,6 +183,15 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
             [],
           ),
         )),
+        returnValueForMissingStub:
+            _i3.Future<_i2.Either<_i2.Failure, _i5.TokenData>>.value(
+                _FakeEither_0<_i2.Failure, _i5.TokenData>(
+          this,
+          Invocation.method(
+            #getToken,
+            [],
+          ),
+        )),
       ) as _i3.Future<_i2.Either<_i2.Failure, _i5.TokenData>>);
   @override
   _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>> setToken(
@@ -152,6 +202,15 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
           [tokenRequest],
         ),
         returnValue:
+            _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>.value(
+                _FakeEither_0<_i2.Failure, _i5.SuccessOperation>(
+          this,
+          Invocation.method(
+            #setToken,
+            [tokenRequest],
+          ),
+        )),
+        returnValueForMissingStub:
             _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>.value(
                 _FakeEither_0<_i2.Failure, _i5.SuccessOperation>(
           this,

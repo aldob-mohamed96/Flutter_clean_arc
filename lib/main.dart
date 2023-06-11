@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +10,6 @@ import 'features/business_logic/cubit/theme/theme_cubit.dart';
 import 'features/presentation/routes/pages.dart';
 import 'features/presentation/widgets/locale_widget.dart';
 
-import 'package:uni_links/uni_links.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

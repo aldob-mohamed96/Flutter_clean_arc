@@ -9,6 +9,8 @@ class BaseResponse{
   @JsonKey(name: "success")
   bool? success;
   @JsonKey(name: "message")
-  String? message;  
+  String? message; 
+  @JsonKey(name: "code")
+  int? code; 
  }
 

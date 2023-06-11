@@ -1,5 +1,4 @@
 import '../../../domain/entity/data_value.dart';
-import '../../../domain/usecases/base_usecase.dart';
 import '../../../domain/usecases/chage_token_usecase.dart';
 import '../../../domain/usecases/get_token_usecase.dart';
 

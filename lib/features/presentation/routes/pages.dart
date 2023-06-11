@@ -47,7 +47,6 @@ import '../screens/home/home_screen.dart';
 
 
    String redirctionPage(BuildContext context, GoRouterState state)=>_authenticationCubit.state.appAuthenticationLevel.getRoutesStatus();
-   
    Widget _onBoardingRouteBuilder(BuildContext context, GoRouterState state) => const OnBoardingScreen();
    Widget _splashRouteBuilder(BuildContext context, GoRouterState state) => const SplashScreen();
    Widget _errorWidget(BuildContext context, GoRouterState state) => const UndefinedRouteScreen();

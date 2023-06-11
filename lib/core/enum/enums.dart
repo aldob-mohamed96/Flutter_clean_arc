@@ -62,13 +62,17 @@ enum DataSourceNetworkError {
   unAuthorised,
   notFound,
   internalServerError,
+  socketError,
+  formatException,
+  
   connectTimeOut,
   cancel,
   recieveTimeOut,
   sendTimeOut,
   cashError,
   noInternetConnection,
-  unknownError
+  unknownError,
+  
 }
 enum DataSourceLocationError {
   success,

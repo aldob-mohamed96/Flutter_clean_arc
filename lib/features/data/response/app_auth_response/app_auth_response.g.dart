@@ -12,12 +12,14 @@ LogoutAuthResponse _$LogoutAuthResponseFromJson(Map<String, dynamic> json) =>
     )
       ..status = json['status'] as int?
       ..success = json['success'] as bool?
-      ..message = json['message'] as String?;
+      ..message = json['message'] as String?
+      ..code = json['code'] as int?;
 
 Map<String, dynamic> _$LogoutAuthResponseToJson(LogoutAuthResponse instance) =>
     <String, dynamic>{
       'status': instance.status,
       'success': instance.success,
       'message': instance.message,
+      'code': instance.code,
       'isLoggedOut': instance.isLoggedOut,
     };

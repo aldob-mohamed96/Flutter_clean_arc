@@ -5,7 +5,7 @@ import '../entity/data_value.dart';
 import 'base_usecase.dart';
 
 
-class ChangeTokenUseCase implements BaseUseCase<ChangeTokenUseCaseInput, SuccessOperation> {
+final class ChangeTokenUseCase implements BaseUseCase<ChangeTokenUseCaseInput, SuccessOperation> {
   final AppRepository _repository;
 
   ChangeTokenUseCase({required AppRepository repository}):_repository=repository;

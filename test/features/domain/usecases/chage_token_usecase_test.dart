@@ -6,7 +6,6 @@ import 'package:project/core/resources/export_file.dart';
 import 'package:project/features/data/request/requests.dart';
 import 'package:project/features/domain/entity/data_value.dart';
 import 'package:project/features/domain/usecases/chage_token_usecase.dart';
-
 import 'chage_token_usecase_test.mocks.dart';
 
 
@@ -59,13 +58,13 @@ void main() {
      test('should return Failure when token changing operation occurred cashed Exception', () async {
     // Arrange
     final input = ChangeTokenUseCaseInput('any String test input');
-    when(mockRepository.setToken(any)).thenAnswer((_) async => const Left(Failure.unknown()));
+    when(mockRepository.setToken(any)).thenAnswer((_) async => const Left(Failure.cash()));
 
     // Act
     final result = await changeTokenUseCase(input);
 
     // Assert
-    expect(result, equals(const Left(Failure.unknown())));
+    expect(result, equals(const Left(Failure.cash())));
  
     verify(mockRepository.setToken(argThat(isA<TokenRequest>())));
     verifyNoMoreInteractions(mockRepository);
