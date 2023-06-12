@@ -2,6 +2,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project/features/business_logic/cubit/localization/cubit/localization_cubit.dart';
 
 import 'core/di/di.dart';
 import 'core/extension/extension.dart';
@@ -32,6 +33,7 @@ class AppMaterial extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => instance<AuthenticationCubit>()),
         BlocProvider(create: (_) => instance<ThemeCubit>()),
+        BlocProvider(create: (_) => instance<LocalizationCubit>()),
       ],
       child: const AppMaterials(),
     );

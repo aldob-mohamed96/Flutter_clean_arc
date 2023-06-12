@@ -9,20 +9,26 @@ abstract interface class DioFactory{
 
 
 }
-final class DioFactoryImpl implements DioFactory{
+class DioFactoryImpl implements DioFactory{
 
+ AppPreferences _appPreferences;
+  DioFactoryImpl({required AppPreferences appPreferences}):
+  _appPreferences=appPreferences; 
+@override
 
-  @override
   Future<Dio> getDio()async{
 
-
-
+  final token= _appPreferences.getToken();
+  
+    
    
    Dio dio=Dio();
    
    Map<String,String>headers={
      AppConstants.contentType:AppConstants.applicationJson,
      AppConstants.accept:AppConstants.applicationJson,
+   
+     AppConstants.authorization:token.value,
 
 
 

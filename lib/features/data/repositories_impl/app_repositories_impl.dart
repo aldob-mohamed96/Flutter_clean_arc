@@ -50,8 +50,7 @@ class AppRepositoryImpl implements AppRepository {
 
 
   @override
-  Future<Either<Failure, AppAuthenticationLevel>>
-      getLevelAuthenticationApp() async {
+  Future<Either<Failure, AppAuthenticationLevelData>> getLevelAuthenticationApp() async {
     try {
       return Right(await _localDataSource.getLevelAuthenticationApp());
     } catch (error) {
@@ -60,29 +59,29 @@ class AppRepositoryImpl implements AppRepository {
   }
 
   @override
-  Future<Either<Failure, SuccessOperation>> setLevelAuthenticationApp(
+  Future<Either<Failure, SuccessOperation>> cashLevelAuthenticationApp(
       AppAuthenticationLevelRequest appAuthenticationLevelRequest) async {
     try {
-      return Right(await _localDataSource.setLevelAuthenticationApp(appAuthenticationLevelRequest));
+      return Right(await _localDataSource.cashLevelAuthenticationApp(appAuthenticationLevelRequest));
     } catch (error) {
       return Left(ExceptionHandling.handleError(error).failure);
     }
   }
 
   @override
-  Future<Either<Failure, ThemeModeData>> getThemeAppPreferences() async {
+  Future<Either<Failure, ThemeModeData>> getThemeApp() async {
     try {
-      return Right(await _localDataSource.getThemeAppPreferences());
+      return Right(await _localDataSource.getThemeApp());
     } catch (error) {
       return Left(ExceptionHandling.handleError(error).failure);
     }
   }
 
   @override
-  Future<Either<Failure, SuccessOperation>> setThemeAppPreferences(
+  Future<Either<Failure, SuccessOperation>> cashThemeApp(
       ThemeModeAppReuest themeModeAppReuest) async {
     try {
-      return  Right(await _localDataSource.setThemeAppPreferences(themeModeAppReuest));
+      return  Right(await _localDataSource.cashThemeApp(themeModeAppReuest));
     } catch (error) {
       return Left(ExceptionHandling.handleError(error).failure);
     }
@@ -99,12 +98,31 @@ class AppRepositoryImpl implements AppRepository {
   }
 
   @override
-  Future<Either<Failure, SuccessOperation>> setToken(TokenRequest tokenRequest) async {
+  Future<Either<Failure, SuccessOperation>> cashToken(TokenRequest tokenRequest) async {
 
     try {
-      return Right(await _localDataSource.setToken(tokenRequest));
+      return Right(await _localDataSource.cashToken(tokenRequest));
     } catch (error) {
       return Left(ExceptionHandling.handleError(error).failure);
+    }
+  }
+  
+  @override
+  Future<Either<Failure, SuccessOperation>> cashLocalApp(LocalAppRequest localAppRequest)async {
+    try {
+      return Right(await _localDataSource.cashLocalApp(localAppRequest));
+    } catch (error) {
+      return Left(ExceptionHandling.handleError(error).failure);
+    }
+  }
+  
+  @override
+  Future<Either<Failure, LocalAppData>> getLocalApp()async {
+    try {
+      
+      return Right(await _localDataSource.getLocalApp());
+    } catch (error) {
+       return Left(ExceptionHandling.handleError(error).failure);
     }
   }
 }

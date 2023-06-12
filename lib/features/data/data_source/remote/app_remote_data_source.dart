@@ -7,13 +7,15 @@ Future<LogoutAuthResponse> logout() ;
 
 }
 class RemoteDataSourceImpl extends RemoteDataSource{
-
+  
   final AppServiceApiClient _appServiceApiClient;
+  Map<String,dynamic> cashedData={}; 
   RemoteDataSourceImpl({required AppServiceApiClient appServiceApiClient }):_appServiceApiClient=appServiceApiClient;
   
   @override
   Future<LogoutAuthResponse> logout() async{
-     return await _appServiceApiClient.logout("asd");
+       
+     return await _appServiceApiClient.logout("");
     
   }
 

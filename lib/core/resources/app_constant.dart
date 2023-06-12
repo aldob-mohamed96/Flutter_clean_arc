@@ -145,6 +145,7 @@ import 'export_file.dart';
   static const String applicationJson = "application/json";
   static const String contentType = "content-type";
   static const String accept = "accept";
+  static const String lang = "lang";
   static const String deviceToken = "device_token";
   static const String authorization = "authorization";
   static const String authenticationToken = "auth-token";
