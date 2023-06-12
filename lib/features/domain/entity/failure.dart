@@ -2,7 +2,7 @@
 
 import '../../../core/resources/export_file.dart';
 
-final class Failure extends Equatable {
+final class Failure extends Equatable implements Exception {
   final int code;
   final String message;
   const Failure(this.code,this.message);
@@ -10,6 +10,14 @@ final class Failure extends Equatable {
   const Failure.unknown():this(ResponseCode.unknownError,ResponseMessage.unknownError);
   const Failure.network():this(ResponseCode.noInternetConnection,ResponseMessage.noInternetConnection);
   const Failure.cash():this(ResponseCode.cashError,ResponseMessage.cashError);
+
+  @override
+  String toString() {
+    return 'Failure{code: $code, message: $message}';
+  }
+
+  
+ 
 
   @override
 
