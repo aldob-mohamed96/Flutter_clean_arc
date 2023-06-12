@@ -26,7 +26,7 @@ class _AppServiceApiClient implements AppServiceApiClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'auth-token': token};
     _headers.removeWhere((k, v) => v == null);
-    const Map<String, dynamic>? _data = null;
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<LogoutAuthResponse>(Options(
       method: 'POST',

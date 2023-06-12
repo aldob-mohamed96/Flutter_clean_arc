@@ -28,7 +28,7 @@ abstract interface class AppPreferences {
 }
 
 
-final class AppPreferencesImpl implements AppPreferences {
+class AppPreferencesImpl implements AppPreferences {
 
   final SharedPreferences _sharedPreferences;
 

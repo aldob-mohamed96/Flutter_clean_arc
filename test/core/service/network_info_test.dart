@@ -21,7 +21,7 @@ void main() {
         NetworkInfoImpl(internetConnectionChecker);
   });
 
-  group('internet connection status ', () {
+  group('isConnected', () {
    
       test('should forward the call to DataConnectionChecker has Connection', () async {
       final tHasConnectionFuture= await Future<bool>.value(true);

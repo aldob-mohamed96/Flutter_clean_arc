@@ -17,7 +17,7 @@ Future<TokenData> getToken();
 
 
 }
-final class LocalDataSourceImpl implements LocalDataSource{
+class LocalDataSourceImpl implements LocalDataSource{
   final AppPreferences _appPreferences;
   LocalDataSourceImpl({required AppPreferences appPreferences }):_appPreferences=appPreferences;
   
