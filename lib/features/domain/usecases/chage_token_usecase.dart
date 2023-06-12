@@ -12,7 +12,7 @@ final class ChangeTokenUseCase implements BaseUseCase<ChangeTokenUseCaseInput, S
 
   @override
   Future<Either<Failure, SuccessOperation>> call(ChangeTokenUseCaseInput changeTokenUseCaseInput) async {
-    return await _repository.setToken(TokenRequest(changeTokenUseCaseInput.token));
+    return await _repository.cashToken(TokenRequest(changeTokenUseCaseInput.token));
   }
 }
 

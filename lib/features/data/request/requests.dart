@@ -20,3 +20,10 @@ import '../../../core/enum/enums.dart';
  TokenRequest(this.value);
 
 }
+
+ final class LocalAppRequest{
+
+ final Locale value;  
+ LocalAppRequest(this.value);
+
+}

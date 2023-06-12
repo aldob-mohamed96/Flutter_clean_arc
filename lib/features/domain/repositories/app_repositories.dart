@@ -7,13 +7,15 @@ abstract interface class AppRepository {
 
 
   Future<Either<Failure,Logout>> logout();
-  Future<Either<Failure,AppAuthenticationLevel>> getLevelAuthenticationApp();
-  Future<Either<Failure,SuccessOperation>> setLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest);
+  Future<Either<Failure,AppAuthenticationLevelData>> getLevelAuthenticationApp();
+  Future<Either<Failure,SuccessOperation>> cashLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest);
  
-  Future<Either<Failure,ThemeModeData>> getThemeAppPreferences();
-  Future<Either<Failure,SuccessOperation>> setThemeAppPreferences(ThemeModeAppReuest themeModeAppReuest);
+  Future<Either<Failure,ThemeModeData>> getThemeApp();
+  Future<Either<Failure,SuccessOperation>> cashThemeApp(ThemeModeAppReuest themeModeAppReuest);
   Future<Either<Failure,TokenData>> getToken();
-  Future<Either<Failure,SuccessOperation>> setToken(TokenRequest tokenRequest);
+  Future<Either<Failure,SuccessOperation>> cashToken(TokenRequest tokenRequest);
+  Future<Either<Failure,SuccessOperation>> cashLocalApp(LocalAppRequest localAppRequest);
+  Future<Either<Failure,LocalAppData>> getLocalApp();
   
  
 

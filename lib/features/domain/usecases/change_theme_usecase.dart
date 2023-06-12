@@ -13,7 +13,7 @@ final class ChangeThemeAppUseCase implements BaseUseCase<ChangeThemeAppUseCaseIn
 
   @override
   Future<Either<Failure, SuccessOperation>> call(ChangeThemeAppUseCaseInput input)  {
-    return  _repository.setThemeAppPreferences(ThemeModeAppReuest(input.themeMode));
+    return  _repository.cashThemeApp(ThemeModeAppReuest(input.themeMode));
   }
 }
 

@@ -26,7 +26,7 @@ void main() {
   test('should return SuccessOperation(true) when token is changed successfully', () async {
     // Arrange
     final input = ChangeTokenUseCaseInput('any String test input');
-    when(mockRepository.setToken(any)).thenAnswer((_) async => const Right(SuccessOperation(true)));
+    when(mockRepository.cashToken(any)).thenAnswer((_) async => const Right(SuccessOperation(true)));
 
     // Act
     final result = await changeTokenUseCase(input);
@@ -34,7 +34,7 @@ void main() {
     // Assert
     expect(result, equals(const Right(SuccessOperation(true))));
  
-    verify(mockRepository.setToken(argThat(isA<TokenRequest>())));
+    verify(mockRepository.cashToken(argThat(isA<TokenRequest>())));
     verifyNoMoreInteractions(mockRepository);
   });
 
@@ -42,7 +42,7 @@ void main() {
     test('should return SuccessOperation(false) when token is not changed', () async {
     // Arrange
     final input = ChangeTokenUseCaseInput('any String test input');
-    when(mockRepository.setToken(any)).thenAnswer((_) async => const Right(SuccessOperation(false)));
+    when(mockRepository.cashToken(any)).thenAnswer((_) async => const Right(SuccessOperation(false)));
 
     // Act
     final result = await changeTokenUseCase(input);
@@ -50,7 +50,7 @@ void main() {
     // Assert
     expect(result, equals(const Right(SuccessOperation(false))));
  
-    verify(mockRepository.setToken(argThat(isA<TokenRequest>())));
+    verify(mockRepository.cashToken(argThat(isA<TokenRequest>())));
     verifyNoMoreInteractions(mockRepository);
   });
 
@@ -58,7 +58,7 @@ void main() {
      test('should return Failure when token changing operation occurred cashed Exception', () async {
     // Arrange
     final input = ChangeTokenUseCaseInput('any String test input');
-    when(mockRepository.setToken(any)).thenAnswer((_) async => const Left(Failure.cash()));
+    when(mockRepository.cashToken(any)).thenAnswer((_) async => const Left(Failure.cash()));
 
     // Act
     final result = await changeTokenUseCase(input);
@@ -66,7 +66,7 @@ void main() {
     // Assert
     expect(result, equals(const Left(Failure.cash())));
  
-    verify(mockRepository.setToken(argThat(isA<TokenRequest>())));
+    verify(mockRepository.cashToken(argThat(isA<TokenRequest>())));
     verifyNoMoreInteractions(mockRepository);
   });
   

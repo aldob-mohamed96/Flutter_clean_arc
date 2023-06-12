@@ -21,7 +21,7 @@ void main() {
   test('should return SuccessOperation(true) when AppAuthenticationLevel changed to (authenticated ,unauthenticated or darft) successfully', () async {
     // Arrange
     final input = AppAuthenticationLevelUseCaseInput(AppAuthenticationLevel.authenticated);
-    when(mockRepository.setLevelAuthenticationApp(any)).thenAnswer((_) async => const Right(SuccessOperation(true)));
+    when(mockRepository.cashLevelAuthenticationApp(any)).thenAnswer((_) async => const Right(SuccessOperation(true)));
 
     // Act
     final result = await changeAuthenticationUseCase(input);
@@ -29,7 +29,7 @@ void main() {
     // Assert
     expect(result, equals(const Right(SuccessOperation(true))));
  
-    verify(mockRepository.setLevelAuthenticationApp(argThat(isA<AppAuthenticationLevelRequest>())));
+    verify(mockRepository.cashLevelAuthenticationApp(argThat(isA<AppAuthenticationLevelRequest>())));
     verifyNoMoreInteractions(mockRepository);
   });
 
@@ -40,7 +40,7 @@ void main() {
     test('should return SuccessOperation(false) when AppAuthenticationLevel not changed successfully', () async {
     // Arrange
      final input = AppAuthenticationLevelUseCaseInput(AppAuthenticationLevel.authenticated);
-    when(mockRepository.setLevelAuthenticationApp(any)).thenAnswer((_) async => const Right(SuccessOperation(false)));
+    when(mockRepository.cashLevelAuthenticationApp(any)).thenAnswer((_) async => const Right(SuccessOperation(false)));
 
     // Act
     final result = await changeAuthenticationUseCase(input);
@@ -48,7 +48,7 @@ void main() {
     // Assert
     expect(result, equals(const Right(SuccessOperation(false))));
  
-    verify(mockRepository.setLevelAuthenticationApp(argThat(isA<AppAuthenticationLevelRequest>())));
+    verify(mockRepository.cashLevelAuthenticationApp(argThat(isA<AppAuthenticationLevelRequest>())));
     verifyNoMoreInteractions(mockRepository);
   });
 
@@ -56,7 +56,7 @@ void main() {
      test('should return Failure when AppAuthenticationLevel changing operation occurred cashed Exception', () async {
     // Arrange
     final input = AppAuthenticationLevelUseCaseInput(AppAuthenticationLevel.authenticated);
-    when(mockRepository.setLevelAuthenticationApp(any)).thenAnswer((_) async => const Left(Failure.cash()));
+    when(mockRepository.cashLevelAuthenticationApp(any)).thenAnswer((_) async => const Left(Failure.cash()));
 
     // Act
     final result = await changeAuthenticationUseCase(input);
@@ -64,7 +64,7 @@ void main() {
     // Assert
     expect(result, equals(const Left(Failure.cash())));
  
-    verify(mockRepository.setLevelAuthenticationApp(argThat(isA<AppAuthenticationLevelRequest>())));
+    verify(mockRepository.cashLevelAuthenticationApp(argThat(isA<AppAuthenticationLevelRequest>())));
     verifyNoMoreInteractions(mockRepository);
   });
   

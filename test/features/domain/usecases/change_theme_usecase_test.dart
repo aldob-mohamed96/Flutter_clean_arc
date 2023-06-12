@@ -22,7 +22,7 @@ void main() {
   test('should return SuccessOperation(true) when Theme mode  changed to (light ,dark or systems) successfully', () async {
     // Arrange
     final input = ChangeThemeAppUseCaseInput(ThemeMode.light);
-    when(mockRepository.setThemeAppPreferences(any)).thenAnswer((_) async => const Right(SuccessOperation(true)));
+    when(mockRepository.cashThemeApp(any)).thenAnswer((_) async => const Right(SuccessOperation(true)));
 
     // Act
     final result = await changeThemeAppUseCase(input);
@@ -30,7 +30,7 @@ void main() {
     // Assert
     expect(result, equals(const Right(SuccessOperation(true))));
  
-    verify(mockRepository.setThemeAppPreferences(argThat(isA<ThemeModeAppReuest>())));
+    verify(mockRepository.cashThemeApp(argThat(isA<ThemeModeAppReuest>())));
     verifyNoMoreInteractions(mockRepository);
   });
 
@@ -41,7 +41,7 @@ void main() {
     test('should return SuccessOperation(true) when Theme mode not changed to (light ,dark or systems) successfully', () async {
     // Arrange
  final input = ChangeThemeAppUseCaseInput(ThemeMode.light);
-    when(mockRepository.setThemeAppPreferences(any)).thenAnswer((_) async => const Right(SuccessOperation(false)));
+    when(mockRepository.cashThemeApp(any)).thenAnswer((_) async => const Right(SuccessOperation(false)));
 
     // Act
     final result = await changeThemeAppUseCase(input);
@@ -49,7 +49,7 @@ void main() {
     // Assert
     expect(result, equals(const Right(SuccessOperation(false))));
  
-    verify(mockRepository.setThemeAppPreferences(argThat(isA<ThemeModeAppReuest>())));
+    verify(mockRepository.cashThemeApp(argThat(isA<ThemeModeAppReuest>())));
     verifyNoMoreInteractions(mockRepository);
   });
 
@@ -57,7 +57,7 @@ void main() {
      test('should return Failure when Theme mode changing operation occurred cashed Exception', () async {
     // Arrange
      final input = ChangeThemeAppUseCaseInput(ThemeMode.light);
-    when(mockRepository.setThemeAppPreferences(any)).thenAnswer((_) async => const Left(Failure.cash()));
+    when(mockRepository.cashThemeApp(any)).thenAnswer((_) async => const Left(Failure.cash()));
 
     // Act
     final result = await changeThemeAppUseCase(input);
@@ -65,7 +65,7 @@ void main() {
     // Assert
     expect(result, equals(const Left(Failure.cash())));
  
-    verify(mockRepository.setThemeAppPreferences(argThat(isA<ThemeModeAppReuest>())));
+    verify(mockRepository.cashThemeApp(argThat(isA<ThemeModeAppReuest>())));
     verifyNoMoreInteractions(mockRepository);
   });
   

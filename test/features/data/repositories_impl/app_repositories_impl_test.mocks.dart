@@ -106,7 +106,7 @@ class MockLocalDataSourceImpl extends _i1.Mock
             _i3.AppAuthenticationLevel.darft),
       ) as _i4.Future<_i3.AppAuthenticationLevel>);
   @override
-  _i4.Future<_i5.SuccessOperation> setLevelAuthenticationApp(
+  _i4.Future<_i5.SuccessOperation> cashLevelAuthenticationApp(
           _i7.AppAuthenticationLevelRequest? appAuthenticationLevelRequest) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -131,7 +131,7 @@ class MockLocalDataSourceImpl extends _i1.Mock
         )),
       ) as _i4.Future<_i5.SuccessOperation>);
   @override
-  _i4.Future<_i5.ThemeModeData> getThemeAppPreferences() => (super.noSuchMethod(
+  _i4.Future<_i5.ThemeModeData> getThemeApp() => (super.noSuchMethod(
         Invocation.method(
           #getThemeAppPreferences,
           [],
@@ -154,7 +154,7 @@ class MockLocalDataSourceImpl extends _i1.Mock
         )),
       ) as _i4.Future<_i5.ThemeModeData>);
   @override
-  _i4.Future<_i5.SuccessOperation> setThemeAppPreferences(
+  _i4.Future<_i5.SuccessOperation> cashThemeApp(
           _i7.ThemeModeAppReuest? themeModeAppReuest) =>
       (super.noSuchMethod(
         Invocation.method(

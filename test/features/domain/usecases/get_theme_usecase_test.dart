@@ -22,7 +22,7 @@ void main() {
     // Arrange
     const input = NoParam();
     const output=ThemeModeData(ThemeMode.light);
-    when(mockRepository.getThemeAppPreferences()).thenAnswer((_) async => const Right(output));
+    when(mockRepository.getThemeApp()).thenAnswer((_) async => const Right(output));
 
     // Act
     final result = await getThemeAppUseCase(input);
@@ -30,7 +30,7 @@ void main() {
     // Assert
     expect(result, equals(const Right(output)));
  
-    verify(mockRepository.getThemeAppPreferences());
+    verify(mockRepository.getThemeApp());
     verifyNoMoreInteractions(mockRepository);
   });
 
@@ -39,14 +39,14 @@ void main() {
     // Arrange
      const input = NoParam();
     
-    when(mockRepository.getThemeAppPreferences()).thenAnswer((_) async =>const Left(Failure.cash()));
+    when(mockRepository.getThemeApp()).thenAnswer((_) async =>const Left(Failure.cash()));
     // Act
     final result = await getThemeAppUseCase(input);
 
     // Assert
     expect(result, equals(const Left(Failure.cash())));
  
-    verify(mockRepository.getThemeAppPreferences());
+    verify(mockRepository.getThemeApp());
     verifyNoMoreInteractions(mockRepository);
   });
   

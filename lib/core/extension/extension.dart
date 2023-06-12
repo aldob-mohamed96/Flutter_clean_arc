@@ -12,6 +12,9 @@ extension NonNullString on String? {
   String orEmptyString({String defaultValue = AppConstants.defaultEmptyString}) => (this == null) ? defaultValue : this??defaultValue;
 
   TokenData getTokenValue({String defaultValue = AppConstants.defaultEmptyString}) => (this == null) ? TokenData(defaultValue) : TokenData(this??defaultValue);
+ 
+ 
+  LocalAppData getLocalAppValue({String defaultValue = AppConstants.defaultLanguageAppCode}) => (this == null) ? LocalAppData(Locale(defaultValue)) : LocalAppData(Locale(this??defaultValue)); 
   ThemeModeData getThemeModeApp({ThemeMode defaultValue=AppConstants.defaultTheme}) {
     if(this==null)
     {
@@ -35,22 +38,22 @@ extension NonNullString on String? {
      }
 
   }
-  AppAuthenticationLevel getAppAuthenticationLevel({AppAuthenticationLevel defaultValue=AppAuthenticationLevel.darft }) {
+  AppAuthenticationLevelData getAppAuthenticationLevel({AppAuthenticationLevel defaultValue=AppAuthenticationLevel.darft }) {
     if(this==null)
       {
-        return defaultValue;
+        return AppAuthenticationLevelData(defaultValue);
       }
     else if(this==AppAuthenticationLevel.unAuthenticated.name)
      {
-       return AppAuthenticationLevel.unAuthenticated;
+       return const AppAuthenticationLevelData(AppAuthenticationLevel.unAuthenticated);
      }
     else if(this==AppAuthenticationLevel.authenticated.name)
      {
-       return AppAuthenticationLevel.authenticated;
+       return const AppAuthenticationLevelData(AppAuthenticationLevel.authenticated);
      }
     else
      {
-       return AppAuthenticationLevel.darft;
+       return const AppAuthenticationLevelData(AppAuthenticationLevel.darft);
      }
   }
   double convertToDouble({double defaultValue = AppConstants.defaultEmptyDouble}) => (this == null) ? defaultValue : double.tryParse(this!)??defaultValue;

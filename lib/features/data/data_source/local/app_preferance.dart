@@ -11,15 +11,17 @@ abstract interface class AppPreferences {
 
   //setting app local data
 
-  Future<SuccessOperation> setThemeAppPreferences(ThemeMode themeMode);
-  Future<SuccessOperation> setToken(String token);
-  Future<SuccessOperation> setAppAuthenticationLevel(AppAuthenticationLevel levelApp);
+  Future<SuccessOperation> cashThemeApp(ThemeMode themeMode);
+  Future<SuccessOperation> cashToken(String token);
+  Future<SuccessOperation> cashAppAuthenticationLevel(AppAuthenticationLevel levelApp);
+  Future<SuccessOperation> cashLocalApp(String codeLanguage);
   Future<SuccessOperation> logout();
 
 
-  ThemeModeData getThemeAppPreferences();
-  AppAuthenticationLevel getAppAuthenticationLevel();
+  ThemeModeData getThemeApp();
+  AppAuthenticationLevelData getAppAuthenticationLevel();
   TokenData getToken();
+  LocalAppData getLocalApp();
   
 
 
@@ -38,12 +40,12 @@ class AppPreferencesImpl implements AppPreferences {
 
 
   @override
-  AppAuthenticationLevel getAppAuthenticationLevel() {
+  AppAuthenticationLevelData getAppAuthenticationLevel() {
     return _sharedPreferences.getString(AppConstants.appAppAuthenticationLevelPrefsKey).getAppAuthenticationLevel();
   }
 
   @override
-  ThemeModeData getThemeAppPreferences() {
+  ThemeModeData getThemeApp() {
     return _sharedPreferences.getString(AppConstants.appThemeModePrefsKey).getThemeModeApp();
   }
 
@@ -52,7 +54,7 @@ class AppPreferencesImpl implements AppPreferences {
 
 
   @override
-  Future<SuccessOperation> setAppAuthenticationLevel(AppAuthenticationLevel level)async {
+  Future<SuccessOperation> cashAppAuthenticationLevel(AppAuthenticationLevel level)async {
    return  await _sharedPreferences.setString(AppConstants.appAppAuthenticationLevelPrefsKey,level.name).booLDataReturnedValue();
   
     
@@ -65,7 +67,7 @@ class AppPreferencesImpl implements AppPreferences {
   }
 
   @override
-  Future<SuccessOperation> setThemeAppPreferences(ThemeMode themeMode) {
+  Future<SuccessOperation> cashThemeApp(ThemeMode themeMode) {
     return _sharedPreferences.setString(AppConstants.appThemeModePrefsKey,themeMode.name).booLDataReturnedValue();
   }
   
@@ -73,9 +75,13 @@ class AppPreferencesImpl implements AppPreferences {
   TokenData getToken() =>_sharedPreferences.getString(AppConstants.appTokenUserPrefsKey).getTokenValue();
   
   @override
-  Future<SuccessOperation> setToken(String token) =>_sharedPreferences.setString(AppConstants.appTokenUserPrefsKey,token).booLDataReturnedValue();
-
-
-
+  Future<SuccessOperation> cashToken(String token) =>_sharedPreferences.setString(AppConstants.appTokenUserPrefsKey,token).booLDataReturnedValue();
+  
+  @override
+  Future<SuccessOperation> cashLocalApp(String codeLanguage ) =>_sharedPreferences.setString(AppConstants.appLocalePrefsKey,codeLanguage).booLDataReturnedValue();
+  
+  @override
+  LocalAppData getLocalApp()=> _sharedPreferences.getString(AppConstants.appLocalePrefsKey,).getLocalAppValue();
+ 
 
 }

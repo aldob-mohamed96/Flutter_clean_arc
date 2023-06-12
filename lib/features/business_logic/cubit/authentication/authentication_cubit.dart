@@ -41,7 +41,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     
      result.fold(
       (failure)=> emit(state.copyWith(flowStateApp: FlowStateApp.error,failure:failure)),
-      (appAuthenticationLevel)=>emit(state.copyWith(flowStateApp: FlowStateApp.normal,appAuthenticationLevel:appAuthenticationLevel)));
+      (appAuthenticationLevel)=>emit(state.copyWith(flowStateApp: FlowStateApp.normal,appAuthenticationLevel:appAuthenticationLevel.value)));
 
    
    }

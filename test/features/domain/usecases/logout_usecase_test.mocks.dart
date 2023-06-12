@@ -89,7 +89,7 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
           ) as _i3.Future<_i2.Either<_i2.Failure, _i2.AppAuthenticationLevel>>);
   @override
   _i3.Future<
-      _i2.Either<_i2.Failure, _i5.SuccessOperation>> setLevelAuthenticationApp(
+      _i2.Either<_i2.Failure, _i5.SuccessOperation>> cashLevelAuthenticationApp(
           _i6.AppAuthenticationLevelRequest? appAuthenticationLevelRequest) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -117,7 +117,7 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
       ) as _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>);
   @override
   _i3.Future<_i2.Either<_i2.Failure, _i5.ThemeModeData>>
-      getThemeAppPreferences() => (super.noSuchMethod(
+      getThemeApp() => (super.noSuchMethod(
             Invocation.method(
               #getThemeAppPreferences,
               [],
@@ -143,7 +143,7 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
           ) as _i3.Future<_i2.Either<_i2.Failure, _i5.ThemeModeData>>);
   @override
   _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>
-      setThemeAppPreferences(_i6.ThemeModeAppReuest? themeModeAppReuest) =>
+      cashThemeApp(_i6.ThemeModeAppReuest? themeModeAppReuest) =>
           (super.noSuchMethod(
             Invocation.method(
               #setThemeAppPreferences,
@@ -194,7 +194,7 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
         )),
       ) as _i3.Future<_i2.Either<_i2.Failure, _i5.TokenData>>);
   @override
-  _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>> setToken(
+  _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>> cashToken(
           _i6.TokenRequest? tokenRequest) =>
       (super.noSuchMethod(
         Invocation.method(

@@ -34,7 +34,7 @@ Future<void> initAppServicesGetIt() async {
 
   //api client
 
-  instance.registerLazySingleton<DioFactory>(() => DioFactoryImpl());
+  instance.registerLazySingleton<DioFactory>(() => DioFactoryImpl(appPreferences: instance()));
   Dio dio = await instance<DioFactory>().getDio();
 
 

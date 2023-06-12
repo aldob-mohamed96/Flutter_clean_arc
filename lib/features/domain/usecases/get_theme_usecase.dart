@@ -10,7 +10,7 @@ final class GetThemeAppUseCase implements BaseUseCase<NoParam, ThemeModeData> {
 
   @override
   Future<Either<Failure, ThemeModeData>> call(NoParam noParams) async {
-    return  await _repository.getThemeAppPreferences();
+    return  await _repository.getThemeApp();
   }
 }
 

@@ -12,7 +12,7 @@ final class ChangeAuthenticationUseCase implements BaseUseCase<AppAuthentication
 
   @override
   Future<Either<Failure, SuccessOperation>> call(AppAuthenticationLevelUseCaseInput input)  {
-    return  _repository.setLevelAuthenticationApp(AppAuthenticationLevelRequest(input.appAuthenticationLevel));
+    return  _repository.cashLevelAuthenticationApp(AppAuthenticationLevelRequest(input.appAuthenticationLevel));
   }
 }
 
