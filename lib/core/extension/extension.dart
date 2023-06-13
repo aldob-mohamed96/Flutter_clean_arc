@@ -4,17 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:project/features/domain/entity/data_value.dart';
 
 import '../resources/export_file.dart';
+import '../service/localization/app_localizations.dart';
 
 
 
 //primitive value
 extension NonNullString on String? {
+
+                                                          
   String orEmptyString({String defaultValue = AppConstants.defaultEmptyString}) => (this == null) ? defaultValue : this??defaultValue;
 
   TokenData getTokenValue({String defaultValue = AppConstants.defaultEmptyString}) => (this == null) ? TokenData(defaultValue) : TokenData(this??defaultValue);
  
  
   LocalAppData getLocalAppValue({String defaultValue = AppConstants.defaultLanguageAppCode}) => (this == null) ? LocalAppData(Locale(defaultValue)) : LocalAppData(Locale(this??defaultValue)); 
+  
   ThemeModeData getThemeModeApp({ThemeMode defaultValue=AppConstants.defaultTheme}) {
     if(this==null)
     {
@@ -64,6 +68,13 @@ extension NonNullInteger on int? {
   int orZeroInteger({int defaultValue = AppConstants.defaultEmptyInteger})=> (this == null) ? defaultValue : this??defaultValue;
 
 }
+extension NonNullStringData on String {
+
+    String tr(BuildContext context)=>AppLocalizationsImpl.of(context)!.translate(this); 
+}
+
+
+
 extension NonNullMap on Map? {
   Map orEmptyMap({Map defaultValue=AppConstants.defaultEmptyMap })=> (this == null) ?defaultValue : this??defaultValue;
 
@@ -136,6 +147,7 @@ ThemeData get getDarkTheme=>read<ThemeCubit>().getDarkTheme;
 
 
 }
+
 
 extension AppAuthenticationLevelEx on AppAuthenticationLevel{
   String getRoutesStatus()=>switch(this)

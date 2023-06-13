@@ -5,7 +5,8 @@ import 'package:mockito/mockito.dart';
 import 'package:project/core/resources/export_file.dart';
 import 'package:project/features/domain/entity/data_value.dart';
 import 'package:project/features/domain/usecases/get_theme_usecase.dart';
-import 'chage_token_usecase_test.mocks.dart';
+
+import 'logout_usecase_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<AppRepository>()])
 void main() {

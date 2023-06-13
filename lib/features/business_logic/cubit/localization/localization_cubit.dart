@@ -5,9 +5,9 @@ import 'package:project/features/domain/usecases/get_locale_usecase.dart';
 
 import '../../../../../core/enum/enums.dart';
 import '../../../../../core/resources/app_constant.dart';
-import '../../../../domain/entity/data_value.dart';
-import '../../../../domain/entity/failure.dart';
-import '../../../../domain/usecases/change_locale_usecase.dart';
+import '../../../domain/entity/data_value.dart';
+import '../../../domain/entity/failure.dart';
+import '../../../domain/usecases/change_locale_usecase.dart';
 
 part 'localization_state.dart';
 

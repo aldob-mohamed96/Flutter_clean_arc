@@ -7,15 +7,16 @@ import '../../request/requests.dart';
 
 abstract interface class  LocalDataSource{
  
-Future<SuccessOperation> logout() ;
-Future<AppAuthenticationLevelData> getLevelAuthenticationApp();
-Future<SuccessOperation> cashLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest);
-Future<ThemeModeData> getThemeApp();
-Future<SuccessOperation> cashThemeApp(ThemeModeAppReuest themeModeAppReuest);
-Future<SuccessOperation>   cashToken(TokenRequest tokenRequest);
-Future<SuccessOperation>   cashLocalApp(LocalAppRequest tokenRequest);
-Future<TokenData> getToken();
-Future<LocalAppData> getLocalApp();
+Future<SuccessOperation>            logout() ;
+Future<AppAuthenticationLevelData>  getLevelAuthenticationApp();
+Future<SuccessOperation>            cashLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest);
+Future<ThemeModeData>               getThemeApp();
+Future<SuccessOperation>            cashThemeApp(ThemeModeAppReuest themeModeAppReuest);
+Future<TokenData>                   getToken();
+Future<SuccessOperation>            cashToken(TokenRequest tokenRequest);
+Future<LocalAppData>                getLocalApp();
+Future<SuccessOperation>            cashLocalApp(LocalAppRequest tokenRequest);
+
 
 
 }

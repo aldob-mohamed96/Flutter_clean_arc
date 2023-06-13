@@ -1,8 +1,10 @@
-import 'dart:developer';
 
+
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:project/core/resources/export_file.dart';
+import 'package:project/features/data/request/requests.dart';
 import 'package:project/features/domain/entity/data_value.dart';
 
 
@@ -31,11 +33,13 @@ class  MockRemoteDataSourceImpl extends Mock implements RemoteDataSourceImpl {
         returnValueForMissingStub: Future<LogoutAuthResponse>.value(
             LogoutAuthResponse(true)..status=ApiInternalStatusCode.success..code=ResponseCode.success..message=ResponseMessage.success),
       ) as Future<LogoutAuthResponse>;
+
+ 
+
 }
 class  MockLocalDataSourceImpl extends Mock implements LocalDataSourceImpl {
-  @override
-  Future<SuccessOperation> logout() => super.noSuchMethod(
-        Invocation.method(
+      @override
+      Future<SuccessOperation> logout() => super.noSuchMethod(  Invocation.method(
           #logout,
           [],
         ),
@@ -44,6 +48,97 @@ class  MockLocalDataSourceImpl extends Mock implements LocalDataSourceImpl {
         returnValueForMissingStub: Future<SuccessOperation>.value(
           const  SuccessOperation(true)),
       ) as Future<SuccessOperation>;
+
+      @override
+      Future<LocalAppData> getLocalApp() => super.noSuchMethod(Invocation.method(
+          #getLocalApp,
+          [],
+        ),
+        returnValue: Future<LocalAppData>.value(
+           const LocalAppData(AppConstants.arabicLocal)),
+        returnValueForMissingStub: Future<LocalAppData>.value(
+          const  LocalAppData(AppConstants.arabicLocal)),
+      ) as Future<LocalAppData>;
+
+      @override
+      Future<SuccessOperation> cashLocalApp(LocalAppRequest? localAppRequest) => super.noSuchMethod(  Invocation.method(
+          #cashLocalApp,
+          [localAppRequest],
+        ),
+        returnValue: Future<SuccessOperation>.value(
+           const SuccessOperation(true)),
+        returnValueForMissingStub: Future<SuccessOperation>.value(
+          const  SuccessOperation(true)),
+      ) as Future<SuccessOperation>;
+
+      @override
+      Future<ThemeModeData> getThemeApp() => super.noSuchMethod(Invocation.method(
+          #getThemeApp,
+          [],
+        ),
+        returnValue: Future<ThemeModeData>.value(
+           const ThemeModeData(ThemeMode.light)),
+        returnValueForMissingStub: Future<ThemeModeData>.value(
+          const  ThemeModeData(ThemeMode.light))
+        ) as Future<ThemeModeData>;
+
+      @override
+      Future<SuccessOperation> cashThemeApp(ThemeModeAppReuest themeAppRequest) => super.noSuchMethod( Invocation.method(
+          #cashThemeApp,
+          [themeAppRequest],
+        ),
+        returnValue: Future<SuccessOperation>.value(
+           const SuccessOperation(true)),
+        returnValueForMissingStub: Future<SuccessOperation>.value(
+          const  SuccessOperation(true)),
+      ) as Future<SuccessOperation>;    
+
+      @override
+      Future<AppAuthenticationLevelData> getLevelAuthenticationApp() => super.noSuchMethod(Invocation.method(
+          #getLevelAuthenticationApp,
+          [],
+        ),
+        returnValue: Future<AppAuthenticationLevelData>.value(
+           const AppAuthenticationLevelData(AppAuthenticationLevel.authenticated)),
+        returnValueForMissingStub: Future<AppAuthenticationLevelData>.value(
+          const  AppAuthenticationLevelData(AppAuthenticationLevel.authenticated)),
+      ) as Future<AppAuthenticationLevelData>;
+      
+      @override
+      Future<SuccessOperation> cashLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest) => super.noSuchMethod(  Invocation.method(
+          #cashLevelAuthenticationApp,
+          [appAuthenticationLevelRequest],
+        ),
+        returnValue: Future<SuccessOperation>.value(
+           const SuccessOperation(true)),
+        returnValueForMissingStub: Future<SuccessOperation>.value(
+          const  SuccessOperation(true)),
+      ) as Future<SuccessOperation>;
+
+
+      @override
+      Future<TokenData> getToken() => super.noSuchMethod(Invocation.method(
+          #getToken,
+          [],
+        ),
+        returnValue: Future<TokenData>.value(
+           const TokenData('AppConstants.token')),
+        returnValueForMissingStub: Future<TokenData>.value(
+          const  TokenData('AppConstants.token')),
+      ) as Future<TokenData>;
+     
+      @override
+      Future<SuccessOperation> cashToken(TokenRequest tokenRequest) => super.noSuchMethod(Invocation.method(
+          #cashToken,
+          [tokenRequest],
+        ),
+        returnValue: Future<SuccessOperation>.value(
+           const SuccessOperation(true)),
+        returnValueForMissingStub: Future<SuccessOperation>.value(
+          const  SuccessOperation(true)),
+      ) as Future<SuccessOperation>;
+
+
 }
 void main() {
  
@@ -81,9 +176,8 @@ appRepositoryImpl = AppRepositoryImpl(remoteDataSource: mockRemoteDataSource,loc
   }
 
       
-          group('logout', () {
+  group('logout', () {
           
-                
               runTestsOnline(()
               {
 
@@ -203,4 +297,87 @@ appRepositoryImpl = AppRepositoryImpl(remoteDataSource: mockRemoteDataSource,loc
               
 
         });
+
+  
+    group('getting  Locale App', () { 
+      
+        const output=LocalAppData(AppConstants.defaultLocal); 
+        test('should return LocalAppData(Locale Data) when successfully ', () async{
+            // arrange
+            when(mockLocalDataSource.getLocalApp()).thenAnswer((_) async =>  output);
+
+            // act
+            final result =await appRepositoryImpl.getLocalApp();
+
+            // assert
+            expect(result, equals(const Right(output)));
+            verify(mockLocalDataSource.getLocalApp());
+            verifyNoMoreInteractions(mockLocalDataSource);
+
+
+           
+        });
+
+        test('should return Failure cash when getting locale data source of locale ', ()async{
+            //arrange
+            when(mockLocalDataSource.getLocalApp()).thenThrow((_) async =>const  Failure.unknown() );
+
+            // act
+            final result =await appRepositoryImpl.getLocalApp();
+
+            // assert
+            expect(result, equals(const Left(Failure.unknown())));
+            verify(mockLocalDataSource.getLocalApp());
+            verifyNoMoreInteractions(mockLocalDataSource);
+
+
+           
+        });
+
+    });
+
+
+    
+    group('cash  Locale App', () { 
+      
+        const output=SuccessOperation(true); 
+        final input=LocalAppRequest(AppConstants.defaultLocal);
+        test('should return SuccessOperation(true) when successfully cashed ', () async{
+            // arrange
+            when(mockLocalDataSource.cashLocalApp(any)).thenAnswer((_) async =>  output);
+
+            // act
+            final result =await appRepositoryImpl.cashLocalApp(input);
+
+            // assert
+            verify(mockLocalDataSource.cashLocalApp(argThat(isA<LocalAppRequest>())));
+            verifyNoMoreInteractions(mockLocalDataSource);
+            expect(result, equals(const Right(output)));
+          
+
+
+           
+        });
+
+        test('should return Failure cash when getting locale data source of locale ', ()async{
+            //arrange
+            when(mockLocalDataSource.cashLocalApp(any)).thenThrow((_) async =>const  Failure.unknown() );
+
+            // act
+            final result =await appRepositoryImpl.getLocalApp();
+
+            // assert
+           
+            verify(mockLocalDataSource.cashLocalApp(argThat(isA<LocalAppRequest>())));
+            verifyNoMoreInteractions(mockLocalDataSource);
+
+            expect(result, equals(const Left(Failure.unknown())));
+
+           
+        });
+
+    });
+   
+
+
 }

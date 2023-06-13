@@ -62,38 +62,40 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
         )),
       ) as _i3.Future<_i2.Either<_i2.Failure, _i4.Logout>>);
   @override
-  _i3.Future<_i2.Either<_i2.Failure, _i2.AppAuthenticationLevel>>
-      getLevelAuthenticationApp() => (super.noSuchMethod(
-            Invocation.method(
-              #getLevelAuthenticationApp,
-              [],
-            ),
-            returnValue: _i3.Future<
-                    _i2.Either<_i2.Failure, _i2.AppAuthenticationLevel>>.value(
-                _FakeEither_0<_i2.Failure, _i2.AppAuthenticationLevel>(
-              this,
-              Invocation.method(
-                #getLevelAuthenticationApp,
-                [],
-              ),
-            )),
-            returnValueForMissingStub: _i3.Future<
-                    _i2.Either<_i2.Failure, _i2.AppAuthenticationLevel>>.value(
-                _FakeEither_0<_i2.Failure, _i2.AppAuthenticationLevel>(
-              this,
-              Invocation.method(
-                #getLevelAuthenticationApp,
-                [],
-              ),
-            )),
-          ) as _i3.Future<_i2.Either<_i2.Failure, _i2.AppAuthenticationLevel>>);
+  _i3.Future<
+      _i2.Either<_i2.Failure,
+          _i5.AppAuthenticationLevelData>> getLevelAuthenticationApp() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getLevelAuthenticationApp,
+          [],
+        ),
+        returnValue: _i3.Future<
+                _i2.Either<_i2.Failure, _i5.AppAuthenticationLevelData>>.value(
+            _FakeEither_0<_i2.Failure, _i5.AppAuthenticationLevelData>(
+          this,
+          Invocation.method(
+            #getLevelAuthenticationApp,
+            [],
+          ),
+        )),
+        returnValueForMissingStub: _i3.Future<
+                _i2.Either<_i2.Failure, _i5.AppAuthenticationLevelData>>.value(
+            _FakeEither_0<_i2.Failure, _i5.AppAuthenticationLevelData>(
+          this,
+          Invocation.method(
+            #getLevelAuthenticationApp,
+            [],
+          ),
+        )),
+      ) as _i3.Future<_i2.Either<_i2.Failure, _i5.AppAuthenticationLevelData>>);
   @override
   _i3.Future<
       _i2.Either<_i2.Failure, _i5.SuccessOperation>> cashLevelAuthenticationApp(
           _i6.AppAuthenticationLevelRequest? appAuthenticationLevelRequest) =>
       (super.noSuchMethod(
         Invocation.method(
-          #setLevelAuthenticationApp,
+          #cashLevelAuthenticationApp,
           [appAuthenticationLevelRequest],
         ),
         returnValue:
@@ -101,7 +103,7 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
                 _FakeEither_0<_i2.Failure, _i5.SuccessOperation>(
           this,
           Invocation.method(
-            #setLevelAuthenticationApp,
+            #cashLevelAuthenticationApp,
             [appAuthenticationLevelRequest],
           ),
         )),
@@ -110,64 +112,64 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
                 _FakeEither_0<_i2.Failure, _i5.SuccessOperation>(
           this,
           Invocation.method(
-            #setLevelAuthenticationApp,
+            #cashLevelAuthenticationApp,
             [appAuthenticationLevelRequest],
           ),
         )),
       ) as _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>);
   @override
-  _i3.Future<_i2.Either<_i2.Failure, _i5.ThemeModeData>>
-      getThemeApp() => (super.noSuchMethod(
-            Invocation.method(
-              #getThemeAppPreferences,
-              [],
-            ),
-            returnValue:
-                _i3.Future<_i2.Either<_i2.Failure, _i5.ThemeModeData>>.value(
-                    _FakeEither_0<_i2.Failure, _i5.ThemeModeData>(
-              this,
-              Invocation.method(
-                #getThemeAppPreferences,
-                [],
-              ),
-            )),
-            returnValueForMissingStub:
-                _i3.Future<_i2.Either<_i2.Failure, _i5.ThemeModeData>>.value(
-                    _FakeEither_0<_i2.Failure, _i5.ThemeModeData>(
-              this,
-              Invocation.method(
-                #getThemeAppPreferences,
-                [],
-              ),
-            )),
-          ) as _i3.Future<_i2.Either<_i2.Failure, _i5.ThemeModeData>>);
+  _i3.Future<_i2.Either<_i2.Failure, _i5.ThemeModeData>> getThemeApp() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getThemeApp,
+          [],
+        ),
+        returnValue:
+            _i3.Future<_i2.Either<_i2.Failure, _i5.ThemeModeData>>.value(
+                _FakeEither_0<_i2.Failure, _i5.ThemeModeData>(
+          this,
+          Invocation.method(
+            #getThemeApp,
+            [],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i3.Future<_i2.Either<_i2.Failure, _i5.ThemeModeData>>.value(
+                _FakeEither_0<_i2.Failure, _i5.ThemeModeData>(
+          this,
+          Invocation.method(
+            #getThemeApp,
+            [],
+          ),
+        )),
+      ) as _i3.Future<_i2.Either<_i2.Failure, _i5.ThemeModeData>>);
   @override
-  _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>
-      cashThemeApp(_i6.ThemeModeAppReuest? themeModeAppReuest) =>
-          (super.noSuchMethod(
-            Invocation.method(
-              #setThemeAppPreferences,
-              [themeModeAppReuest],
-            ),
-            returnValue:
-                _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>.value(
-                    _FakeEither_0<_i2.Failure, _i5.SuccessOperation>(
-              this,
-              Invocation.method(
-                #setThemeAppPreferences,
-                [themeModeAppReuest],
-              ),
-            )),
-            returnValueForMissingStub:
-                _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>.value(
-                    _FakeEither_0<_i2.Failure, _i5.SuccessOperation>(
-              this,
-              Invocation.method(
-                #setThemeAppPreferences,
-                [themeModeAppReuest],
-              ),
-            )),
-          ) as _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>);
+  _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>> cashThemeApp(
+          _i6.ThemeModeAppReuest? themeModeAppReuest) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #cashThemeApp,
+          [themeModeAppReuest],
+        ),
+        returnValue:
+            _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>.value(
+                _FakeEither_0<_i2.Failure, _i5.SuccessOperation>(
+          this,
+          Invocation.method(
+            #cashThemeApp,
+            [themeModeAppReuest],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>.value(
+                _FakeEither_0<_i2.Failure, _i5.SuccessOperation>(
+          this,
+          Invocation.method(
+            #cashThemeApp,
+            [themeModeAppReuest],
+          ),
+        )),
+      ) as _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>);
   @override
   _i3.Future<_i2.Either<_i2.Failure, _i5.TokenData>> getToken() =>
       (super.noSuchMethod(
@@ -198,7 +200,7 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
           _i6.TokenRequest? tokenRequest) =>
       (super.noSuchMethod(
         Invocation.method(
-          #setToken,
+          #cashToken,
           [tokenRequest],
         ),
         returnValue:
@@ -206,7 +208,7 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
                 _FakeEither_0<_i2.Failure, _i5.SuccessOperation>(
           this,
           Invocation.method(
-            #setToken,
+            #cashToken,
             [tokenRequest],
           ),
         )),
@@ -215,9 +217,62 @@ class MockAppRepository extends _i1.Mock implements _i2.AppRepository {
                 _FakeEither_0<_i2.Failure, _i5.SuccessOperation>(
           this,
           Invocation.method(
-            #setToken,
+            #cashToken,
             [tokenRequest],
           ),
         )),
       ) as _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>);
+  @override
+  _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>> cashLocalApp(
+          _i6.LocalAppRequest? localAppRequest) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #cashLocalApp,
+          [localAppRequest],
+        ),
+        returnValue:
+            _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>.value(
+                _FakeEither_0<_i2.Failure, _i5.SuccessOperation>(
+          this,
+          Invocation.method(
+            #cashLocalApp,
+            [localAppRequest],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>.value(
+                _FakeEither_0<_i2.Failure, _i5.SuccessOperation>(
+          this,
+          Invocation.method(
+            #cashLocalApp,
+            [localAppRequest],
+          ),
+        )),
+      ) as _i3.Future<_i2.Either<_i2.Failure, _i5.SuccessOperation>>);
+  @override
+  _i3.Future<_i2.Either<_i2.Failure, _i5.LocalAppData>> getLocalApp() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getLocalApp,
+          [],
+        ),
+        returnValue:
+            _i3.Future<_i2.Either<_i2.Failure, _i5.LocalAppData>>.value(
+                _FakeEither_0<_i2.Failure, _i5.LocalAppData>(
+          this,
+          Invocation.method(
+            #getLocalApp,
+            [],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i3.Future<_i2.Either<_i2.Failure, _i5.LocalAppData>>.value(
+                _FakeEither_0<_i2.Failure, _i5.LocalAppData>(
+          this,
+          Invocation.method(
+            #getLocalApp,
+            [],
+          ),
+        )),
+      ) as _i3.Future<_i2.Either<_i2.Failure, _i5.LocalAppData>>);
 }

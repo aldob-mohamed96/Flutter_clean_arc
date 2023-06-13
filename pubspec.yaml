@@ -29,8 +29,6 @@ dependencies:
   #dartz
   dartz: ^0.10.1
   cupertino_icons: ^1.0.5
-  #local
-  easy_localization: ^3.0.2
   #local notifications
   flutter_local_notifications: ^14.1.0 
   #internet
@@ -51,7 +49,8 @@ dependencies:
   
 
 
-
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:

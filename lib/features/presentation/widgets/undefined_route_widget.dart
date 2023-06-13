@@ -1,8 +1,7 @@
 
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:project/core/resources/export_file.dart';
 
-import '../../../core/resources/strings_manager.dart';
 
 
 class UndefinedRouteScreen extends StatelessWidget {
@@ -11,7 +10,7 @@ class UndefinedRouteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: Center(child: const Text(AppStrings.noRouteFound).tr(),),
+      body: Center(child:  Text(AppStrings.noRouteFound.tr(context)),),
     );
   }
 }

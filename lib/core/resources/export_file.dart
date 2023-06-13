@@ -6,7 +6,6 @@ export 'dart:io' ;
 export 'package:bloc/bloc.dart';
 export 'package:dartz/dartz.dart';
 export 'package:dio/dio.dart';
-export  'package:easy_localization/easy_localization.dart';
 export 'package:equatable/equatable.dart';
 export 'package:flutter/foundation.dart';
 export  'package:flutter_bloc/flutter_bloc.dart';
@@ -75,7 +74,7 @@ export '../../features/domain/repositories/app_repositories.dart';
 export '../../features/presentation/routes/pages.dart';
 export  '../../features/presentation/screens/onborading/onborading_screen.dart';
 export  '../../features/presentation/screens/splash/splash_screen.dart';
-export '../../features/presentation/widgets/locale_widget.dart';
+
 //service
 export  'api_codes.dart';
 export  'api_messages.dart';

@@ -1,26 +1,22 @@
 
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project/features/business_logic/cubit/localization/cubit/localization_cubit.dart';
+import 'core/service/localization/app_localizations_setup.dart';
+import 'features/business_logic/cubit/localization/localization_cubit.dart';
 
 import 'core/di/di.dart';
 import 'core/extension/extension.dart';
 import 'features/business_logic/cubit/authentication/authentication_cubit.dart';
 import 'features/business_logic/cubit/theme/theme_cubit.dart';
 import 'features/presentation/routes/pages.dart';
-import 'features/presentation/widgets/locale_widget.dart';
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await EasyLocalization.ensureInitialized();
-
   await initAppServicesGetIt();
 
   runApp(
-    const Localization(child: AppMaterial()),
+    const AppMaterial(),
   );
 }
 
@@ -71,21 +67,19 @@ class _AppMaterialsState extends State<AppMaterials>
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthenticationCubit, AuthenticationState>(
-      builder: (context, state) {
+    return Builder(
+      builder: (context) {
         return MaterialApp.router(
-          routeInformationProvider:
-              instance<AppRouter>().router.routeInformationProvider,
-          routeInformationParser:
-              instance<AppRouter>().router.routeInformationParser,
+          routeInformationProvider:instance<AppRouter>().router.routeInformationProvider,
+          routeInformationParser:instance<AppRouter>().router.routeInformationParser,
           routerDelegate: instance<AppRouter>().router.routerDelegate,
-          backButtonDispatcher:
-              instance<AppRouter>().router.backButtonDispatcher,
+          backButtonDispatcher:instance<AppRouter>().router.backButtonDispatcher,
           debugShowCheckedModeBanner: false,
           themeMode: context.getAppTheme,
-          locale: context.locale,
-          supportedLocales: context.supportedLocales,
-          localizationsDelegates: context.localizationDelegates,
+          locale: instance<LocalizationCubit>().state.locale,
+          supportedLocales: AppLocalizationsSetup.supportedLocales,
+          localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
+          localeResolutionCallback: AppLocalizationsSetup.localeResolutionCallBack,
           theme: context.getLightTheme,
           darkTheme: context.getDarkTheme,
         );

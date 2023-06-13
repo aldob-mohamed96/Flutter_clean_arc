@@ -8,6 +8,8 @@ import 'export_file.dart';
 
  sealed class AppConstants {
 
+  static const String assetTranslationsJson="assets/translations/";
+
   //code verification
   static const int verificationCodeLength = 4;
 

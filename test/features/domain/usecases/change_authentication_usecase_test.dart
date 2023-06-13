@@ -5,9 +5,9 @@ import 'package:project/core/resources/export_file.dart';
 import 'package:project/features/data/request/requests.dart';
 import 'package:project/features/domain/entity/data_value.dart';
 import 'package:project/features/domain/usecases/change_authentication_usecase.dart';
-import 'chage_token_usecase_test.mocks.dart';
+import 'logout_usecase_test.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<AppRepository>()])
+
 void main() {
    
   late ChangeAuthenticationUseCase changeAuthenticationUseCase;

@@ -4,9 +4,9 @@ import 'package:mockito/mockito.dart';
 import 'package:project/core/resources/export_file.dart';
 import 'package:project/features/domain/entity/data_value.dart';
 import 'package:project/features/domain/usecases/get_authentication_usecase.dart';
-import 'chage_token_usecase_test.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<AppRepository>()])
+import 'logout_usecase_test.mocks.dart';
+
 void main() {
    
   late GetAuthenticationUseCase getAuthenticationUseCase;
@@ -20,7 +20,7 @@ void main() {
   test('should return  AppAuthenticationLevel (authenticated ,unauthenticated or darft) successfully from local storage', () async {
     // Arrange
     const input = NoParam();
-    const output=AppAuthenticationLevel.authenticated;
+    const output=AppAuthenticationLevelData(AppAuthenticationLevel.authenticated);
     when(mockRepository.getLevelAuthenticationApp()).thenAnswer((_) async => const Right(output));
 
     // Act

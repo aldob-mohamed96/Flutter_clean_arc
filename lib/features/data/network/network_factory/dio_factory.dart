@@ -11,7 +11,7 @@ abstract interface class DioFactory{
 }
 class DioFactoryImpl implements DioFactory{
 
- AppPreferences _appPreferences;
+  final AppPreferences _appPreferences;
   DioFactoryImpl({required AppPreferences appPreferences}):
   _appPreferences=appPreferences; 
 @override
