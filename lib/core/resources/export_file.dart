@@ -61,7 +61,7 @@ export  '../../features/business_logic/cubit/theme/theme_cubit.dart';
 // data
 
 export '../../features/data/data_source/local/app_local_data_source.dart';
-export '../../features/data/data_source/local/app_preferance.dart';
+export '../service/app_preferance.dart';
 export '../../features/data/data_source/remote/app_remote_data_source.dart';
 export '../../features/data/mapper/mapper.dart';
 export '../../features/data/repositories_impl/app_repositories_impl.dart';

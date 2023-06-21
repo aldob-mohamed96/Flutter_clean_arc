@@ -102,18 +102,42 @@ extension NonNullBoolData on Future<bool> {
 }
 
 extension BuildContextValue on BuildContext {
-  double get height  => MediaQuery.of(this).size.height;
-  double get width   => MediaQuery.of(this).size.width;
-  double get bottom  => MediaQuery.of(this).viewInsets.bottom;
+
+  // media query from view edges
+  double get height  => MediaQuery.sizeOf(this).height;
+  double get width   => MediaQuery.sizeOf(this).width;
   
-  double get bottomViewInsets => MediaQuery.of(this).viewInsets.bottom;
-  double get toPaddingBottom  => MediaQuery.of(this).viewPadding.bottom;
-  double get toPaddingTop     => MediaQuery.of(this).viewPadding.top;
-  double get devicePixelRatio => MediaQuery.of(this).devicePixelRatio;
-  Orientation get orientation => MediaQuery.of(this).orientation;
+  // view insets from view edges
+  double get topViewInsets    => MediaQuery.viewInsetsOf(this).top;
+  double get bottomViewInsets => MediaQuery.viewInsetsOf(this).bottom;
+  double get leftViewInsets   => MediaQuery.viewInsetsOf(this).left;
+  double get rightViewInsets  => MediaQuery.viewInsetsOf(this).right;
+  double get toViewInsetsHorizontal => leftViewInsets + rightViewInsets;
+  double get toViewInsetsVertical   => topViewInsets + bottomViewInsets;
+
+
+  // padding from view edges
+  double get toPaddingBottom  => MediaQuery.viewPaddingOf(this).bottom;
+  double get toPaddingLeft    => MediaQuery.viewPaddingOf(this).left;
+  double get toPaddingRight   => MediaQuery.viewPaddingOf(this).right;
+  double get toPaddingTop     => MediaQuery.viewPaddingOf(this).top;
+  double get toPaddingHorizontal => toPaddingLeft + toPaddingRight;
+  double get toPaddingVertical   => toPaddingTop + toPaddingBottom;
+ 
+
+  // device pixel ratio and text scale factor
+  double get devicePixelRatio => MediaQuery.devicePixelRatioOf(this);
+  double get textScaleFactor => MediaQuery.textScaleFactorOf(this);
+
+  // orientation
+  bool get isLandscape => orientation == Orientation.landscape;
+  bool get isPortrait => orientation == Orientation.portrait;
+  Orientation get orientation => MediaQuery.orientationOf(this);
 
 
 
+  // route and navigation
+  bool get isCurrentDialogShowing => ModalRoute.of(this)?.isCurrent != true;
   void pushReplacedNamedExtension(String routes)=>WidgetsBinding.instance.addPostFrameCallback((_)async
    {
        dismissDialog();
@@ -126,12 +150,7 @@ extension BuildContextValue on BuildContext {
       Future.delayed(Duration.zero);
        GoRouter.of(this).go(routes);
     });
-
-  bool get isCurrentDialogShowing => ModalRoute.of(this)?.isCurrent != true;
- 
   void dismissDialog() =>(isCurrentDialogShowing) ?Navigator.of(this, rootNavigator: true).pop(true):null;
-    
-  
   void popUpExtension()async=>WidgetsBinding.instance.addPostFrameCallback((_)async {
       
       dismissDialog();
@@ -140,10 +159,13 @@ extension BuildContextValue on BuildContext {
       
     });
 
-ThemeMode get getAppTheme=>read<ThemeCubit>().state.themeMode;    
-ThemeData get getLightTheme=>read<ThemeCubit>().getLightTheme;    
-ThemeData get getDarkTheme=>read<ThemeCubit>().getDarkTheme;   
+  //theme mode
+  ThemeMode get themeMode => read<ThemeCubit>().state.themeMode;
+  ThemeData get darkTheme => read<ThemeCubit>().getDarkTheme;
+  ThemeData get lightTheme => read<ThemeCubit>().getLightTheme;
 
+  ThemeCubit get themeCubit => BlocProvider.of<ThemeCubit>(this);
+ 
 
 
 }

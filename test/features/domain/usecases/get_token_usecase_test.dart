@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:project/core/resources/export_file.dart';
 import 'package:project/features/domain/entity/data_value.dart';

@@ -83,7 +83,7 @@ class  MockLocalDataSourceImpl extends Mock implements LocalDataSourceImpl {
         ) as Future<ThemeModeData>;
 
       @override
-      Future<SuccessOperation> cashThemeApp(ThemeModeAppReuest themeAppRequest) => super.noSuchMethod( Invocation.method(
+      Future<SuccessOperation> cashThemeApp(ThemeModeAppReuest? themeAppRequest) => super.noSuchMethod( Invocation.method(
           #cashThemeApp,
           [themeAppRequest],
         ),
@@ -105,7 +105,7 @@ class  MockLocalDataSourceImpl extends Mock implements LocalDataSourceImpl {
       ) as Future<AppAuthenticationLevelData>;
       
       @override
-      Future<SuccessOperation> cashLevelAuthenticationApp(AppAuthenticationLevelRequest appAuthenticationLevelRequest) => super.noSuchMethod(  Invocation.method(
+      Future<SuccessOperation> cashLevelAuthenticationApp(AppAuthenticationLevelRequest? appAuthenticationLevelRequest) => super.noSuchMethod(  Invocation.method(
           #cashLevelAuthenticationApp,
           [appAuthenticationLevelRequest],
         ),
@@ -128,7 +128,7 @@ class  MockLocalDataSourceImpl extends Mock implements LocalDataSourceImpl {
       ) as Future<TokenData>;
      
       @override
-      Future<SuccessOperation> cashToken(TokenRequest tokenRequest) => super.noSuchMethod(Invocation.method(
+      Future<SuccessOperation> cashToken(TokenRequest? tokenRequest) => super.noSuchMethod(Invocation.method(
           #cashToken,
           [tokenRequest],
         ),
@@ -174,9 +174,8 @@ appRepositoryImpl = AppRepositoryImpl(remoteDataSource: mockRemoteDataSource,loc
       body();
     });
   }
-
       
-  group('logout', () {
+    group('logout', () {
           
               runTestsOnline(()
               {
@@ -335,8 +334,6 @@ appRepositoryImpl = AppRepositoryImpl(remoteDataSource: mockRemoteDataSource,loc
         });
 
     });
-
-
     
     group('cash  Locale App', () { 
       
@@ -364,7 +361,7 @@ appRepositoryImpl = AppRepositoryImpl(remoteDataSource: mockRemoteDataSource,loc
             when(mockLocalDataSource.cashLocalApp(any)).thenThrow((_) async =>const  Failure.unknown() );
 
             // act
-            final result =await appRepositoryImpl.getLocalApp();
+            final result =await appRepositoryImpl.cashLocalApp(input);
 
             // assert
            
@@ -377,7 +374,241 @@ appRepositoryImpl = AppRepositoryImpl(remoteDataSource: mockRemoteDataSource,loc
         });
 
     });
+    
+    group('getting  theme App', () { 
+      
+        const output=ThemeModeData(AppConstants.defaultTheme); 
+        test('should return ThemeModeData(ThemeMode Data) when successfully ', () async{
+            // arrange
+            when(mockLocalDataSource.getThemeApp()).thenAnswer((_) async =>  output);
+
+            // act
+            final result =await appRepositoryImpl.getThemeApp();
+
+            // assert
+            expect(result, equals(const Right(output)));
+            verify(mockLocalDataSource.getThemeApp());
+            verifyNoMoreInteractions(mockLocalDataSource);
+
+
+           
+        });
+
+        test('should return Failure cash when getting locale data source of locale ', ()async{
+            //arrange
+            when(mockLocalDataSource.getThemeApp()).thenThrow((_) async =>const  Failure.unknown() );
+
+            // act
+            final result =await appRepositoryImpl.getThemeApp();
+
+            // assert
+            expect(result, equals(const Left(Failure.unknown())));
+            verify(mockLocalDataSource.getThemeApp());
+            verifyNoMoreInteractions(mockLocalDataSource);
+
+
+           
+        });
+
+    });
+
+    group('cash  Theme App', () { 
+      
+        const output=SuccessOperation(true); 
+        final input= ThemeModeAppReuest(AppConstants.theme);
+        test('should return SuccessOperation(true) when successfully cashed ', () async{
+            // arrange
+            when(mockLocalDataSource.cashThemeApp(any)).thenAnswer((_) async =>  output);
+
+            // act
+            final result =await appRepositoryImpl.cashThemeApp(input);
+
+            // assert
+            verify(mockLocalDataSource.cashThemeApp(argThat(isA<ThemeModeAppReuest>())));
+            verifyNoMoreInteractions(mockLocalDataSource);
+            expect(result, equals(const Right(output)));
+          
+
+
+           
+        });
+
+        test('should return Failure cash when getting locale data source of locale ', ()async{
+            //arrange
+            when(mockLocalDataSource.cashThemeApp(any)).thenThrow((_) async =>const  Failure.unknown() );
+
+            // act
+            final result =await appRepositoryImpl.cashThemeApp(input);
+
+            // assert
+           
+            verify(mockLocalDataSource.cashThemeApp(argThat(isA<ThemeModeAppReuest>())));
+            verifyNoMoreInteractions(mockLocalDataSource);
+
+            expect(result, equals(const Left(Failure.unknown())));
+
+           
+        });
+
+    });
+   
+      
+    group('getting token App', () { 
+      
+        const output=TokenData("value token"); 
+        test('should return ThemeModeData(ThemeMode Data) when successfully ', () async{
+            // arrange
+            when(mockLocalDataSource.getToken()).thenAnswer((_) async =>  output);
+
+            // act
+            final result =await appRepositoryImpl.getToken();
+
+            // assert
+            expect(result, equals(const Right(output)));
+            verify(mockLocalDataSource.getToken());
+            verifyNoMoreInteractions(mockLocalDataSource);
+
+
+           
+        });
+
+        test('should return Failure cash when getting locale data source of locale ', ()async{
+            //arrange
+            when(mockLocalDataSource.getToken()).thenThrow((_) async =>const  Failure.unknown() );
+
+            // act
+            final result =await appRepositoryImpl.getToken();
+
+            // assert
+            expect(result, equals(const Left(Failure.unknown())));
+            verify(mockLocalDataSource.getToken());
+            verifyNoMoreInteractions(mockLocalDataSource);
+
+
+           
+        });
+
+    });
+
+    group('cash Token App', () { 
+      
+        const output=SuccessOperation(true); 
+        final input= TokenRequest('value token');
+        test('should return SuccessOperation(true) when successfully cashed ', () async{
+            // arrange
+            when(mockLocalDataSource.cashToken(any)).thenAnswer((_) async =>  output);
+
+            // act
+            final result =await appRepositoryImpl.cashToken(input);
+
+            // assert
+            verify(mockLocalDataSource.cashToken(argThat(isA<TokenRequest>())));
+            verifyNoMoreInteractions(mockLocalDataSource);
+            expect(result, equals(const Right(output)));
+          
+
+
+           
+        });
+
+        test('should return Failure cash when getting locale data source of locale ', ()async{
+            //arrange
+            when(mockLocalDataSource.cashToken(any)).thenThrow((_) async =>const  Failure.unknown() );
+
+            // act
+            final result =await appRepositoryImpl.cashToken(input);
+
+            // assert
+           
+            verify(mockLocalDataSource.cashToken(argThat(isA<TokenRequest>())));
+            verifyNoMoreInteractions(mockLocalDataSource);
+
+            expect(result, equals(const Left(Failure.unknown())));
+
+           
+        });
+
+    });
    
 
+    group('getting AppAuthenticationlevel App', () { 
+      
+        const output=AppAuthenticationLevelData(AppAuthenticationLevel.authenticated); 
+        test('should return Authentication(AppAuthenticationLevel) when successfully ', () async{
+            // arrange
+            when(mockLocalDataSource.getLevelAuthenticationApp()).thenAnswer((_) async =>  output);
+
+            // act
+            final result =await appRepositoryImpl.getLevelAuthenticationApp();
+
+            // assert
+            expect(result, equals(const Right(output)));
+            verify(mockLocalDataSource.getLevelAuthenticationApp());
+            verifyNoMoreInteractions(mockLocalDataSource);
+
+
+           
+        });
+
+        test('should return Failure cash when getting locale data source of locale ', ()async{
+            //arrange
+            when(mockLocalDataSource.getLevelAuthenticationApp()).thenThrow((_) async =>const  Failure.unknown() );
+
+            // act
+            final result =await appRepositoryImpl.getLevelAuthenticationApp();
+
+            // assert
+            expect(result, equals(const Left(Failure.unknown())));
+            verify(mockLocalDataSource.getLevelAuthenticationApp());
+            verifyNoMoreInteractions(mockLocalDataSource);
+
+
+           
+        });
+
+    });
+
+    group('cash LevelAuthenticationApp App', () { 
+      
+        const output=SuccessOperation(true); 
+        final input= AppAuthenticationLevelRequest(AppAuthenticationLevel.authenticated);
+        test('should return SuccessOperation(true) when successfully cashed ', () async{
+            // arrange
+            when(mockLocalDataSource.cashLevelAuthenticationApp(any)).thenAnswer((_) async =>  output);
+
+            // act
+            final result =await appRepositoryImpl.cashLevelAuthenticationApp(input);
+
+            // assert
+            verify(mockLocalDataSource.cashLevelAuthenticationApp(argThat(isA<AppAuthenticationLevelRequest>())));
+            verifyNoMoreInteractions(mockLocalDataSource);
+            expect(result, equals(const Right(output)));
+          
+
+
+           
+        });
+
+        test('should return Failure cash when getting locale data source of locale ', ()async{
+            //arrange
+            when(mockLocalDataSource.cashLevelAuthenticationApp(any)).thenThrow((_) async =>const  Failure.unknown() );
+
+            // act
+            final result =await appRepositoryImpl.cashLevelAuthenticationApp(input);
+
+            // assert
+           
+            verify(mockLocalDataSource.cashLevelAuthenticationApp(argThat(isA<AppAuthenticationLevelRequest>())));
+            verifyNoMoreInteractions(mockLocalDataSource);
+
+            expect(result, equals(const Left(Failure.unknown())));
+
+           
+        });
+
+    });
+   
+    
+    
 
 }

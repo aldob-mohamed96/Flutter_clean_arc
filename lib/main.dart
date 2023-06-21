@@ -75,13 +75,13 @@ class _AppMaterialsState extends State<AppMaterials>
           routerDelegate: instance<AppRouter>().router.routerDelegate,
           backButtonDispatcher:instance<AppRouter>().router.backButtonDispatcher,
           debugShowCheckedModeBanner: false,
-          themeMode: context.getAppTheme,
+          themeMode: context.themeMode,
           locale: instance<LocalizationCubit>().state.locale,
           supportedLocales: AppLocalizationsSetup.supportedLocales,
           localizationsDelegates: AppLocalizationsSetup.localizationsDelegates,
           localeResolutionCallback: AppLocalizationsSetup.localeResolutionCallBack,
-          theme: context.getLightTheme,
-          darkTheme: context.getDarkTheme,
+          theme: context.lightTheme,
+          darkTheme: context.darkTheme,
         );
       },
     );
